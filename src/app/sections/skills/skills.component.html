@@ -1,0 +1,14 @@
+<div class="parallax-container skills">
+    <section id="skills" appScrollSection="skills">
+        <div class="glass" 
+            [ngClass]="{ 'out-of-view': isHide}"
+            observeVisibility 
+            (visible)="onVisible()">
+            <h2 class="head">Skills</h2>
+            <p class="text">
+                Here is a short list of my technical skills  
+            </p> 
+        </div>        
+        <fc-skill-group *ngFor="let group of skills; let i = index; trackBy: trackGroup" [group]="group"></fc-skill-group>       
+    </section>
+</div>

@@ -1,0 +1,10 @@
+<div class="card">
+    <div [ngClass]="{ 'out-of-view': isHide}"
+    observeVisibility 
+    (visible)="onVisible()"  
+    class="info glass">
+      <h2 class="title head">{{year}}</h2>
+      <h3 class="head">{{company}}</h3>
+      <p class="text">{{description}}</p>
+    </div>
+  </div>

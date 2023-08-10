@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+:root {
+    //Colors
+    --primary: crimson;
+    --primary-shadow: rgba( 255, 0, 0, 0.37 );
+
+    --accent: #FFFFFF;
+    --accent-shadow: rgba( 255, 255, 255, 0.37 );
+    
+    --dark-gray: #303030;
+    --dark-gray-shadow: rgba( 80, 80, 80, 0.37 );
+    
+    --medium-gray: #AAA;
+    --light-gray: #F0F0F0;
+    
+    
+    // Fonts
+    --ubuntu-300: 'Ubuntu', sans-serif;
+    --text-font: system-ui;
+
+    //Borders
+    --glass-border: 1px solid rgba( 255, 255, 255, 0.18 );
+    --border-radius: 8px;
+
+    //Effects
+    --contacts-shadow: 0px 0px 25px 20px #FFFFFF;
+}
+
+body {
+    margin: 0;
+    padding: 0;    
+}
+
+.glass {
+    background: rgba( 0, 0, 0, 0.45 );    
+    box-shadow: 0 8px 32px 0 var(--dark-gray-shadow);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );    
+    border: var(--glass-border);
+    border-radius: var(--border-radius);
+    padding: 0.8em;
+
+    overflow: hidden;    
+    
+    transition: 0.5s all;
+
+    ::before{
+        position: fixed;
+        content: "";        
+        box-shadow: 0 0 20px 30px #FFF;
+        top: calc(100% + 60px);
+        left: -5vh;
+        transform-origin: top left;
+        transform: rotate(45deg);
+        width: 100vh;  
+        transition: .7s all;
+      }
+    
+      &:hover {
+        border: 1px solid #ffffff44;
+        box-shadow: 0 7px 50px 10px #000000aa;        
+        
+        ::before{            
+            top: -100vh;            
+        }
+    }
+}
+
+.buffer {
+    min-height: 200px;
+    width: 100%;
+    background-color: var(--dark-gray);
+}
+
+.parallax-container {
+    background-attachment: fixed;
+    background-size: cover; 
+    min-height: 100vh;    
+}
+
+h2.head, h3.head {
+    color: var(--primary);
+    font-family: var(--ubuntu-300);
+    font-weight: bold;
+    border-bottom: solid 1px var(--primary); 
+}
+
+p {
+    color: #FFF;
+}
+
+p.text {
+    color: #FFF;
+    font-family: var(--text-font);
+    font-weight: lighter;
+}
+
+.inset-border {
+    border: solid 1px var(--light-gray);
+    padding: 0.5em;
+    border-left-color: var(--medium-gray);
+    border-top-color: var(--medium-gray);
+    border-radius: var(--border-radius);
+}
+
+.out-of-view {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.block-component {
+    display: block;
+}
+  

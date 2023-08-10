@@ -1,0 +1,9 @@
+<div *ngIf="{isHide: true} as isHide" 
+    [class.out-of-view]="isHide.isHide"
+    [class.left] = "position == 'left'"
+    [class.right] = "position == 'right'"  
+    class="glass" observeVisibility 
+    (visible)="isHide.isHide=false">
+    <ng-content></ng-content>
+</div>
+<br />

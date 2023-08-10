@@ -1,0 +1,36 @@
+<div class="parallax-container work-experiences">
+    <section id="work-experiences" appScrollSection="work-experiences">
+        <div class="glass" 
+            [ngClass]="{ 'out-of-view': isHide}"
+            observeVisibility 
+            (visible)="onVisible()">
+            <h2 class="head">Work Experiences</h2>
+            <p class="text">
+                My work experiences 
+            </p> 
+        </div>
+        
+        <div class="timeline">
+            <div class="outer">
+                <ng-container *ngFor="let experience of experiences" 
+                    [ngTemplateOutlet]="blockTemplate"
+                    [ngTemplateOutletContext]="{$implicit: experience}">
+                </ng-container>
+            </div>
+          </div>
+    </section>
+</div>
+
+<ng-template #blockTemplate let-experience>
+    <div class="card" *ngIf="{ isHide: true} as IsLocalHide">        
+        <div [ngClass]="{ 'out-of-view': IsLocalHide.isHide}"
+        observeVisibility 
+        (visible)="IsLocalHide.isHide = false"  
+        class="info glass">  
+            <h2 class="title head">{{experience.year}}</h2>         
+            <h3 class="head">{{experience.company}}</h3>
+            <p class="text">{{experience.description}}</p>
+        </div>
+        <div class="dot"></div>
+    </div>
+</ng-template>
