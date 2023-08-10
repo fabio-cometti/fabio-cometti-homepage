@@ -13,7 +13,7 @@ export default async (request: Request, context: Context) => {
   const page = await response.text();
 
   // Search for the placeholder
-  const regex = /{RANDOM-NONCE}/i;
+  const regex = /999999999/i;
 
   // Replace the content
   const updatedPage = page.replace(regex, nonce);
