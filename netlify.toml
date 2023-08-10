@@ -1,4 +1,4 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "block-all-mixed-content; child-src 'self'; connect-src 'self'; default-src 'self'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https://imagekit.io; object-src 'none'; prefetch-src 'self' https://fonts.googleapis.com; script-src 'self'; script-src-elem 'self'; style-src 'self' https://fonts.googleapis.com ; upgrade-insecure-requests;"
+    Content-Security-Policy = "block-all-mixed-content; child-src 'self'; connect-src 'self'; default-src 'self'; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https://ik.imagekit.io; object-src 'none'; prefetch-src 'self' https://fonts.googleapis.com; script-src 'self'; script-src-elem 'self'; style-src 'self' https://fonts.googleapis.com unsafe-inline; upgrade-insecure-requests;"
