@@ -43,6 +43,8 @@ body {
 
     overflow: hidden;
 
+    transition: transform 0.5s, opacity 0.5s;
+
     will-change: transform;
     transform: translateZ(0);
 
