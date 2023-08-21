@@ -23,10 +23,20 @@ export class ContactsComponent {
   faAt = faAt;
   faWordpress = faWordpress;
 
+  public isContactFormVisible: boolean = false;
+
   constructor(private title: Title) {
   }
 
   onVisible(): void {
     this.title.setTitle('Fabio Cometti - Contacts');
+  }
+
+  showContactForm(): void{
+    this.isContactFormVisible = true;
+  }
+
+  hideContactForm(): void{
+    this.isContactFormVisible = false;
   }
 }
