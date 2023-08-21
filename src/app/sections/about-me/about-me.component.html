@@ -1,5 +1,6 @@
 <div class="parallax-container about-me">
     <section id="about-me" appScrollSection="about-me">
+        <div observeVisibility (visible)="onVisible()"></div>
         <fc-about-block position="left">
             <h2 class="head">About me</h2>
             <p class="text">
@@ -11,17 +12,17 @@
                 Since the beginning of my career, I have been drawn to the world of open source, attracted by its collaborative philosophy and the freedom to explore and contribute to innovative projects.
             </p>
         </fc-about-block>
-        <fc-about-block position="left">            
+        <fc-about-block position="left">
             <p class="text">
                 Over time I have tackled complex challenges, architecting highly scalable and reliable distributed systems. I have a solid understanding of the fundamental principles of microservices, as well as the implementation of patterns and best practices to ensure the success of service-oriented architectures.
             </p>
         </fc-about-block>
-        <fc-about-block position="right">            
+        <fc-about-block position="right">
             <p class="text">
                 My journey in software development has led me to explore and master a wide range of technologies and programming languages. I am passionate about research and continuous learning, always seeking out new trends and innovations that can improve the way we build and deliver high-quality software.
             </p>
         </fc-about-block>
-        <fc-about-block position="left">            
+        <fc-about-block position="left">
             <p class="text">
                 My vision is to create and promote scalable, flexible, and secure systems, embracing the best solutions that open source has to offer. I firmly believe in sharing experiences and knowledge to build a stronger and more collaborative community of developers.
             </p>

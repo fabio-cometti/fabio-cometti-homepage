@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 import { faFacebook, faTwitter, faLinkedin, faGithub, faInstagram, faWordpress } from '@fortawesome/free-brands-svg-icons';
 import { faAt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'fc-contacts',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, ObserveVisibilityDirective],
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -20,4 +22,11 @@ export class ContactsComponent {
   faInstagram = faInstagram;
   faAt = faAt;
   faWordpress = faWordpress;
+
+  constructor(private title: Title) {
+  }
+
+  onVisible(): void {
+    this.title.setTitle('Fabio Cometti - Contacts');
+  }
 }

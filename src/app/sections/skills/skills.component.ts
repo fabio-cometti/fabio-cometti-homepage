@@ -5,6 +5,7 @@ import { SkillGroup } from 'src/app/models/skills';
 import { SkillGroupComponent } from 'src/app/components/skill-group/skill-group.component';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'fc-skills',
@@ -20,11 +21,11 @@ export class SkillsComponent {
       "name": "Architectural knowledge",
       "skills": [
         { "name": "Design patterns", "percent": 90},
-        { "name": "Clean architecture", "percent": 90}, 
-        { "name": "Layered architectures", "percent": 90},         
-        { "name": "REST", "percent": 90}, 
+        { "name": "Clean architecture", "percent": 90},
+        { "name": "Layered architectures", "percent": 90},
+        { "name": "REST", "percent": 90},
         { "name": "Microservices", "percent": 70},
-        { "name": "Vertical slice", "percent": 70},  
+        { "name": "Vertical slice", "percent": 70},
         { "name": "SOAP", "percent": 70},
         { "name": "Microfrontend", "percent": 40},
       ]
@@ -82,7 +83,7 @@ export class SkillsComponent {
       "skills": [
         { "name": "MongoDB", "percent": 70},
         { "name": "Redis", "percent": 70},
-        { "name": "CosmosDB", "percent": 60}       
+        { "name": "CosmosDB", "percent": 60}
       ]
     },
     {
@@ -92,7 +93,7 @@ export class SkillsComponent {
         { "name": "SharePoint", "percent": 80},
         { "name": "Docker", "percent": 60},
         { "name": "ELK", "percent": 50},
-        { "name": "Kubernetes", "percent": 30}        
+        { "name": "Kubernetes", "percent": 30}
       ]
     },
     {
@@ -100,7 +101,7 @@ export class SkillsComponent {
       "skills": [
         { "name": "Git", "percent": 90},
         { "name": "SubVersion", "percent": 90},
-        { "name": "TFS", "percent": 50}              
+        { "name": "TFS", "percent": 50}
       ]
     },
     {
@@ -108,17 +109,21 @@ export class SkillsComponent {
       "skills": [
         { "name": "Github Actions", "percent": 80},
         { "name": "Azure Devops", "percent": 80},
-        { "name": "Jenkins", "percent": 50}              
+        { "name": "Jenkins", "percent": 50}
       ]
     }
   ];
-  isHide: boolean = true;  
+  isHide: boolean = true;
 
-  trackGroup(index: number, group: SkillGroup) {    
+  trackGroup(index: number, group: SkillGroup) {
     return index ? index : undefined;
+  }
+
+  constructor(private title: Title) {
   }
 
   onVisible(): void {
     this.isHide = false;
+    this.title.setTitle('Fabio Cometti - Skills');
   }
 }

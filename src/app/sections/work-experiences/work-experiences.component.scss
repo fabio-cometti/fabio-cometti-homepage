@@ -1,5 +1,5 @@
 .work-experiences {
-    background-image: url(https://ik.imagekit.io/bzuos3bkr/workExperiences-mobile.webp?updatedAt=1691584778129);
+    background-image: url(https://ik.imagekit.io/bzuos3bkr/workExperiences-mobile.webp?updatedAt=1692629028936);
     padding-top: 2em;
 
     #work-experiences {
@@ -90,7 +90,7 @@
             font-size: 0.8em;
             border: none 0;
         }
-        
+
         .dot {
             position: absolute;
             width: 10px;
@@ -100,17 +100,17 @@
             border: 3px solid var(--primary);
             top: 70px;
         }
-        
+
         /* text right if the card is even  */
         &:nth-child(even)>.info>.title {
             text-align: right;
         }
-        
+
         /* setting dot to the left if the card is odd */
         &:nth-child(odd)>.dot {
             left: -5px;
         }
-        
+
         /* setting dot to the right if the card is odd */
         &:nth-child(even)>.dot {
             right: -5px;

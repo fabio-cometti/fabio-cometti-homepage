@@ -4,14 +4,15 @@ import { ScrollSectionDirective } from 'src/app/directives/scroll-section.direct
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { WorkExperienceBlockComponent } from 'src/app/components/work-experience-block/work-experience-block.component';
 import { Experience } from 'src/app/models/experience';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'fc-work-experiences',
   standalone: true,
   imports: [
-    CommonModule, 
-    ScrollSectionDirective, 
-    ObserveVisibilityDirective, 
+    CommonModule,
+    ScrollSectionDirective,
+    ObserveVisibilityDirective,
     WorkExperienceBlockComponent
   ],
   templateUrl: './work-experiences.component.html',
@@ -39,7 +40,11 @@ export class WorkExperiencesComponent {
     }
   ];
 
+  constructor(private title: Title) {
+  }
+
   onVisible(): void {
+    this.title.setTitle('Fabio Cometti - Work experiences');
     this.isHide = false;
   }
 }

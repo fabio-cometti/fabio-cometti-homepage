@@ -23,46 +23,45 @@ export class AppComponent implements AfterViewInit {
 
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
 
-  async ngAfterViewInit() {
-    //timer(3000).subscribe( _ => this.loadComponents());
-    await this.loadComponents();
+  ngAfterViewInit(): void {
+    timer(3000).subscribe( _ => this.loadComponents());
   }
 
-  async loadComponents() {
+  loadComponents() {
 
-    await import('./sections/about-me/about-me.component').then(({ AboutMeComponent}) => {
+    import('./sections/about-me/about-me.component').then(({ AboutMeComponent}) => {
       this.initComponent(0, AboutMeComponent);
     });
 
-    await import('./sections/skills/skills.component').then(({ SkillsComponent}) => {
+    import('./sections/skills/skills.component').then(({ SkillsComponent}) => {
       this.initComponent(1, SkillsComponent);
     });
 
-    await import('./sections/work-experiences/work-experiences.component').then(({ WorkExperiencesComponent}) => {
+    import('./sections/work-experiences/work-experiences.component').then(({ WorkExperiencesComponent}) => {
       this.initComponent(2, WorkExperiencesComponent);
     });
 
-    await import('./sections/projects/projects.component').then(({ ProjectsComponent }) => {
+    import('./sections/projects/projects.component').then(({ ProjectsComponent }) => {
       this.initComponent(3, ProjectsComponent );
     });
 
-    await import('./sections/open-source/open-source.component').then(({ OpenSourceComponent }) => {
+    import('./sections/open-source/open-source.component').then(({ OpenSourceComponent }) => {
       this.initComponent(4, OpenSourceComponent);
     });
 
-    await import('./sections/education/education.component').then(({ EducationComponent }) => {
+    import('./sections/education/education.component').then(({ EducationComponent }) => {
       this.initComponent(5, EducationComponent);
     });
 
-    await import('./sections/certifications/certifications.component').then(({ CertificationsComponent }) => {
+    import('./sections/certifications/certifications.component').then(({ CertificationsComponent }) => {
       this.initComponent(6, CertificationsComponent);
     });
 
-    await import('./sections/interests/interests.component').then(({ InterestsComponent }) => {
+    import('./sections/interests/interests.component').then(({ InterestsComponent }) => {
       this.initComponent(7, InterestsComponent);
     });
 
-    await import('./sections/contacts/contacts.component').then(({ ContactsComponent }) => {
+    import('./sections/contacts/contacts.component').then(({ ContactsComponent }) => {
       this.initComponent(8, ContactsComponent);
     });
   }
