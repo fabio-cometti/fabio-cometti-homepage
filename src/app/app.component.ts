@@ -24,7 +24,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
 
   ngAfterViewInit(): void {
-    timer(2000).subscribe( _ => this.loadComponents());
+    timer(3000).subscribe( _ => this.loadComponents());
   }
 
   loadComponents() {
