@@ -43,7 +43,8 @@ body {
 
     overflow: hidden;
 
-    transition: 0.5s all;
+    will-change: transform;
+    transform: translateZ(0);
 
     ::before{
         position: fixed;
@@ -54,7 +55,7 @@ body {
         transform-origin: top left;
         transform: rotate(45deg);
         width: 100vh;
-        transition: .7s all;
+        transition: .7s transform;
       }
 
       &:hover {
@@ -62,7 +63,7 @@ body {
         box-shadow: 0 7px 50px 10px #000000aa;
 
         ::before{
-            top: -100vh;
+            transform: translateY(-100vh);
         }
     }
 }

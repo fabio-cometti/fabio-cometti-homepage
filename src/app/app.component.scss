@@ -2,13 +2,13 @@
 
 .intro {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/intro-mobile.webp?updatedAt=1691584018723);
-    padding-top: 20em;   
+    padding-top: 20em;
 }
 
 #intro {
     color: var(--primary);
     font-family: var(--ubuntu-300);
-    font-weight: bold; 
+    font-weight: bold;
 
     padding: 0.8em;
 
@@ -17,17 +17,17 @@
 
         &> div {
             display: inline-block;
-            padding: 8px;            
+            padding: 8px;
         }
-    
-        .name {        
+
+        .name {
             font-size: 2em;
             border-bottom: solid 1px var(--primary);
         }
-    
-        .title {        
+
+        .title {
             color: var(--accent);
-            font-size: 1.2em;            
+            font-size: 1.2em;
         }
     }
 
@@ -44,60 +44,62 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 1em;        
+    gap: 1em;
     width: calc(100vw - 2em);
     margin: 1em;
     z-index: 20;
     perspective: 300px;
-    
+
     .menu-button {
         display: inline-block;
         width: 3em;
-        height: 3em;            
-        border-radius: 50%;        
+        height: 3em;
+        border-radius: 50%;
         color: var(--primary);
         font-size: 1.25em;
     }
 
     .links-container {
-        transform: rotateY(-120deg);
+        transform: translateZ(0) rotateY(-120deg);
         transform-origin: center right;
         opacity: 0;
-        transition: all 0.5s;
+        transition: transform 0.5s, opacity 0.5s;
+
+        will-change: transform;
 
         &.open {
             transform: rotateY(0deg);
             opacity: 1;
         }
-        
-        .links {        
+
+        .links {
             margin: 0;
             margin-top: 1em;
             margin-block-start: 0;
             margin-block-end: 0;
-            padding-inline-start: 0; 
-            min-width: 15em;       
-    
+            padding-inline-start: 0;
+            min-width: 15em;
+
             li {
                cursor: pointer;
                list-style-type: none;
-               display: block;           
+               display: block;
                font-family: var(--ubuntu-300);
                font-weight: bolder;
-               margin-bottom: 1em; 
+               margin-bottom: 1em;
                color: #FFF;
 
                user-select: none;
 
                &:hover {
                 color: var(--primary);
-                background-color: #FFF;             
+                background-color: #FFF;
                 -webkit-box-shadow: var(--contacts-shadow);
                 -moz-box-shadow: var(--contacts-shadow);
                 -o-box-shadow: var(--contacts-shadow);
                 box-shadow: var(--contacts-shadow);
                 border: none 0;
-                transition: all 0.3s ease-in;   
+                transition: all 0.3s ease-in;
                }
             }
         }
