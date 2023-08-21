@@ -1,7 +1,22 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "block-all-mixed-content; child-src 'self'; connect-src 'self'; default-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https://ik.imagekit.io; object-src 'none'; script-src 'self' 'nonce-999999999' 'unsafe-inline'; script-src-elem 'self' 'nonce-999999999'; style-src 'self' https://fonts.googleapis.com 'nonce-999999999' 'unsafe-inline'; upgrade-insecure-requests;"
+    Content-Security-Policy = "base-uri 'self'; block-all-mixed-content; child-src 'self'; connect-src 'self'; default-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https://ik.imagekit.io; object-src 'none'; script-src 'self' 'nonce-999999999' 'unsafe-inline'; script-src-elem 'self' 'nonce-999999999'; style-src 'self' https://fonts.googleapis.com 'nonce-999999999' 'unsafe-inline'; upgrade-insecure-requests;"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Referrer-Policy = "accelerometer=(),autoplay=(),camera=(),display-capture=(),document-domain=(),encrypted-media=(),fullscreen=(),geolocation=(),gyroscope=(),magnetometer=(),microphone=(),midi=(),payment=(),picture-in-picture=(),publickey-credentials-get=(),screen-wake-lock=(),sync-xhr=(self),usb=(),web-share=(),xr-spatial-tracking=()"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Permissions-Policy = ""
 
 [[edge_functions]]
   function = "include"
