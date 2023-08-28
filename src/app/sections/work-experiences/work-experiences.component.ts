@@ -26,17 +26,17 @@ export class WorkExperiencesComponent {
     {
       year: '2022',
       company: 'Lemonpie S.r.l.',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean libero arcu, molestie in lorem at, congue efficitur augue. Vestibulum tempor erat in turpis accumsan, ac vehicula erat aliquam. Mauris volutpat vehicula ligula in ultrices. Nullam nulla massa, aliquet vitae tellus eu, feugiat faucibus massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus blandit suscipit tellus, vitae interdum lectus condimentum ac. Nunc ex dolor, egestas eget ex id, lobortis aliquet ex. '
+      description: 'Since April 2022 I have been employed at Lemonpie as a software developer. Here I mainly deal with the re-engineering of existing applications, again on the .NET/Azure platform, applying the latest patterns to microservices. I also participated in the definition of company best practices regarding coding, versioning procedures and continuous integration pipelines. In addition to these activities, I continue to deal with training with internal developers and, occasionally, I provide consultancy to external customers, both in the Microsoft BizTalk area, as well as training on .NET, software architectures and design patterns.'
     },
     {
       year: '2022',
       company: 'Lutech S.p.A.',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean libero arcu, molestie in lorem at, congue efficitur augue. Vestibulum tempor erat in turpis accumsan, ac vehicula erat aliquam. Mauris volutpat vehicula ligula in ultrices. Nullam nulla massa, aliquet vitae tellus eu, feugiat faucibus massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus blandit suscipit tellus, vitae interdum lectus condimentum ac. Nunc ex dolor, egestas eget ex id, lobortis aliquet ex. '
+      description: 'In June 2019 Disc was acquired by Lutech and since January 2022 it has been completely absorbed by it. In these three years my duties have remained essentially the same, with an exponential increase in cloud projects (mainly Azure) compared to on premises ones. I also deepened the issues of secure coding in the web and training activities, also with external customers.'
     },
     {
       year: '2008',
       company: 'Disc S.p.A.',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean libero arcu, molestie in lorem at, congue efficitur augue. Vestibulum tempor erat in turpis accumsan, ac vehicula erat aliquam. Mauris volutpat vehicula ligula in ultrices. Nullam nulla massa, aliquet vitae tellus eu, feugiat faucibus massa. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vivamus blandit suscipit tellus, vitae interdum lectus condimentum ac. Nunc ex dolor, egestas eget ex id, lobortis aliquet ex. '
+      description: 'I started my professional career at Disc in March 2008 as a Java developer, mainly working on software focused on sending XML requests to external scoring services. After a few months I switched to the .NET platform on which I mainly built distributed web applications. In parallel with the .NET development of web applications, I have deepened the study of the Microsoft SharePoint platforms (from the 2007 version to the online version) and Microsoft BizTalk (from the 2006 version to the 2020 version). My tasks included, in addition to the development activity, the research and development activity on new technologies and tools to be adopted, the architecture design and training for junior developers.'
     }
   ];
 

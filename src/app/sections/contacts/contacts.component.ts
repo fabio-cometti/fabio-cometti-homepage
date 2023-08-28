@@ -65,10 +65,10 @@ export class ContactsComponent {
       }
     ).subscribe({
       next: () => {
-          this.isContactFormVisible = true;
+          this.isContactFormVisible = false;
       },
       error: () => {
-        this.isContactFormVisible = true;
+        this.isContactFormVisible = false;
       }
     });
   }
