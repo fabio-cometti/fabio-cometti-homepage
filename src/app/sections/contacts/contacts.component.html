@@ -9,7 +9,24 @@
     <a (click)="showContactForm()" target="_blank"><fa-icon title="Email" [icon]="faAt"></fa-icon></a>
 </div>
 <div class="contact-form"  [ngClass]="{ 'visible-form': isContactFormVisible}">
-    <div class="glass" (click)="hideContactForm()">
-
+    <div class="glass">
+        <form [formGroup]="contactRequestForm" name="feedbackForm" (ngSubmit)="onSubmit()" class="form">
+            <div class="close-button-row">
+                <div>
+                    <fa-icon title="close" [icon]="faClose" (click)="hideContactForm()"></fa-icon>
+                </div>
+            </div>
+            <div>
+                <input formControlName="email" type="text" id="email" name="email" placeholder="email" />
+            </div>
+            <div>
+                <textarea rows="6" formControlName="message" type="text" id="message" name="message" placeholder="message"></textarea>
+            </div>
+            <div class="send-button-row">
+                <div>
+                    <button type="submit" [disabled]="contactRequestForm.invalid">Send</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

@@ -56,8 +56,58 @@
     left: 0;
 
     .glass {
-        height: 20em;
+        height: 30em;
         width: 20em;
+
+        .form > div {
+            width: calc(100% - 2em);
+            padding: 1em;
+
+            &.close-button-row, .send-button-row {
+                display: flex;
+                justify-content: flex-end;
+                color: #fff;
+
+                div {
+                    width: 16px;
+                    height: 16px;
+                    cursor: pointer;
+                }
+            }
+
+
+            input, textarea, button {
+                font-family: var(--ubuntu-300);
+                width: 100%;
+                color: #FFF;
+                background-color: rgba($color: #000000, $alpha: 0);
+                border: var(--glass-border);
+                border-radius: var(--border-radius);
+                font-size: 1.25em;
+                line-height: 1.25em;
+                padding: 4px;
+
+                &:focus {
+                    outline-color: #FFF;
+                }
+            }
+
+            button:enabled {
+                outline: solid 1px #FFF;
+
+                &:hover {
+                    color: var(--primary);
+                    background-color: #FFF;
+
+                    -webkit-box-shadow: var(--contacts-shadow);
+                    -moz-box-shadow: var(--contacts-shadow);
+                    -o-box-shadow: var(--contacts-shadow);
+                    box-shadow: var(--contacts-shadow);
+                    border: none 0;
+                    transition: all 0.3s ease-in;
+                }
+            }
+        }
     }
 
     &.visible-form {
