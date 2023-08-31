@@ -1,2 +1,43 @@
-<p>open-source works!</p>
-<div observeVisibility (visible)="onVisible()"></div>
+<div class="parallax-container open-source">
+    <section id="open-source" appScrollSection="open-source">
+        <div observeVisibility (visible)="onVisible()"></div>
+        <fc-about-block position="left">
+            <h2 class="head">Open source</h2>
+            <p class="text">
+                As a fan of all things Open Source, I not only love discovering new libraries, packages and frameworks but, in my small way, when I have time, I try to create something that the whole developer community can use.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                All my projects are obviously open source and freely usable. The projects are mainly located in two different places: my github profile, and on QuokkaDev's GitHub profile.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="left">
+            <p class="text">
+                On my personal profile you can find the sources of this site, a couple of PWAs (progressive web apps) and some example solutions that I used when I taught courses with clients or in some high school classes.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                QuokkaDev is an organization that I created on GitHub mainly to understand how these objects work and on which I then versioned all my most "important" open projects. Most projects on QuokkaDev have continuous integration pipelines which then generate reports. QuokkaDev's projects are also the best documented ones (not all 😀).
+            </p>
+        </fc-about-block>
+        <fc-about-block position="left" [large]="true">
+            <p class="text">
+                These are the links to the two profiles:
+            </p>
+            <div class="icon-container">
+                <a title="My GitHub personal profile" target="_blank" href="https://github.com/fabio-cometti">
+                    <span>
+                        <fa-icon title="Github" [icon]="faGithub"></fa-icon>
+                    </span>
+                    <p>My profile</p>
+                </a>
+                <a title="QuokkaDev GitHub profile" target="_blank" href="https://github.com/quokka-dev">
+                    <img alt="QuokkaDev" src="/assets/images/QuokkaDevLogo_BG_Transparent.png" />
+                    <p>QuokkaDev</p>
+                </a>
+            </div>
+        </fc-about-block>
+    </section>
+</div>

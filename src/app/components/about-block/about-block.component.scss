@@ -3,13 +3,17 @@
     margin-bottom: 1em;
     max-width: 70%;
     float: left;
-    
+
     &.left{
         float: left;
     }
-    
+
     &.right{
         float: right;
+    }
+
+    &.large {
+        max-width: calc(100% - 2em);
     }
 }
 

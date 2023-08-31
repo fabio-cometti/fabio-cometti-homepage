@@ -12,6 +12,7 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
 })
 export class AboutBlockComponent {
   @Input('position') position: 'left' | 'right' = 'left';
+  @Input('large') large: boolean = false;
 
   @HostBinding('class') display = 'block-component';
 }

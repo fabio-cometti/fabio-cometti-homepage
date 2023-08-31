@@ -1,0 +1,93 @@
+.open-source {
+    background-image: url(https://ik.imagekit.io/bzuos3bkr/projects-mobile.webp?updatedAt=1693488500033);
+
+    #open-source {
+        h3.tech {
+            font-family: var(--ubuntu-300);
+            font-size: 0.75em;
+            color: var(--accent);
+            font-weight: lighter;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+
+            span {
+                color: var(--primary);
+                background-color: var(--accent);
+                border-radius: var(--border-radius);
+                padding: 4px;
+            }
+        }
+    }
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    width: 100%;
+
+    a {
+        display: inline-block;
+        text-align: center;
+        text-decoration: none;
+        width: 140px;
+        height: 110px;
+        line-height: 80px;
+
+        border: var(--glass-border);
+        border-radius: var(--border-radius);
+
+        user-select: none;
+
+        padding: 0.5em;
+
+        background: rgba( 0, 0, 0, 0.45 );
+        backdrop-filter: blur( 8px );
+        -webkit-backdrop-filter: blur( 8px );
+
+        color: var(--accent);
+
+        &:visited {
+            color: auto;
+        }
+
+        &:hover {
+            background-color: #FFF;
+            -webkit-box-shadow: var(--contacts-shadow);
+            -moz-box-shadow: var(--contacts-shadow);
+            -o-box-shadow: var(--contacts-shadow);
+            box-shadow: var(--contacts-shadow);
+            border: none 0;
+            transition: all 0.3s ease-in;
+            color: var(--primary);
+
+            p {
+                color: var(--primary);
+            }
+        }
+
+        span {
+            display: block;
+            width: 80px;
+            height: 80px;
+            margin: auto;
+        }
+
+        p {
+            color: var(--accent);
+            line-height: 1em;
+            font-size: 0.8em;
+            font-family: var(--ubuntu-300);
+            margin: 0;
+            margin-top: 1em;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            height: 80px;
+            margin: auto;
+        }
+    }
+}
