@@ -1,0 +1,29 @@
+.projects {
+    background-image: url(https://ik.imagekit.io/bzuos3bkr/workExperiences-mobile.webp?updatedAt=1692629028936);
+    padding-top: 2em;
+
+    #projects {
+        padding: 0.8em;
+
+        .glass {
+            margin-bottom: 1em;
+        }
+
+        h3.tech {
+            font-family: var(--ubuntu-300);
+            font-size: 0.75em;
+            color: var(--accent);
+            font-weight: lighter;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+
+            span {
+                color: var(--primary);
+                background-color: var(--accent);
+                border-radius: var(--border-radius);
+                padding: 4px;
+            }
+        }
+    }
+}

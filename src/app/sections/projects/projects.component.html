@@ -1,2 +1,90 @@
-<p>projects works!</p>
-<div observeVisibility (visible)="onVisible()"></div>
+<div class="parallax-container projects">
+    <section id="projects" appScrollSection="projects">
+        <div observeVisibility (visible)="onVisible()"></div>
+        <fc-about-block position="left">
+            <h2 class="head">Projects</h2>
+            <p class="text">
+                A brief introduction to my best work projects
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <h2 class="head">Automotive EDI</h2>
+            <h3 class="tech"><span>Microsoft BizTalk Server 2016</span><span>Microsoft Dynamics AX</span><span>.NET</span><span>Java</span><span>SQL Server 2014</span><span>Angular 11</span></h3>
+            <p class="text">
+                For a large player in the automotive sector we have created a system for managing and exchanging EDI documents with customers and suppliers.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                The system, created with two balanced BizTalk servers, manages outgoing flows (from the company's various ERPs to customers and suppliers), incoming flows (from customers and suppliers to the company ERPs) and inter-company flows (exchanges among the various group companies). The system manages various EDI standards (Edifact, ANSI X12, VDA, Odette and custom XML layouts) and various exchange protocols (FTP, SFTP, OFTP, AS2). The system currently manages more than 200 partners, with an average of 150,000 documents per month and an SLA of 99.95%.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                My role in the project was that of architect, in particular I helped to size the BizTalk infrastructure and set up the solution for development. I also helped develop the OFTP document exchange connector and document tracking architecture myself, with a web dashboard to show users the status of various sent and received documents.
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="left">
+            <h2 class="head">Document System</h2>
+            <h3 class="tech"><span>Microsoft SharePoint 2013</span><span>Microsoft Dynamics NAV</span><span>.NET</span></h3>
+            <p class="text">
+                For a customer who works in the production and sale of medical gases we have created a document archiving system by combining SharePoint 2013 and Microsoft Dynamics NAV. The system allows the management of the document archiving workflow, from their generation on the management system or from their scanning up to their replacement archiving with a certified external provider.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="left">
+            <p class="text">
+                The system currently manages around 5 million documents a year including invoices, shipping notes, intervention reports and other documents. My role in the project was that of architect and developer of the SharePoint part, including the integration part with Dynamics NAV and the external provider
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="right">
+            <h2 class="head">Patient Portal</h2>
+            <h3 class="tech"><span>Microsoft SharePoint 2010</span><span>Microsoft Dynamics NAV</span><span>.NET</span><span>Angular 11</span></h3>
+            <p class="text">
+                For a customer who works in the production and sale of medical gases, we have created a portal that allows doctors, pharmacists, hospitals and local health companies to enter requests for medical gases for their patients. The system was initially developed in 2011 with SharePoint 2010 and Microsoft Dynamics NAV. In 2021 the system has been completely revised for the web part which has been rewritten in .NET Core as regards the APIs and in Angular as regards the web client.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                My role, in the initial project, was that of architect and developer of the web part created in SharePoint. Later, in the revised project I helped set up the backend architecture, especially the development of the REST API of the system and the integration with Dynamics NAV which was heavily revised.
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="left">
+            <h2 class="head">Pension fund management</h2>
+            <h3 class="tech"><span>Microsoft Dynamics NAV</span><span>.NET</span><span>Angular 12</span></h3>
+            <p class="text">
+                I worked on the refactoring of a legacy application dedicated to pension fund management. The original application was made in Asp.Net Web forms, integrated with Microsoft Dynamics NAV ERP via web services; the application was offered to several customers as a service and a customized deployment was created for each customer on which specific customizations were made.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="left">
+            <p class="text">
+                The new application was created with .NET Core and Angular 12 and follows a SAAS (Software As A Service) approach, with a single deployment that allows you to manage multiple customers simultaneously, each with its own customizations and plugins. The new approach has drastically reduced startup times for a new customer and software maintenance costs as there is now a single codebase to maintain.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="left">
+            <p class="text">
+                My role in this project was that of Architect of both the backend and the frontend part. I also contributed to the development of the main components of all solution.
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="right">
+            <h2 class="head">Compressor Design</h2>
+            <h3 class="tech"><span>.NET</span><span>Matlab</span><span>KnockOut.js</span><span>SQL Server 2014</span></h3>
+            <p class="text">
+                For a customer, world leader in the production of compressors and air separation units, we have created a web application to support the design and simulation phases of compressors. The application collects the main data on the type of compressor to be built and the gas mixture to be used and provides a rough dimensioning of the various processor components. It also allows you to simulate the operation of a compressor designed by the system under certain conditions.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                The application was built with ASP.NET MVC, with intensive use of the KnockOut.js library to build the most important components. It also integrates with two external components, a Matlab engine capable of performing engineering calculations and a library dedicated to thermodynamic calculations on gas mixtures.
+            </p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <p class="text">
+                My role in this project was that of Architect of the .NET solution. I also personally contributed to the development of some components.
+            </p>
+        </fc-about-block>
+    </section>
+</div>
