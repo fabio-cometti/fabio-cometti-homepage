@@ -3,14 +3,15 @@
         <button id="menu" aria-label="menu" class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars"></fa-icon></button>
         <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu }">
             <ul class="links">
-                <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu()">About me</li>
-                <li class="inset-border" appScrollAnchor="skills" (click)="closeMenu()">Skills</li>
-                <li class="inset-border" appScrollAnchor="work-experiences" (click)="closeMenu()">Work experiences</li>
-                <li class="inset-border" appScrollAnchor="projects" (click)="closeMenu()">Projects</li>
-                <li class="inset-border" appScrollAnchor="open-source" (click)="closeMenu()">Open source</li>
-                <li class="inset-border" appScrollAnchor="education" (click)="closeMenu()">education</li>
-                <li class="inset-border" appScrollAnchor="certifications" (click)="closeMenu()">Certifications</li>
-                <li class="inset-border" appScrollAnchor="interests" (click)="closeMenu()">Interests</li>
+                <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu(0)">About me</li>
+                <li class="inset-border" appScrollAnchor="skills" (click)="closeMenu(1)">Skills</li>
+                <li class="inset-border" appScrollAnchor="work-experiences" (click)="closeMenu(2)">Work experiences</li>
+                <li class="inset-border" appScrollAnchor="projects" (click)="closeMenu(3)">Projects</li>
+                <li class="inset-border" appScrollAnchor="open-source" (click)="closeMenu(4)">Open source</li>
+                <li class="inset-border" appScrollAnchor="education" (click)="closeMenu(5)">Education</li>
+                <li class="inset-border" appScrollAnchor="certifications" (click)="closeMenu(6)">Certifications</li>
+                <li class="inset-border" appScrollAnchor="interests" (click)="closeMenu(7)">Interests</li>
+                <li *ngIf="extraEnabled$ | async" class="inset-border" appScrollAnchor="extra" (click)="closeMenu(8)">Extra</li>
             </ul>
         </div>
     </nav>
@@ -44,5 +45,12 @@
     <div class="buffer"></div>
     <ng-template sectionHost></ng-template>
     <div class="buffer"></div>
+    <div class="extra-content-container" [ngClass]="{ 'show-extra': extraEnabled$ | async}">
+        <ng-template sectionHost></ng-template>
+        <div class="buffer"></div>
+    </div>
+    <div *ngIf="!(extraEnabled$ | async)" class="extra-content-hint">
+        Ehi, are you sure you've seen everything? Maybe there are some extra content you can unlock…
+    </div>
     <ng-template sectionHost></ng-template>
 </div>

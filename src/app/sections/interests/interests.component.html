@@ -1,2 +1,12 @@
-<p>interests works!</p>
-<div observeVisibility (visible)="onVisible()"></div>
+<div class="parallax-container interests">
+    <section id="interests" appScrollSection="interests">
+        <div observeVisibility (visible)="onVisible()"></div>
+        <fc-about-block position="left">
+            <h2 class="head">Interests</h2>
+            <div class="wip">
+                <fa-icon title="Github" [icon]="faClock"></fa-icon>
+            </div>
+            <p class="text">Work in progress...</p>
+        </fc-about-block>
+    </section>
+</div>

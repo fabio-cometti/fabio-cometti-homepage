@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
-import { timer } from 'rxjs';
+import { BehaviorSubject, Observable, bufferCount, filter, map, take, timer } from 'rxjs';
 
 
 @Component({
@@ -21,7 +21,26 @@ export class AppComponent implements AfterViewInit {
   showMenu: boolean = false;
   faBars = faBars;
 
+  extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  extraEnabled$: Observable<boolean>;
+
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
+
+  constructor() {
+    this.extraEnabled$ = this.extraBehaviorSubject.asObservable().pipe(
+      bufferCount(5, 1),
+      map(menuVoiceList => menuVoiceList.join('')),
+      filter(menuVoiceListString => menuVoiceListString == '00000'),
+      map(menuVoiceListString => true),
+      take(1)
+    );
+
+    this.extraEnabled$.subscribe( _ => {
+      import('./sections/extra-content/extra-content.component').then(({ ExtraContentComponent }) => {
+        this.initComponent(8, ExtraContentComponent);
+      });
+    });
+  }
 
   ngAfterViewInit(): void {
     timer(300).subscribe( _ => this.loadComponents());
@@ -62,7 +81,7 @@ export class AppComponent implements AfterViewInit {
     });
 
     import('./sections/contacts/contacts.component').then(({ ContactsComponent }) => {
-      this.initComponent(8, ContactsComponent);
+      this.initComponent(9, ContactsComponent);
     });
   }
 
@@ -70,8 +89,9 @@ export class AppComponent implements AfterViewInit {
     this.showMenu = !this.showMenu;
   }
 
-  closeMenu(): void {
+  closeMenu(menuVoice: number): void {
     this.showMenu = false;
+    this.extraBehaviorSubject.next('' + menuVoice);
   }
 
   private initComponent(index: number, type: Type<unknown>) : void {
