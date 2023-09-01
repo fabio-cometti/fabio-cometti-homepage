@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #505050;
+  }
+
+  .not-found {
+    width: 100vw;
+    height: 100vh;
+
+    text-align: center;
+
+    background-image: url(/assets/images/404-mobile.webp);
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 2em;
+
+    color: white;
+  }
+
+  .not-found > div {
+    margin: 5px;
+    position: absolute;
+    bottom: 20px;
+  }
+
+  .not-found > div > a {
+    color: white;
+    margin-top: 1em;
+    padding: 8px;
+    background-color: crimson;
+    border-radius: 8px;
+    text-decoration: none;
+  }
+
+  .not-found > div > a:visited { color: white;}
