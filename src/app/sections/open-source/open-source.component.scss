@@ -65,6 +65,10 @@
             p {
                 color: var(--primary);
             }
+
+            span.q-dev {
+                background-image: url(/assets/images/QuokkaDevLogo_Color.svg);
+            }
         }
 
         span {
@@ -72,6 +76,15 @@
             width: 80px;
             height: 80px;
             margin: auto;
+
+            &.q-dev {
+                width: 105px;
+                background-image: url(/assets/images/QuokkaDevLogo_White.svg);
+                background-size: auto 80px;
+                background-size: auto 80px;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
         }
 
         p {

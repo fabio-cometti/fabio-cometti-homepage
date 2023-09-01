@@ -1,9 +1,5 @@
-<div 
-    [class.out-of-view]="isHide"
-    observeVisibility
-    [threshold]="1" 
-    (visible)="onVisible()"
-    class="glass">
+<div class="visibility-trigger" [threshold]="1"  observeVisibility (visible)="onVisible()"></div>
+<div [class.out-of-view]="isHide" class="glass">
     <h3 class="head">{{group.name}}</h3>
     <div class="skills-container inset-border">
         <fc-skill-detail *ngFor="let skill of group.skills" [percent]="skill.percent" [label]="skill.name" [isVisible]="!isHide"></fc-skill-detail>

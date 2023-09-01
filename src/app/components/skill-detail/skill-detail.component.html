@@ -1,7 +1,15 @@
 <div class="outer">
     <svg class="progress-ring" viewBox="0 0 100 100">
+        <circle class="base-ring__circle"
+            stroke-width="4"
+            fill="transparent"
+            r="47.5%"
+            cx="50%"
+            cy="50%"
+        />
+
         <circle [ngStyle]="{ 'stroke-dashoffset': offset + '%'}"
-            class="progress-ring__circle"        
+            class="progress-ring__circle"
             stroke-width="4"
             fill="transparent"
             r="47.5%"

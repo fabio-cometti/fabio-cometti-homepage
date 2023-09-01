@@ -34,10 +34,77 @@
                     <p>My profile</p>
                 </a>
                 <a title="QuokkaDev GitHub profile" target="_blank" href="https://github.com/quokka-dev">
-                    <img alt="QuokkaDev" src="/assets/images/QuokkaDevLogo_BG_Transparent.png" />
+                    <span class="q-dev"></span>
                     <p>QuokkaDev</p>
                 </a>
             </div>
+        </fc-about-block>
+
+        <fc-about-block position="right">
+            <h2 class="head">fc-quokka-mindmap</h2>
+            <p class="text">
+                fc-quokka-mindmap is a progressive web app made in Angular that allows you to draw mind maps.
+                Among the various features are loading and saving the maps you are working on,
+                exporting in various formats, managing multiple tabs and zooming.
+                The currently released version can be used at this url: <a target="_blank" href="https://fc-quokka-mindmap.netlify.app">https://fc-quokka-mindmap.netlify.app</a>
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="left">
+            <h2 class="head">quokka-time-tracker</h2>
+            <p class="text">
+                quokka-time-tracker is a progressive web app built in Angular that allows you to keep track of the activities performed during the day.
+                Just enter the description of the activity and press the start button to start the timer and when the activity
+                is finished it stops; you can restart the same activity multiple times and multiple intervals will be tracked.
+                At any time you can access a report with all the recorded activities, grouped by day, with the total time spent on each activity.
+                I made this app to remind me exactly how much time I spend each day on each client's activities.
+                The currently released version can be used at this url: <a target="_blank" href="https://fc-quokka-mindmap.netlify.app">https://fc-quokka-mindmap.netlify.app</a>
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="right">
+            <h2 class="head">quokkadev-security-headers</h2>
+            <p class="text">
+                quokkadev-security-headers is a NuGet package to manage security headers in http responses.
+                It allows you to configure a middleware that manages all the main security headers indicated
+                in the OWASP Secure Headers project.
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="left">
+            <h2 class="head">quokkadev-middleware-correlation</h2>
+            <p class="text">
+                quokkadev-middleware-correlation is a NuGet package for handling a unique correlation id in HTTP calls.
+                It allows to recognize the correlation id provided by the caller through a configurable header or to configure a new one if it is not present.
+                Among the various features there is the possibility of automatically forwarding the correlation ID
+                in calls to other services via HttpClient and the possibility of automatically enriching the log context with the correlation ID.
+                The package is especially useful in projects that will be deployed in a microservices infrastructure.
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="right">
+            <h2 class="head">quokkadev-saas</h2>
+            <p class="text">
+                quokkadev-saas is a set of NuGet packages that should help in the development of cloud applications
+                according to the SAAS (Software As A Service) approach where the same application, deployed only once, c
+                an be used by different customers.
+                The packages are born from the experience gained on a project where I faced this type of problem
+                and include various features including: recognition of the tenant being accessed, data segregation by tenant,
+                the ability to manage different application configurations for each tenant and differentiated authentication.
+                The projects are still in an embryonic state and need some work, especially in terms of documentation,
+                but they are still a good basis from which to start if you have to deal with these issues.
+            </p>
+        </fc-about-block>
+
+        <fc-about-block position="left">
+            <h2 class="head">quokkadev-templates-collection</h2>
+            <p class="text">
+                quokkadev-templates-collection is a collection of templates for .NET Core projects.
+                The package is available as an extension for Visual Studio and can be found directly on the MarketPlace.
+                It includes a project template for a Clean Architecture-based .NET application,
+                a project template for a NuGet package, and several object templates and code snippets
+                that you can use in these projects.
+            </p>
         </fc-about-block>
     </section>
 </div>

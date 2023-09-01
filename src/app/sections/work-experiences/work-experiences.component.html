@@ -24,9 +24,8 @@
 
 <ng-template #blockTemplate let-experience>
     <div class="card" *ngIf="{ isHide: true} as IsLocalHide">
+        <div class="visibility-trigger" observeVisibility (visible)="IsLocalHide.isHide=false"></div>
         <div [ngClass]="{ 'out-of-view': IsLocalHide.isHide}"
-        observeVisibility
-        (visible)="IsLocalHide.isHide = false"
         class="info glass">
             <h2 class="title head">{{experience.year}}</h2>
             <h3 class="head">{{experience.company}}</h3>

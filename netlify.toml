@@ -25,3 +25,8 @@
 [[edge_functions]]
   function = "include"
   path = "/index.html"
+
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404

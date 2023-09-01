@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Page not found</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Fabio Cometti, software architect and technical leader, personal web site. Brief introduction to my job, skills, opens source projects and interests">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preload" as="image" fetchpriority="high" href="/assets/images/404-mobile.webp" type="image/webp">
+  <link rel="preload" as="font" crossOrigin href="https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoC1CzjsGyNPYZvgw.woff2" font="font/woff2">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #505050;
+    }
+
+    .not-found {
+      width: 100vw;
+      height: 100vh;
+
+      text-align: center;
+
+      background-image: url(/assets/images/404-mobile.webp);
+      background-repeat: no-repeat;
+      background-position: center top;
+      background-size: cover;
+
+      font-family: 'Ubuntu', sans-serif;
+      font-size: 2em;
+
+      color: white;
+    }
+
+    .not-found > div {
+      margin: 5px;
+      position: absolute;
+      bottom: 20px;
+    }
+
+    .not-found > div > a {
+      color: white;
+      margin-top: 1em;
+      padding: 8px;
+      background-color: crimson;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    .not-found > div > a:visited { color: white;}
+  </style>
+</head>
+<body>
+  <div class="not-found">
+    <div>This is not the page you are looking for...<br/><br/>
+      <a href="./index.html">Go to home</a>
+    </div>
+  </div>
+</body>
+</html>

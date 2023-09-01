@@ -3,8 +3,8 @@
     [class.left] = "position == 'left'"
     [class.right] = "position == 'right'"
     [class.large] = "large"
-    class="glass" observeVisibility
-    (visible)="isHide.isHide=false">
+    class="glass">
+    <div class="visibility-trigger" observeVisibility (visible)="isHide.isHide=false"></div>
     <ng-content></ng-content>
 </div>
 <br />

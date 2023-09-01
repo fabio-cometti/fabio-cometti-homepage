@@ -1,4 +1,4 @@
-<div class="container">
+<footer class="container">
     <div observeVisibility (visible)="onVisible()"></div>
     <a href="https://www.facebook.com/fabio.cometti" target="_blank"><fa-icon title="Facebook" [icon]="faFacebook"></fa-icon></a>
     <a href="http://instagram.com/fabio_cometti" target="_blank"><fa-icon title="Instagram" [icon]="faInstagram"></fa-icon></a>
@@ -7,7 +7,7 @@
     <a href="http://fabiocometti.wordpress.com" target="_blank"><fa-icon title="Blog" [icon]="faWordpress"></fa-icon></a>
     <a href="https://github.com/fabio-cometti" target="_blank"><fa-icon title="Github" [icon]="faGithub"></fa-icon></a>
     <a (click)="showContactForm()" target="_blank"><fa-icon title="Email" [icon]="faAt"></fa-icon></a>
-</div>
+</footer>
 <div class="contact-form"  [ngClass]="{ 'visible-form': isContactFormVisible}">
     <div class="glass">
         <form [formGroup]="contactRequestForm" name="feedbackForm" (ngSubmit)="onSubmit()" class="form">

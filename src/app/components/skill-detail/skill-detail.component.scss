@@ -1,9 +1,9 @@
-.outer { 
-    width: 100%; 
-    position: relative; 
+.outer {
+    width: 100%;
+    position: relative;
 
     .progress-ring {
-        width: 100%;         
+        width: 100%;
     }
 
     .progress-ring__circle {
@@ -11,10 +11,15 @@
         stroke-dashoffset: 314.15926%;
         stroke: var(--primary);
         stroke-width: 5%;
-    
+
         transition: stroke-dashoffset 0.75s;
         transform: rotate(-90deg);
         transform-origin: 50% 50%;
+    }
+
+    .base-ring__circle {
+        stroke: var(--medium-gray);
+        stroke-width: 4;
     }
 
 }
@@ -36,6 +41,6 @@
     font-family: var(--ubuntu-300);
     font-weight: bolder;
     text-align: center;
-    color: var(--primary);
+    color: var(--accent);
     font-size: 0.75em;
 }
