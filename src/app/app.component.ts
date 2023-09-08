@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, QueryList, Type, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, OnInit, QueryList, Type, ViewChildren } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -6,7 +6,9 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
-import { BehaviorSubject, Observable, bufferCount, filter, map, take, timer } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, bufferCount, filter, map, take, timer } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Quote } from './models/quote';
 
 
 @Component({
@@ -16,17 +18,19 @@ import { BehaviorSubject, Observable, bufferCount, filter, map, take, timer } fr
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterViewInit, OnInit {
 
   showMenu: boolean = false;
   faBars = faBars;
 
-  extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   extraEnabled$: Observable<boolean>;
+
+  quote$: Observable<Quote>;
 
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.extraEnabled$ = this.extraBehaviorSubject.asObservable().pipe(
       bufferCount(5, 1),
       map(menuVoiceList => menuVoiceList.join('')),
@@ -37,9 +41,17 @@ export class AppComponent implements AfterViewInit {
 
     this.extraEnabled$.subscribe( _ => {
       import('./sections/extra-content/extra-content.component').then(({ ExtraContentComponent }) => {
-        this.initComponent(8, ExtraContentComponent);
+        this.initComponent(6, ExtraContentComponent);
       });
     });
+
+    this.quote$ = this.http.get<Quote[]>('/assets/quotes.json').pipe(
+      map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
+    )
+  }
+
+  ngOnInit(): void {
+    //this.quote$
   }
 
   ngAfterViewInit(): void {
@@ -68,20 +80,12 @@ export class AppComponent implements AfterViewInit {
       this.initComponent(4, OpenSourceComponent);
     });
 
-    import('./sections/education/education.component').then(({ EducationComponent }) => {
-      this.initComponent(5, EducationComponent);
-    });
-
-    import('./sections/certifications/certifications.component').then(({ CertificationsComponent }) => {
-      this.initComponent(6, CertificationsComponent);
-    });
-
     import('./sections/interests/interests.component').then(({ InterestsComponent }) => {
-      this.initComponent(7, InterestsComponent);
+      this.initComponent(5, InterestsComponent);
     });
 
     import('./sections/contacts/contacts.component').then(({ ContactsComponent }) => {
-      this.initComponent(9, ContactsComponent);
+      this.initComponent(7, ContactsComponent);
     });
   }
 
