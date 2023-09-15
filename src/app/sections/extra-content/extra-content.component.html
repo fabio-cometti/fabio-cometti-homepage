@@ -3,10 +3,20 @@
         <div observeVisibility (visible)="onVisible()"></div>
         <fc-about-block position="left">
             <h2 class="head">Extra contents</h2>
-            <div class="wip">
-                <fa-icon title="Github" [icon]="faClock"></fa-icon>
-            </div>
-            <p class="text">Work in progress...</p>
+            <p class="text">Here some extra contents for you!</p>
         </fc-about-block>
+        <fc-about-block position="right">
+            <h2 class="head"><fa-icon [style]="{display: 'inline-block', width: '1em'}" [icon]="faGraduationCap"></fa-icon> My Thesis</h2>
+            <p class="text">If you are interested you can download my thesis in PDF format (only in italian language) <a href="/assets/thesis.pdf" download>here</a></p>
+        </fc-about-block>
+        <fc-about-block position="left">
+            <h2 class="head">Credits</h2>
+            <p class="text">Click <a href="#" (click)="credits($event)">here</a> for a list of all tools, libraries and frameworks used by this website</p>
+        </fc-about-block>
+        <fc-about-block position="right">
+            <h2 class="head">Raptorize</h2>
+            <p class="text">Click <a href="#" (click)="raptorize($event)">here</a> if you agree that a real website should have a velociraptor in it...</p>
+        </fc-about-block>
+        <fc-raptorize #raptor [@runState]="raptorState" (@runState.start)="roar($event)" (@runState.done)="resetRaptor($event)"></fc-raptorize>
     </section>
 </div>

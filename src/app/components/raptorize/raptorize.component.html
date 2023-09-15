@@ -1,0 +1,7 @@
+<div class="raptor-container">
+    <img *ngIf='loaded' src='/assets/images/raptor.png'>
+    <audio *ngIf='loaded' style='visibility:hidden; display: none;' #audio preload="auto">
+        <source src="/assets/raptor-sound.mp3" />
+        <source src="/assets/raptor-sound.ogg" />
+    </audio>
+</div>
