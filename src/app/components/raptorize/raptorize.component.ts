@@ -15,10 +15,6 @@ export class RaptorizeComponent {
 
   loaded = false;
 
-  constructor() {
-
-  }
-
   ngOnInit() {
     of(1).pipe(delay(3000), take(1)).subscribe(() => this.loaded = true);
   }

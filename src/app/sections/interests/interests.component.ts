@@ -6,11 +6,19 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
+import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 
 @Component({
   selector: 'fc-interests',
   standalone: true,
-  imports: [CommonModule, ObserveVisibilityDirective, ScrollSectionDirective, AboutBlockComponent, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    ObserveVisibilityDirective,
+    ScrollSectionDirective,
+    AboutBlockComponent,
+    FontAwesomeModule,
+    GalleryComponent
+  ],
   templateUrl: './interests.component.html',
   styleUrls: ['./interests.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
