@@ -11,17 +11,22 @@
       position: relative;
       .card__head {
         color: var(--accent);
-        background: var(--primary);
+
+        background: rgba( 0, 0, 0, 0.7 );
+        backdrop-filter: blur( 6px );
+        -webkit-backdrop-filter: blur( 6px );
+
         padding: 0.5em;
         transform: rotate(-90deg);
         transform-origin: 0% 0%;
         transition: all 0.5s ease-in-out;
-        min-width: 100px;
-        text-align: center;
+        min-width: 130px;
+        text-align: left;
         position: absolute;
-        bottom: auto;
+        bottom: 0;
         left: 0;
         font-size: 1em;
+        font-weight: bolder;
         font-family: var(--ubuntu-300);
         white-space: nowrap;
       }
@@ -35,10 +40,15 @@
           text-align: center;
           top: calc(100% - 2em);
           color: white;
-          background: rgba(0, 0, 0, 0.5);
+
+          backdrop-filter: blur( 0 );
+          -webkit-backdrop-filter: blur( 0 );
+
           font-size: 2em;
           min-width: 100%;
           transform: rotate(0deg);
+
+          bottom: -1px;
         }
       }
       img {

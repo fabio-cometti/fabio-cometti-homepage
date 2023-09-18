@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { Title } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { GalleryItem } from 'src/app/models/gallery-item';
 
 @Component({
   selector: 'fc-interests',
@@ -25,9 +27,10 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 })
 export class InterestsComponent {
 
-  faClock = faClock;
+  gallery$: Observable<GalleryItem[]>;
 
-  constructor(private title: Title) {
+  constructor(private title: Title, private http: HttpClient) {
+    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery1.json');
   }
 
   onVisible(): void {
