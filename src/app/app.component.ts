@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit, QueryList, Type, ViewChildren } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,15 @@ import { Quote } from './models/quote';
 @Component({
   selector: 'fc-root',
   standalone: true,
-  imports: [CommonModule, DynamicSection, FontAwesomeModule, ScrollManagerDirective, ScrollSectionDirective, ScrollAnchorDirective],
+  imports: [
+    CommonModule,
+    DynamicSection,
+    FontAwesomeModule,
+    ScrollManagerDirective,
+    ScrollSectionDirective,
+    ScrollAnchorDirective,
+    NgOptimizedImage
+  ],
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })

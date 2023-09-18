@@ -1,11 +1,14 @@
 @import '../media-query.scss';
 
 .intro {
-    background-image: url(https://ik.imagekit.io/bzuos3bkr/intro-mobile.webp?updatedAt=1691584018723);
-    padding-top: 20em;
+    img {
+        object-fit: cover;
+    }
 }
 
 #intro {
+    transform: translateY(16em);
+
     color: var(--primary);
     font-family: var(--ubuntu-300);
     font-weight: bold;
