@@ -1,6 +1,6 @@
 <div class="container">
   <div class="card" *ngFor="let item of items">
-    <img [ngSrc]="item.imageUrl" fill>
+    <img [ngSrc]="item.imageUrl" fill [alt]="item.title">
     <div class="card__head">{{item.title}}</div>
   </div>
 </div>
