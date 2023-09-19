@@ -40,9 +40,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   constructor(private http: HttpClient) {
     this.extraEnabled$ = this.extraBehaviorSubject.asObservable().pipe(
-      bufferCount(5, 1),
+      bufferCount(6, 1),
       map(menuVoiceList => menuVoiceList.join('')),
-      filter(menuVoiceListString => menuVoiceListString == '00000'),
+      filter(menuVoiceListString => menuVoiceListString == '424242'),
       map(menuVoiceListString => true),
       take(1)
     );

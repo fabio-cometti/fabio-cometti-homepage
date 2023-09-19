@@ -9,7 +9,7 @@
                 <li class="inset-border" appScrollAnchor="projects" (click)="closeMenu(3)">Projects</li>
                 <li class="inset-border" appScrollAnchor="open-source" (click)="closeMenu(4)">Open source</li>
                 <li class="inset-border" appScrollAnchor="interests" (click)="closeMenu(5)">Interests</li>
-                <li *ngIf="extraEnabled$ | async" class="inset-border" appScrollAnchor="extra" (click)="closeMenu(6)">Extra</li>
+                <li *ngIf="(extraEnabled$ | async)" class="inset-border" appScrollAnchor="extra" (click)="closeMenu(6)">Extra</li>
             </ul>
         </div>
     </nav>
@@ -46,7 +46,7 @@
     <div class="buffer"></div>
     <ng-template sectionHost></ng-template>
     <div class="buffer"></div>
-    <div class="extra-content-container" [ngClass]="{ 'show-extra': extraEnabled$ | async}">
+    <div class="extra-content-container" [ngClass]="{ 'show-extra': (extraEnabled$ | async)}">
         <ng-template sectionHost></ng-template>
         <div class="buffer"></div>
     </div>

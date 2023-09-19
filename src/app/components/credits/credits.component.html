@@ -1,1 +1,23 @@
-<p>credits works!</p>
+<div  class="bg">
+    <div class="close-button-row">
+        <div>
+            <fa-icon title="close" [icon]="faClose" (click)="hideCredits()"></fa-icon>
+        </div>
+    </div>
+    <p id="start">About this website...</p>
+    <h1>FABIO COMETTI <br/><sub>Software architect &amp; Technical Leader</sub></h1>
+    <div id="titles">
+      <div id="titlecontent">
+        <p style="text-align: center;">Credits</p>
+        <p>It is a period of civil war. Rebel open source technologies, striking from a hidden github repository, have won their first victory against the evil W3C Empire.</p>
+        <p>The website is written with Angular 16, where the behaviour of the components are written in Typescript. Templates are based on HTML5, whereas the style are written using CSS3 rules and SCSS syntax. The icons in the site are from Fontawesome.</p>
+        <p>Visual Studio Code is the main tool used for development and Webpack is used for build the project. Some Webpack plugins are used for javascript and css compression. Performance are misured using LightHouse while security is tested with SecurityHeader.com. Chrome developer tools are used for debugging and Inkscape e Paint.Net for images creation and manipulation.</p>
+        <p>The sources of the site are hosted on my GitHub personal profile as a public repository. For the deployment of the site a Netlify free account is used taking advantage of its integration with GitHub. ImageKit free account is used as images CDN.</p>
+        <p>May the Force be with you...</p>
+      </div>
+    </div>
+    <audio style='visibility:hidden; display: none;' #audio preload="auto">
+        <source src="/assets/sw.mp3" />
+        <source src="/assets/sw.ogg" />
+    </audio>
+  </div>

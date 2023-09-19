@@ -4,11 +4,12 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faClock, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faFilm, faGift, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@angular/platform-browser';
 import { RaptorizeComponent } from 'src/app/components/raptorize/raptorize.component';
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CreditsComponent } from 'src/app/components/credits/credits.component';
 
 @Component({
   selector: 'fc-extra-content',
@@ -19,8 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ScrollSectionDirective,
     AboutBlockComponent,
     FontAwesomeModule,
-    RaptorizeComponent
-
+    RaptorizeComponent,
+    CreditsComponent
   ],
   templateUrl: './extra-content.component.html',
   styleUrls: ['./extra-content.component.scss'],
@@ -47,8 +48,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 })
 export class ExtraContentComponent {
 
+  faGift = faGift;
   faGraduationCap = faGraduationCap;
+  faFilm = faFilm;
   raptorState =  'stopped';
+  showCredits = false;
 
   @ViewChild('raptor') raptor?: RaptorizeComponent;
 
@@ -74,5 +78,10 @@ export class ExtraContentComponent {
 
   credits(event: Event): void {
     event.preventDefault();
+    this.showCredits = true;
+  }
+
+  closeCredits(): void {
+    this.showCredits = false;
   }
 }
