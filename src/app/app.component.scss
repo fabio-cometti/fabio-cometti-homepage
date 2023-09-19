@@ -4,9 +4,11 @@
     img {
         object-fit: cover;
         object-position: top center;
+        position: fixed !important;
     }
     position: relative;
     padding-top: 0;
+    clip-path: inset(0);
 }
 
 #intro {
