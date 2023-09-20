@@ -20,4 +20,5 @@
         <fc-raptorize #raptor [@runState]="raptorState" (@runState.start)="roar($event)" (@runState.done)="resetRaptor($event)"></fc-raptorize>
         <fc-credits (close)="closeCredits()" *ngIf="showCredits"></fc-credits>
     </section>
+    <fc-gallery [items]="(gallery$ | async) || []"></fc-gallery>
 </div>

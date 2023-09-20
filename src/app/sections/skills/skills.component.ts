@@ -6,11 +6,21 @@ import { SkillGroupComponent } from 'src/app/components/skill-group/skill-group.
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { Title } from '@angular/platform-browser';
+import { GalleryItem } from 'src/app/models/gallery-item';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 
 @Component({
   selector: 'fc-skills',
   standalone: true,
-  imports: [CommonModule, SkillGroupComponent, ObserveVisibilityDirective, ScrollSectionDirective],
+  imports: [
+    CommonModule,
+    SkillGroupComponent,
+    ObserveVisibilityDirective,
+    ScrollSectionDirective,
+    GalleryComponent
+  ],
   templateUrl: 'skills.component.html',
   styleUrls: ['skills.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -114,12 +124,15 @@ export class SkillsComponent {
     }
   ];
   isHide: boolean = true;
+  gallery$: Observable<GalleryItem[]>;
 
   trackGroup(index: number, group: SkillGroup) {
     return index ? index : undefined;
   }
 
-  constructor(private title: Title) {
+
+  constructor(private title: Title, private http: HttpClient) {
+    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery3.json');
   }
 
   onVisible(): void {

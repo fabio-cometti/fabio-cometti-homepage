@@ -20,6 +20,7 @@
             </div>
           </div>
     </section>
+    <fc-gallery [items]="(gallery$ | async) || []"></fc-gallery>
 </div>
 
 <ng-template #blockTemplate let-experience>

@@ -10,6 +10,10 @@ import { RaptorizeComponent } from 'src/app/components/raptorize/raptorize.compo
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CreditsComponent } from 'src/app/components/credits/credits.component';
+import { GalleryItem } from 'src/app/models/gallery-item';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 
 @Component({
   selector: 'fc-extra-content',
@@ -21,7 +25,8 @@ import { CreditsComponent } from 'src/app/components/credits/credits.component';
     AboutBlockComponent,
     FontAwesomeModule,
     RaptorizeComponent,
-    CreditsComponent
+    CreditsComponent,
+    GalleryComponent
   ],
   templateUrl: './extra-content.component.html',
   styleUrls: ['./extra-content.component.scss'],
@@ -56,7 +61,10 @@ export class ExtraContentComponent {
 
   @ViewChild('raptor') raptor?: RaptorizeComponent;
 
-  constructor(private title: Title) {
+  gallery$: Observable<GalleryItem[]>;
+
+  constructor(private title: Title, private http: HttpClient) {
+    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery7.json');
   }
 
   onVisible(): void {

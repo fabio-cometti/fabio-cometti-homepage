@@ -5,6 +5,10 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
 import { WorkExperienceBlockComponent } from 'src/app/components/work-experience-block/work-experience-block.component';
 import { Experience } from 'src/app/models/experience';
 import { Title } from '@angular/platform-browser';
+import { GalleryItem } from 'src/app/models/gallery-item';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 
 @Component({
   selector: 'fc-work-experiences',
@@ -13,7 +17,8 @@ import { Title } from '@angular/platform-browser';
     CommonModule,
     ScrollSectionDirective,
     ObserveVisibilityDirective,
-    WorkExperienceBlockComponent
+    WorkExperienceBlockComponent,
+    GalleryComponent
   ],
   templateUrl: './work-experiences.component.html',
   styleUrls: ['./work-experiences.component.scss'],
@@ -21,6 +26,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class WorkExperiencesComponent {
   isHide: boolean = true;
+  gallery$: Observable<GalleryItem[]>;
 
   experiences: Experience[] = [
     {
@@ -40,7 +46,10 @@ export class WorkExperiencesComponent {
     }
   ];
 
-  constructor(private title: Title) {
+
+
+  constructor(private title: Title, private http: HttpClient) {
+    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery4.json');
   }
 
   onVisible(): void {

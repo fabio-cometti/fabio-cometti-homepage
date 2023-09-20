@@ -30,7 +30,7 @@ export class InterestsComponent {
   gallery$: Observable<GalleryItem[]>;
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery1.json');
+    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery2.json');
   }
 
   onVisible(): void {

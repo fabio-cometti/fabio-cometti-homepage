@@ -12,4 +12,5 @@
         </div>
         <fc-skill-group *ngFor="let group of skills; let i = index; trackBy: trackGroup" [group]="group"></fc-skill-group>
     </section>
+    <fc-gallery [items]="(gallery$ | async) || []"></fc-gallery>
 </div>
