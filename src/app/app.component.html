@@ -33,24 +33,24 @@
             </div>
         </section>
     </div>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <ng-template sectionHost></ng-template>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <ng-template sectionHost></ng-template>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <ng-template sectionHost></ng-template>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <ng-template sectionHost></ng-template>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <ng-template sectionHost></ng-template>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <ng-template sectionHost></ng-template>
-    <div class="buffer"></div>
+    <section class="buffer"></section>
     <div class="extra-content-container" [ngClass]="{ 'show-extra': (extraEnabled$ | async)}">
         <ng-template sectionHost></ng-template>
-        <div class="buffer"></div>
+        <section class="buffer"></section>
     </div>
-    <div *ngIf="!(extraEnabled$ | async)" class="extra-content-hint">
+    <div class="extra-content-hint" [ngClass]="{ 'hide-extra-hint': (extraEnabled$ | async)}">
         Ehi, are you sure you've seen everything? Maybe there are some extra content you can unlock…
     </div>
     <ng-template sectionHost></ng-template>
