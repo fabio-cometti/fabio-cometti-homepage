@@ -1,3 +1,5 @@
+@import '../../../media-query.scss';
+
 .work-experiences {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/workExperiences-mobile.webp?updatedAt=1692629028936);
 }
@@ -106,6 +108,17 @@
         &:nth-child(even)>.dot {
             right: -5px;
         }
+    }
+}
+
+@include tablet {
+    .work-experiences {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/workExperiences.jpg?updatedAt=1695218939802);
+    }
+
+    .timeline .card{
+        position: relative;
+        max-width: 85vw;
     }
 }
 

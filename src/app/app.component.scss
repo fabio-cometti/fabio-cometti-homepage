@@ -41,12 +41,6 @@
 
 }
 
-@include desktop {
-    .intro {
-        background-image: url(/assets/images/intro-desktop.jpg);
-    }
-}
-
 .navigation {
     position: fixed;
     display: flex;
@@ -166,5 +160,32 @@
     100% {
         transform: scale(100%);
         opacity: 1;
+    }
+}
+
+@include tablet {
+    #intro {
+        transform: translateY(25em);
+    }
+
+    .quote {
+        font-size: 3em;
+    }
+}
+
+@include laptop {
+    #intro {
+        transform: translateY(5em);
+    }
+
+    .quote {
+        margin-top: 1em;
+        font-size: 4em;
+    }
+
+    .navigation {
+        .menu-button {
+            margin-right: 1em;
+        }
     }
 }

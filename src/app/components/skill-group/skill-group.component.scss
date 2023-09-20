@@ -1,11 +1,19 @@
+@import '../../../media-query.scss';
+
 .skills-container {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    gap: 2em 1em; 
-    
+    gap: 2em 1em;
+
     fc-skill-detail {
         width: 80px;
+    }
+}
+
+@include tablet {
+    .skills-container fc-skill-detail{
+        width: 120px;
     }
 }

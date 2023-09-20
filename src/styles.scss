@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+@import 'media-query.scss';
 
 :root {
     //Colors
@@ -154,6 +155,18 @@ fc-raptorize {
 @media only screen and (max-width: 280px) {
     p.text {
         font-size: 0.75em;;
+    }
+}
+
+@include tablet {
+    .glass {
+        font-size: 1.5em;
+    }
+}
+
+@include laptop {
+    .glass {
+        font-size: 2em;
     }
 }
 

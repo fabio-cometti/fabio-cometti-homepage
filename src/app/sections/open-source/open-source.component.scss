@@ -1,3 +1,5 @@
+@import '../../../media-query.scss';
+
 .open-source {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/openSource-mobile.webp?updatedAt=1693498159333);
 
@@ -102,5 +104,11 @@
             height: 80px;
             margin: auto;
         }
+    }
+}
+
+@include tablet {
+    .open-source {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/openSource.jpg?updatedAt=1695219366946);
     }
 }

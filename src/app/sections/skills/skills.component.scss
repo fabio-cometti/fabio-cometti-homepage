@@ -1,17 +1,25 @@
+@import '../../../media-query.scss';
+
 .skills {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/skills-mobile.webp?updatedAt=1691584769231);
-    padding-top: 2em; 
-    
+    padding-top: 2em;
+
     #skills {
-        padding: 0.8em;  
-        
+        padding: 0.8em;
+
         .glass {
             margin-bottom: 1em;
         }
-        
+
         fc-skill-group {
             margin-bottom: 1em;
         }
-    } 
-    
+    }
+
+}
+
+@include tablet {
+    .skills {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1600/skills.jpg?updatedAt=1695218431044);
+    }
 }

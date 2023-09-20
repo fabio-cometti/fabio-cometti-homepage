@@ -1,3 +1,5 @@
+@import '../../../media-query.scss';
+
 .projects {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/projects-mobile.webp?updatedAt=1693488500033);
     padding-top: 2em;
@@ -25,5 +27,11 @@
                 padding: 4px;
             }
         }
+    }
+}
+
+@include tablet {
+    .projects {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/projects.jpg?updatedAt=1695219153848);
     }
 }

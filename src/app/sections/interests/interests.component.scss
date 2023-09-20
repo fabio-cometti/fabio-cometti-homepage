@@ -1,7 +1,15 @@
+@import '../../../media-query.scss';
+
 .interests {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/interests-mobile.webp?updatedAt=1694170610874);
 }
 
 .wip {
     color: var(--accent);
+}
+
+@include tablet {
+    .interests {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/interests.jpg?updatedAt=1695222424882);
+    }
 }

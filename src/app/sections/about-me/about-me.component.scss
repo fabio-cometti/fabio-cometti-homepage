@@ -1,8 +1,16 @@
+@import '../../../media-query.scss';
+
 .about-me {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/aboutMe-mobile.webp?updatedAt=1691584750542);
-    padding-top: 2em; 
-    
+    padding-top: 2em;
+
     #about-me {
-        padding: 0.8em;        
-    }    
+        padding: 0.8em;
+    }
+}
+
+@include tablet {
+    .about-me {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-920,e-grayscale/aboutMe.jpg?updatedAt=1695217934470);
+    }
 }
