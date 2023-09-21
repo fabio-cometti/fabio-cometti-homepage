@@ -8,6 +8,7 @@
 
 #intro {
     transform: translateY(16em);
+    overflow: hidden;
 
     color: var(--primary);
     font-family: var(--ubuntu-300);
@@ -154,13 +155,17 @@
 
     100% {
         transform: scale(100%);
-        opacity: 1;
+        opacity: 0.8;
     }
 }
 
 @include tablet {
     #intro {
         transform: translateY(25em);
+    }
+
+    .intro {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:h-1400,e-grayscale/verona.jpg?updatedAt=1695212484295);
     }
 
     .quote {
@@ -174,16 +179,24 @@
     }
 
     .intro {
-        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1080,e-grayscale/verona.jpg?updatedAt=1695212484295);
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,cm-extract,fo-bottom_center,e-grayscale/verona-2022.jpg?updatedAt=1695298683410);
     }
 
     .quote {
         margin-top: 1em;
-        font-size: 4em;
+        font-size: 3.5em;
+        // background-color: var(--dark-gray);
+        // padding: 0.5em;
+        // border-radius: var(--border-radius);
     }
 
     .navigation {
         .menu-button {
+            margin-right: 1em;
+        }
+
+        .links-container {
+            font-size: 1.5em;
             margin-right: 1em;
         }
     }

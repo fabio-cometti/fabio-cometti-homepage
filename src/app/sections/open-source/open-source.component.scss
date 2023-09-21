@@ -112,3 +112,9 @@
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/openSource.jpg?updatedAt=1695219366946);
     }
 }
+
+@include laptop {
+    .open-source {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/openSource.jpg?updatedAt=1695219366946);
+    }
+}

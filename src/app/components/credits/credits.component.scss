@@ -1,8 +1,10 @@
+@import '../../../media-query.scss';
+
 div.bg {
     background-color: black;
     color: #ff6;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     position: fixed;
     text-align: center;
     top: 0;
@@ -191,4 +193,14 @@ h1 sub
         cursor: pointer;
         margin: 8px;
     }
+}
+
+@include laptop {
+    p#start {
+		transform: translateY(10vh);
+	}
+
+	h1 {
+		top: 20%;
+	}
 }

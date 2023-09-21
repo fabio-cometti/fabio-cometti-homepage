@@ -167,6 +167,21 @@ fc-raptorize {
 @include laptop {
     .glass {
         font-size: 2em;
+
+        &::before{
+
+            top: calc(100% + 60px);
+            left: -30vw;
+            transform: rotate(45deg);
+            width: 300vw;
+            transition: .7s transform;
+          }
+
+          &:hover {
+            &::before{
+                transform: rotate(45deg) translateY(-300vh);
+            }
+        }
     }
 }
 

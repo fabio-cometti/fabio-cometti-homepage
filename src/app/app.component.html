@@ -25,7 +25,7 @@
                     Technical leader
                 </div>
             </div>
-            <div class="quote" *ngIf="(quote$ | async) as quote">
+            <div class="quote glass" *ngIf="(quote$ | async) as quote">
                 <span>"{{quote.quote}}"</span><br>
                 <div>
                     [{{quote.author}} <span *ngIf="!!quote.opera">- {{quote.opera}}</span>]

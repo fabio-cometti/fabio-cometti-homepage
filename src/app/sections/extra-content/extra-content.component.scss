@@ -9,7 +9,13 @@
 }
 
 @include tablet {
-    .interests {
+    .extra {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/wip.jpg?updatedAt=1695222445796);
+    }
+}
+
+@include laptop {
+    .extra {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-custom,e-grayscale/wip.jpg?updatedAt=1695222445796);
     }
 }

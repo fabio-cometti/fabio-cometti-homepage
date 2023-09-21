@@ -23,3 +23,9 @@
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1600/skills.jpg?updatedAt=1695218431044);
     }
 }
+
+@include laptop {
+    .skills {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-bottom_right/skills.jpg?updatedAt=1695218431044);
+    }
+}

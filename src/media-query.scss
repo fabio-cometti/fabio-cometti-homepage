@@ -9,13 +9,13 @@ $desktop-width: 1920px;
 }
 
 @mixin laptop {
-    @media (min-width: #{$laptop-width}) and (max-width: #{$desktop-width - 1px}) {
+    @media (min-width: #{$laptop-width}) and (max-width: #{$desktop-width}) {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop-width}) {
+    @media (min-width: #{$desktop-width + 1px}) {
         @content;
     }
 }

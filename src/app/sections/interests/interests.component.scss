@@ -13,3 +13,9 @@
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/interests.jpg?updatedAt=1695222424882);
     }
 }
+
+@include laptop {
+    .interests {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/interests.jpg?updatedAt=1695222424882);
+    }
+}

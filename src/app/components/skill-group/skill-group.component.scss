@@ -17,3 +17,9 @@
         width: 120px;
     }
 }
+
+@include laptop {
+    .skills-container fc-skill-detail{
+        width: 160px;
+    }
+}
