@@ -30,6 +30,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   showMenu: boolean = false;
   faBars = faBars;
+  isEdge = false;
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   extraEnabled$: Observable<boolean>;
@@ -59,7 +60,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    //this.quote$
+    this.isEdge = window.navigator.userAgent.toLowerCase().indexOf('edg/') >= 0;
   }
 
   ngAfterViewInit(): void {

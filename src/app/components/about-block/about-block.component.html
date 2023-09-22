@@ -1,10 +1,9 @@
-<div *ngIf="{isHide: true} as isHide"
-    [class.out-of-view]="isHide.isHide"
+<div class="visibility-trigger" observeVisibility (visible)="isHide.isHide=false"></div>
+<div [class.out-of-view]="isHide.isHide"
     [class.left] = "position == 'left'"
     [class.right] = "position == 'right'"
     [class.large] = "large"
     class="glass">
-    <div class="visibility-trigger" observeVisibility (visible)="isHide.isHide=false"></div>
     <ng-content></ng-content>
 </div>
 <br />

@@ -41,7 +41,8 @@ export class ContactsComponent {
     this.title.setTitle('Fabio Cometti - Contacts');
   }
 
-  showContactForm(): void{
+  showContactForm(ev: Event): void{
+    ev.preventDefault();
     this.isContactFormVisible = true;
   }
 

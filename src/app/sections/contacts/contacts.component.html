@@ -6,7 +6,7 @@
     <a href="https://www.linkedin.com/in/fabio-cometti-9984984" target="_blank"><fa-icon title="LinkedIn" [icon]="faLinkedin"></fa-icon></a>
     <a href="http://fabiocometti.wordpress.com" target="_blank"><fa-icon title="Blog" [icon]="faWordpress"></fa-icon></a>
     <a href="https://github.com/fabio-cometti" target="_blank"><fa-icon title="Github" [icon]="faGithub"></fa-icon></a>
-    <a href="#" (click)="showContactForm()" target="_blank"><fa-icon title="Email" [icon]="faAt"></fa-icon></a>
+    <a href="#" (click)="showContactForm($event)" target="_blank"><fa-icon title="Email" [icon]="faAt"></fa-icon></a>
 </footer>
 <div class="contact-form"  [ngClass]="{ 'visible-form': isContactFormVisible}">
     <div class="glass">

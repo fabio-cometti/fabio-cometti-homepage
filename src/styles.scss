@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
 @import 'media-query.scss';
 
+@supports not (display: flex) {
+    .out-of-view {
+        opacity: 1;
+    }
+}
+
 :root {
     //Colors
-    --primary: crimson;
+    --primary: darkOrange;
     --primary-shadow: rgba( 255, 0, 0, 0.37 );
 
     --accent: #FFFFFF;
@@ -25,7 +31,7 @@
     --border-radius: 8px;
 
     //Effects
-    --contacts-shadow: 0px 0px 25px 20px #FFFFFF;
+    --contacts-shadow: 0px 0px 10px 2px #FFFFFF;
 }
 
 body {
@@ -64,7 +70,7 @@ body {
 
       &:hover {
         border: 1px solid #ffffff44;
-        box-shadow: 0 7px 50px 10px #000000aa;
+        box-shadow: 0 4px 40px 5px #000000aa;
 
         &::before{
             transform: translateY(-100vh);
@@ -134,6 +140,11 @@ p.text {
 .out-of-view {
     transform: translateY(20px);
     opacity: 0;
+}
+
+.edge .out-of-view {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .visibility-trigger {

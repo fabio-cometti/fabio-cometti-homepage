@@ -16,7 +16,7 @@ export class SkillDetailComponent {
   @Input('percent') percent: number = 0;
   @Input('label') label: string = '';
   @Input('isVisible') public set isVisible(visible: boolean) {
-    this._isVisible = visible;
+    this._isVisible = visible || window.navigator.userAgent.toLowerCase().indexOf('edg/') >= 0;
     if(this._isVisible) {
       timer(500).pipe(take(1)).subscribe(_ => {
         this.offset = this.circumference - (this.percent * 3.1415927);
@@ -27,6 +27,6 @@ export class SkillDetailComponent {
   offset: number = 314.15927;
   circumference = 314.15927;
 
-  constructor(private cd: ChangeDetectorRef) { 
+  constructor(private cd: ChangeDetectorRef) {
   }
 }

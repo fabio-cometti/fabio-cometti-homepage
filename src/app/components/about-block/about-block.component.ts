@@ -14,5 +14,7 @@ export class AboutBlockComponent {
   @Input('position') position: 'left' | 'right' = 'left';
   @Input('large') large: boolean = false;
 
+  isHide = {isHide: true};
+
   @HostBinding('class') display = 'block-component';
 }
