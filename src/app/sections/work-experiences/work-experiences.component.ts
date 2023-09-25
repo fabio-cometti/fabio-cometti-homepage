@@ -35,9 +35,9 @@ export class WorkExperiencesComponent {
       description: 'Since April 2022 I have been employed at Lemonpie as a software developer. Here I mainly deal with the re-engineering of existing applications, again on the .NET/Azure platform, applying the latest patterns to microservices. I also participated in the definition of company best practices regarding coding, versioning procedures and continuous integration pipelines. In addition to these activities, I continue to deal with training with internal developers and, occasionally, I provide consultancy to external customers, both in the Microsoft BizTalk area, as well as training on .NET, software architectures and design patterns.'
     },
     {
-      year: '2022',
+      year: '2019',
       company: 'Lutech S.p.A.',
-      description: 'In June 2019 Disc was acquired by Lutech and since January 2022 it has been completely absorbed by it. In these three years my duties have remained essentially the same, with an exponential increase in cloud projects (mainly Azure) compared to on premises ones. I also deepened the issues of secure coding in the web and training activities, also with external customers.'
+      description: 'Since June 2019 I start working in Lutech . Here my tasks were mainly those of software architect and development of distributed applications, with an exponential increase in cloud projects (mainly Azure) compared to on premises ones. I also deepened the issues of secure coding in the web and training activities, also with external customers.'
     },
     {
       year: '2008',
