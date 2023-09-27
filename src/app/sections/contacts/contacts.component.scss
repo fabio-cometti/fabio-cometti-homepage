@@ -37,6 +37,13 @@
                 border: none 0;
             }
         }
+
+        &.iubenda-white {
+            font-family: var(--ubuntu-300);
+            font-size: 0.5em;
+            flex-basis: 100%;
+            text-align: center;
+        }
     }
 }
 
