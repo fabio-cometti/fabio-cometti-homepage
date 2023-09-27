@@ -1,7 +1,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "base-uri 'self'; block-all-mixed-content; child-src 'self'; connect-src 'self'; default-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https://ik.imagekit.io; object-src 'none'; script-src 'self' 'https://cdn.iubenda.com' 'https://cs.iubenda.com' 'nonce-999999999' 'unsafe-inline'; script-src-elem 'self' 'https://cdn.iubenda.com' 'https://cs.iubenda.com' 'nonce-999999999'; style-src 'self' https://fonts.googleapis.com 'nonce-999999999' 'unsafe-inline'; upgrade-insecure-requests;"
+    Content-Security-Policy = "base-uri 'self'; block-all-mixed-content; child-src 'self'; connect-src 'self'; default-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-ancestors 'none'; img-src 'self' data: https://ik.imagekit.io; object-src 'none'; script-src 'self' https://cdn.iubenda.com https://cs.iubenda.com 'nonce-999999999' 'unsafe-inline'; script-src-elem 'self' https://cdn.iubenda.com https://cs.iubenda.com 'nonce-999999999'; style-src 'self' https://fonts.googleapis.com 'nonce-999999999' 'unsafe-inline'; upgrade-insecure-requests;"
 
 [[headers]]
   for = "/*"
