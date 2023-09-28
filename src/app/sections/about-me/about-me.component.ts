@@ -5,7 +5,7 @@ import { ScrollSectionDirective } from 'src/app/directives/scroll-section.direct
 import { Title } from '@angular/platform-browser';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
-import { Observable } from 'rxjs';
+import { Observable, switchMap, timer } from 'rxjs';
 import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
 
@@ -28,7 +28,9 @@ export class AboutMeComponent {
   gallery$: Observable<GalleryItem[]>;
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery1.json');
+    this.gallery$ = timer(2000).pipe(switchMap(() =>
+      this.http.get<GalleryItem[]>('/assets/gallery1.json')
+    ))
   }
 
   onVisible(): void {
