@@ -79,7 +79,7 @@
         mutations.forEach(function(mutation) {
             for(var i = 0; i < mutation.addedNodes.length; i++)
               if(mutation.addedNodes[i].localName === 'style' && !mutation.addedNodes[i].hasAttribute('nonce')) {
-                mutation.addedNodes[i].setAttribute('nonce', '999999999');
+                //mutation.addedNodes[i].setAttribute('nonce', '999999999');
               }
         })
     });
