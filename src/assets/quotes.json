@@ -65,5 +65,57 @@
         "quote": "I'm Mr Wolf, I solve problems.",
         "author": "Winston Wolf",
         "opera": "Pulp fiction"
+    },
+    {
+        "quote": "Let the wookie win.",
+        "author": "C-3PO",
+        "opera": "Star Wars"
+    },
+    {
+        "quote": "These are not the droids you are looking for.",
+        "author": "Obi-Wan Kenobi",
+        "opera": "Star Wars"
+    },
+    {
+        "quote": "Say 'What' again!",
+        "author": "Jules Winnfield",
+        "opera": "Pulp fiction"
+    },
+    {
+        "quote": "Those who dream by day are cognisant of many things which escape those who dream only by night.",
+        "author": "Edgar Allan Poe"
+    },
+    {
+        "quote": "Not all treasure is silver and gold mate.",
+        "author": "Jack Sparrow",
+        "opera": "Pirates of Caribbean"
+    },
+    {
+        "quote": "Stop telling God what to do with his dice.",
+        "author": "Niels Bohr"
+    },
+    {
+        "quote": "Remember to look up at the stars and not down at your feet.",
+        "author": "Stephen Hawking"
+    },
+    {
+        "quote": "Say my name...",
+        "author": "Walter White",
+        "opera": "Breaking Bad"
+    },
+    {
+        "quote": "I am the danger!",
+        "author": "Walter White",
+        "opera": "Breaking Bad"
+    },
+    {
+        "quote": "This is how libery dies: with thunderous applause",
+        "author": "Padmé Amidala",
+        "opera": "Star Wars"
+    },
+    {
+        "quote": "You can get further with a kind word and a gun than you can with just a kind word.",
+        "author": "Al Capone",
+        "opera": "The untouchables"
     }
 ]
