@@ -67,7 +67,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    timer(3000).subscribe( _ => this.loadComponents());
+    timer(100).subscribe( _ => this.loadComponents());
   }
 
   loadComponents() {
