@@ -119,6 +119,18 @@
     }
 }
 
+.extra-content-hint {
+    color: var(--accent);
+    font-family: var(--ubuntu-300);
+    padding: 0 10px;
+    margin-top: 20px;
+    text-align: center;
+
+    &.hide-extra-hint {
+        display: none;
+    }
+}
+
 @include laptop {
     .contact-form .glass {
         height: 80vh;

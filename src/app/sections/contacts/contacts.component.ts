@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faFacebook, faTwitter, faLinkedin, faGithub, faInstagram, faWordpress } from '@fortawesome/free-brands-svg-icons';
 import { faAt, faClose } from '@fortawesome/free-solid-svg-icons';
@@ -8,6 +8,7 @@ import { Title } from '@angular/platform-browser';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactRequest, ContactRequestForm } from 'src/app/models/contact-request';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'fc-contacts',
@@ -28,6 +29,8 @@ export class ContactsComponent {
   faClose = faClose;
 
   public isContactFormVisible: boolean = false;
+
+  @Input('hideExtraContentHint') hideExtraContentHint = false;
 
   contactRequestForm = this.fb.group<ContactRequestForm>({
     email: this.fb.control('', {nonNullable: true, validators: [Validators.required, Validators.email]}),

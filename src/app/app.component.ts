@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, QueryList, Type, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, OnInit, QueryList, Type, ViewChildren } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -37,6 +37,8 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   quote$: Observable<Quote>;
 
+  contactComponent?: ComponentRef<unknown>;
+
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
 
   constructor(private http: HttpClient) {
@@ -51,6 +53,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     this.extraEnabled$.subscribe( _ => {
       import('./sections/extra-content/extra-content.component').then(({ ExtraContentComponent }) => {
         this.initComponent(6, ExtraContentComponent);
+        this.contactComponent?.setInput('hideExtraContentHint', true);
       });
     });
 
@@ -94,7 +97,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     });
 
     import('./sections/contacts/contacts.component').then(({ ContactsComponent }) => {
-      this.initComponent(7, ContactsComponent);
+      this.contactComponent = this.initComponent(7, ContactsComponent);
     });
   }
 
@@ -107,9 +110,10 @@ export class AppComponent implements AfterViewInit, OnInit {
     this.extraBehaviorSubject.next('' + menuVoice);
   }
 
-  private initComponent(index: number, type: Type<unknown>) : void {
+  private initComponent(index: number, type: Type<unknown>) : ComponentRef<unknown> {
     const viewContainerRef = this.sectionHosts.get(index)!.viewContainerRef;
       viewContainerRef.clear();
       const cRef = viewContainerRef.createComponent(type);
+      return cRef;
   }
 }
