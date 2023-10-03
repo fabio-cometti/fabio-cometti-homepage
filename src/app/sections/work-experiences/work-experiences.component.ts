@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
@@ -6,7 +6,7 @@ import { WorkExperienceBlockComponent } from 'src/app/components/work-experience
 import { Experience } from 'src/app/models/experience';
 import { Title } from '@angular/platform-browser';
 import { GalleryItem } from 'src/app/models/gallery-item';
-import { Observable, timer } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 
@@ -28,8 +28,6 @@ export class WorkExperiencesComponent {
   isHide: boolean = true;
   gallery$: Observable<GalleryItem[]>;
 
-  noImage: boolean = true;
-
   experiences: Experience[] = [
     {
       year: '2022',
@@ -50,12 +48,8 @@ export class WorkExperiencesComponent {
 
 
 
-  constructor(private title: Title, private http: HttpClient, private cd: ChangeDetectorRef) {
+  constructor(private title: Title, private http: HttpClient) {
     this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery4.json');
-    timer(3000).subscribe(() => {
-      this.noImage = false;
-      this.cd.markForCheck();
-    });
   }
 
   onVisible(): void {

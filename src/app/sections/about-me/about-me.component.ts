@@ -28,7 +28,7 @@ export class AboutMeComponent {
   gallery$: Observable<GalleryItem[]>;
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = timer(3000).pipe(switchMap(() =>
+    this.gallery$ = timer(0).pipe(switchMap(() =>
       this.http.get<GalleryItem[]>('/assets/gallery1.json')
     ))
   }
