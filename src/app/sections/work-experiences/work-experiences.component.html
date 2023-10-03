@@ -1,4 +1,4 @@
-<div class="parallax-container work-experiences">
+<div class="parallax-container work-experiences" [ngClass]="{'no-image': noImage}">
     <section id="work-experiences" appScrollSection="work-experiences">
         <div observeVisibility (visible)="onVisible()"></div>
         <div class="glass"

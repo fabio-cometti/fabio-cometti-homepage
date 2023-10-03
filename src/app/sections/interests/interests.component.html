@@ -1,4 +1,4 @@
-<div class="parallax-container interests">
+<div class="parallax-container interests" [ngClass]="{'no-image': noImage}">
     <section id="interests" appScrollSection="interests">
         <div observeVisibility (visible)="onVisible()"></div>
         <fc-about-block position="left">

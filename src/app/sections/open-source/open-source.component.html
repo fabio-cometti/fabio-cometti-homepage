@@ -1,4 +1,4 @@
-<div class="parallax-container open-source">
+<div class="parallax-container open-source" [ngClass]="{'no-image': noImage}">
     <section id="open-source" appScrollSection="open-source">
         <div observeVisibility (visible)="onVisible()"></div>
         <fc-about-block position="left">
