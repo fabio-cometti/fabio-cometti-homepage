@@ -72,7 +72,7 @@ export class AppComponent implements AfterViewInit, OnInit {
     timer(3000).subscribe( _ => this.loadComponents());
     this.topGlass?.nativeElement.scrollIntoView({
       behavior: 'smooth',
-    }
+    });
   }
 
   loadComponents() {
