@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentRef, OnInit, QueryList, Type, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, ElementRef, OnInit, QueryList, Type, ViewChild, ViewChildren } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -31,6 +31,8 @@ export class AppComponent implements AfterViewInit, OnInit {
   showMenu: boolean = false;
   faBars = faBars;
   isEdge = false;
+
+  @ViewChild('topGlass') topGlass?: ElementRef;
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   extraEnabled$: Observable<boolean>;
@@ -68,6 +70,9 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   ngAfterViewInit(): void {
     timer(3000).subscribe( _ => this.loadComponents());
+    this.topGlass?.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+    }
   }
 
   loadComponents() {
