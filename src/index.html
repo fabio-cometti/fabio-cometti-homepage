@@ -80,6 +80,7 @@
     <textarea type="text" name="message" autocomplete="off"></textarea>
   </form>
   <script type="text/javascript" nonce="999999999">
+    window.onbeforeunload = function(){ 	window.scrollTo(0,0); }
     setTimeout(() => {
       let scriptEle = document.createElement("script");
       scriptEle.setAttribute("src", "https://cdn.iubenda.com/cs/versions/iubenda_cs-1.50.1.js");
