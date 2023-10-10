@@ -109,7 +109,7 @@
         "opera": "Breaking Bad"
     },
     {
-        "quote": "This is how libery dies: with thunderous applause",
+        "quote": "This is how liberty dies, with thunderous applause",
         "author": "Padmé Amidala",
         "opera": "Star Wars"
     },
@@ -163,5 +163,20 @@
     {
         "quote": "Inside a ring or outside, there's nothing wrong with falling. It's wrong to stay on the ground.",
         "author": "Muhammad Ali"
+    },
+    {
+        "quote": "Put... the candle... back!",
+        "author": "Dr. Frederick Frankenstein",
+        "opera": "Young Frankenstein"
+    },
+    {
+        "quote": " There, wolf. There, castle.",
+        "author": "Igor",
+        "opera": "Young Frankenstein"
+    },
+    {
+        "quote": "Could be worse. Could be raining.",
+        "author": "Igor",
+        "opera": "Young Frankenstein"
     }
 ]
