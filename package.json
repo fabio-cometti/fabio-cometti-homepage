@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "build-scully": "ng build && npx scully --project fabio-cometti-homepage && brotli-cli compress dist/static/index.html",
+    "build-scully": "ng build && npx scully --showGuessError --scanRoutes --project fabio-cometti-homepage && brotli-cli compress dist/static/index.html",
     "start-server": "http-server dist/static -g -b"
   },
   "private": true,
