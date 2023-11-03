@@ -5,7 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development"
+    "watch": "ng build --watch --configuration development",
+    "build-scully": "ng build && npx scully --project fabio-cometti-homepage && brotli-cli compress dist/static/index.html",
+    "start-server": "http-server dist/static -g -b"
   },
   "private": true,
   "dependencies": {
@@ -20,6 +22,8 @@
     "@fortawesome/angular-fontawesome": "^0.13.0",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
+    "@scullyio/init": "^2.1.21",
+    "@scullyio/scully-plugin-puppeteer": "^2.1.41",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
@@ -31,6 +35,7 @@
     "@angular/compiler-cli": "^16.1.0",
     "brotli-webpack-plugin": "^1.1.0",
     "compression-webpack-plugin": "^10.0.0",
+    "html-webpack-plugin": "^5.5.3",
     "typescript": "~5.1.3"
   }
 }

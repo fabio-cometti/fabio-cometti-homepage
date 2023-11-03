@@ -39,7 +39,7 @@
         "enableRemoteConsent": true
       }};
   </script>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3324443.js" async></script>
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3324443.js" defer></script>
   <style>
     body {
       margin: 0;
@@ -92,7 +92,7 @@
   </style>
 </head>
 <body>
-  <fc-root ngCspNonce="999999999"><div class="lds-ring"><div></div><div></div><div></div><div></div></div><div class="loading">Loading...</div></fc-root>
+  <fc-router-wrapper ngCspNonce="999999999"><div class="lds-ring"><div></div><div></div><div></div><div></div></div><div class="loading">Loading...</div></fc-router-wrapper>
   <noscript>Please enable JavaScript to continue using this application.</noscript>
   <form name="contactRequestForm" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="email" autocomplete="off" />
@@ -100,15 +100,6 @@
   </form>
   <script type="text/javascript" nonce="999999999">
     window.onbeforeunload = function(){ 	window.scrollTo(0,0); }
-    setTimeout(() => {
-      let scriptEle = document.createElement("script");
-      scriptEle.setAttribute("src", "https://cdn.iubenda.com/cs/iubenda_cs.js");
-      scriptEle.setAttribute("type", "text/javascript");
-      scriptEle.setAttribute("async", "async");
-      scriptEle.setAttribute("nonce", "999999999");
-      scriptEle.setAttribute("charset", "UTF-8");
-      document.body.appendChild(scriptEle);
-    }, 6000);
   </script>
 </body>
 </html>

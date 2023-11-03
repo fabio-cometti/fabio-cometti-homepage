@@ -1,0 +1,12 @@
+identifier: l5o168x7yc32uclc
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: fabio-cometti-homepage
+homeFolder: C:\Users\fabio.cometti.LEMONPIE\Progetti\QuokkaDev\fabio-cometti-homepage
+distFolder: dist/fabio-cometti-homepage
+outDir: >-
+  C:\Users\fabio.cometti.LEMONPIE\Progetti\QuokkaDev\fabio-cometti-homepage\dist\static
+handle404: ''
+allowErrorCollect: false

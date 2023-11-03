@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
-import { BehaviorSubject, Observable, bufferCount, filter, map, take, timer } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, map, merge, take, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
 
@@ -34,6 +34,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   extraEnabled$: Observable<boolean>;
+  private menuSubject: Subject<void> = new Subject<void>();
 
   quote$: Observable<Quote>;
 
@@ -67,7 +68,11 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit(): void {
-    timer(3000).subscribe( _ => this.loadComponents());
+    const scrollEvent = fromEvent(window, 'scroll', { capture: true });
+    merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
+      this.loadIubendaScript();
+      this.loadComponents();
+    });
   }
 
   loadComponents() {
@@ -101,8 +106,18 @@ export class AppComponent implements AfterViewInit, OnInit {
     });
   }
 
+  loadIubendaScript() : void {
+    let scriptEle = document.createElement("script");
+    scriptEle.setAttribute("src", "https://cdn.iubenda.com/cs/iubenda_cs.js");
+    scriptEle.setAttribute("type", "text/javascript");
+    scriptEle.setAttribute("async", "async");
+    scriptEle.setAttribute("charset", "UTF-8");
+    document.body.appendChild(scriptEle);
+  }
+
   toggleMenu(): void {
     this.showMenu = !this.showMenu;
+    this.menuSubject.next();
   }
 
   closeMenu(menuVoice: number): void {
