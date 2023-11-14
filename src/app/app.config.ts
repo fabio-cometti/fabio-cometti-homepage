@@ -4,6 +4,7 @@ import { provideAnimations} from '@angular/platform-browser/animations';
 import { provideImageKitLoader } from '@angular/common';
 import { Routes, provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
+import { provideClientHydration } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: '', component: AppComponent}
@@ -15,5 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideAnimations(),
     provideImageKitLoader('https://ik.imagekit.io/bzuos3bkr/'),
     provideRouter(routes),
+    provideClientHydration(),
   ]
 };

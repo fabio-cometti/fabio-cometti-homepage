@@ -1,5 +1,5 @@
-import { AfterViewInit, Component, ComponentRef, OnInit, QueryList, Type, ViewChildren } from '@angular/core';
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChildren } from '@angular/core';
+import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -9,6 +9,7 @@ import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
 import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, map, merge, take, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
+import { WindowRefService } from './services/window-ref.service';
 
 
 @Component({
@@ -42,7 +43,7 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
     this.extraEnabled$ = this.extraBehaviorSubject.asObservable().pipe(
       bufferCount(6, 1),
       map(menuVoiceList => menuVoiceList.join('')),
@@ -64,15 +65,19 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   ngOnInit(): void {
-    this.isEdge = window.navigator.userAgent.toLowerCase().indexOf('edg/') >= 0;
+    if(isPlatformBrowser(this.platformId)) {
+      this.isEdge = this.windowRef.nativeWindow.navigator.userAgent.toLowerCase().indexOf('edg/') >= 0;
+    }
   }
 
   ngAfterViewInit(): void {
-    const scrollEvent = fromEvent(window, 'scroll', { capture: true });
-    merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
-      this.loadIubendaScript();
-      this.loadComponents();
-    });
+    if(isPlatformBrowser(this.platformId)) {
+      const scrollEvent = fromEvent(this.windowRef.nativeWindow, 'scroll', { capture: true });
+      merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
+        this.loadIubendaScript();
+        this.loadComponents();
+      });
+    }
   }
 
   loadComponents() {

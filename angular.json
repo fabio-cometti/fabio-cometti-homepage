@@ -44,7 +44,7 @@
         "build": {
           "builder":"@angular-builders/custom-webpack:browser",
           "options":{
-            "outputPath": "dist/fabio-cometti-homepage",
+            "outputPath": "dist/fabio-cometti-homepage/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -66,7 +66,6 @@
             "customWebpackConfig": {
                   "path": "./custom-webpack.config.js"
             }
-
           },
           "configurations": {
             "production": {
@@ -112,6 +111,61 @@
           "options": {
             "buildTarget": "fabio-cometti-homepage:build"
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/fabio-cometti-homepage/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json",
+            "inlineStyleLanguage": "scss"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false,
+              "vendorChunk": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "fabio-cometti-homepage:build:development",
+              "serverTarget": "fabio-cometti-homepage:server:development"
+            },
+            "production": {
+              "browserTarget": "fabio-cometti-homepage:build:production",
+              "serverTarget": "fabio-cometti-homepage:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@angular-devkit/build-angular:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "fabio-cometti-homepage:build:production",
+              "serverTarget": "fabio-cometti-homepage:server:production"
+            },
+            "development": {
+              "browserTarget": "fabio-cometti-homepage:build:development",
+              "serverTarget": "fabio-cometti-homepage:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
