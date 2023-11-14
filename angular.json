@@ -99,10 +99,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fabio-cometti-homepage:build:production"
+              "buildTarget": "fabio-cometti-homepage:build:production"
             },
             "development": {
-              "browserTarget": "fabio-cometti-homepage:build:development"
+              "buildTarget": "fabio-cometti-homepage:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -110,7 +110,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fabio-cometti-homepage:build"
+            "buildTarget": "fabio-cometti-homepage:build"
           }
         }
       }
