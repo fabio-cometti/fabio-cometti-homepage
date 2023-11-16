@@ -9,11 +9,12 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ContactRequest, ContactRequestForm } from 'src/app/models/contact-request';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CreditsComponent } from 'src/app/components/credits/credits.component';
 
 @Component({
   selector: 'fc-contacts',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, ObserveVisibilityDirective, ReactiveFormsModule],
+  imports: [CommonModule, FontAwesomeModule, ObserveVisibilityDirective, ReactiveFormsModule, CreditsComponent],
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -29,6 +30,7 @@ export class ContactsComponent {
   faClose = faClose;
 
   public isContactFormVisible: boolean = false;
+  showCredits = false;
 
   @Input('hideExtraContentHint') hideExtraContentHint = false;
 
@@ -75,5 +77,14 @@ export class ContactsComponent {
         this.isContactFormVisible = false;
       }
     });
+  }
+
+  credits(event: Event): void {
+    event.preventDefault();
+    this.showCredits = true;
+  }
+
+  closeCredits(): void {
+    this.showCredits = false;
   }
 }

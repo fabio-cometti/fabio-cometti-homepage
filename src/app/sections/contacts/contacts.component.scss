@@ -10,6 +10,16 @@
     align-items: center;
     gap: 1em;
 
+    div {
+        color: #DEDEDE;
+        flex-basis: 100%;
+        text-align: center;
+
+        > a {
+            display: inline;
+        }
+    }
+
     a {
         text-decoration: none;
         color: #DEDEDE;

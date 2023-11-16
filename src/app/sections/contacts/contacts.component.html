@@ -10,7 +10,11 @@
     <a href="http://fabiocometti.wordpress.com" target="_blank"><fa-icon title="Blog" [icon]="faWordpress"></fa-icon></a>
     <a href="https://github.com/fabio-cometti" target="_blank"><fa-icon title="Github" [icon]="faGithub"></fa-icon></a>
     <a href="#" (click)="showContactForm($event)" target="_blank"><fa-icon title="Email" [icon]="faAt"></fa-icon></a>
-    <a href="https://www.iubenda.com/privacy-policy/64364126" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a>
+    <div>
+        <a href="https://www.iubenda.com/privacy-policy/64364126" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a>
+        &nbsp;|&nbsp;
+        <a href="#" (click)="credits($event)" class="iubenda-white">Credits</a>
+    </div>
 </footer>
 <div class="contact-form"  [ngClass]="{ 'visible-form': isContactFormVisible}">
     <div class="glass">
@@ -34,3 +38,4 @@
         </form>
     </div>
 </div>
+<fc-credits (close)="closeCredits()" *ngIf="showCredits"></fc-credits>
