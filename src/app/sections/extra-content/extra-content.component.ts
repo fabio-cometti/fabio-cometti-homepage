@@ -4,12 +4,10 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faClock, faFilm, faGift, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faGift, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@angular/platform-browser';
 import { RaptorizeComponent } from 'src/app/components/raptorize/raptorize.component';
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CreditsComponent } from 'src/app/components/credits/credits.component';
 import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -25,7 +23,6 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
     AboutBlockComponent,
     FontAwesomeModule,
     RaptorizeComponent,
-    CreditsComponent,
     GalleryComponent
   ],
   templateUrl: './extra-content.component.html',
