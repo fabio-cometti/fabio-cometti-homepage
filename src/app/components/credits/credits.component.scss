@@ -184,7 +184,7 @@ h1 sub
 
 .close-button-row{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     color: #fff;
 
     div {
@@ -193,6 +193,14 @@ h1 sub
         cursor: pointer;
         margin: 8px;
     }
+
+	span {
+		display: inline-block;
+		font-size: 1em;
+		line-height: 32px;
+		margin: 0;
+		padding-left: 0.5em;
+	}
 }
 
 @include laptop {
