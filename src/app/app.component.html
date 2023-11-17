@@ -14,7 +14,7 @@
         </div>
     </nav>
     <div class="parallax-container intro">
-        <section id="intro" appScrollSection="intro">
+        <section #top id="intro" appScrollSection="intro">
             <div class="intro-container glass">
                 <div class="name">
                     Fabio Cometti
@@ -64,3 +64,9 @@
     </div>
     <ng-template sectionHost></ng-template>
 </div>
+
+@if(showScrollToTop){
+    <div title="Scroll to top" class="glass scroll-to-top" (click)="scrollToTop()">
+        <fa-icon [icon]="faArrowUp"></fa-icon>
+    </div>
+}

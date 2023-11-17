@@ -1,8 +1,8 @@
-import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChild, ViewChildren, ElementRef } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
@@ -10,7 +10,6 @@ import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, m
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
 import { WindowRefService } from './services/window-ref.service';
-
 
 @Component({
   selector: 'fc-root',
@@ -30,7 +29,9 @@ import { WindowRefService } from './services/window-ref.service';
 export class AppComponent implements AfterViewInit, OnInit {
 
   showMenu: boolean = false;
+  showScrollToTop = false;
   faBars = faBars;
+  faArrowUp = faArrowUp;
   isEdge = false;
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
@@ -42,6 +43,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   contactComponent?: ComponentRef<unknown>;
 
   @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
+  @ViewChild('top') top!: ElementRef;
 
   constructor(private http: HttpClient, private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
     this.extraEnabled$ = this.extraBehaviorSubject.asObservable().pipe(
@@ -76,6 +78,16 @@ export class AppComponent implements AfterViewInit, OnInit {
       merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
         this.loadIubendaScript();
         this.loadComponents();
+      });
+
+      scrollEvent.subscribe( _ => {
+        var height = this.windowRef.nativeWindow.scrollY;
+        var winheight = this.windowRef.nativeWindow.innerHeight;
+        if(height  > winheight) {
+          this.showScrollToTop = true;
+        } else {
+          this.showScrollToTop = false;
+        }
       });
     }
   }
@@ -128,6 +140,12 @@ export class AppComponent implements AfterViewInit, OnInit {
   closeMenu(menuVoice: number): void {
     this.showMenu = false;
     this.extraBehaviorSubject.next('' + menuVoice);
+  }
+
+  scrollToTop(): void {
+    this.top.nativeElement.scrollIntoView({
+      behavior: 'smooth',
+    });
   }
 
   private initComponent(index: number, type: Type<unknown>) : ComponentRef<unknown> {
