@@ -4,7 +4,7 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFilm, faGift, faGraduationCap } from '@fortawesome/free-solid-svg-icons';
+import { faFilm, faGift, faGraduationCap, faShieldHalved, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@angular/platform-browser';
 import { RaptorizeComponent } from 'src/app/components/raptorize/raptorize.component';
 import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
@@ -53,6 +53,8 @@ export class ExtraContentComponent {
   faGift = faGift;
   faGraduationCap = faGraduationCap;
   faFilm = faFilm;
+  faStopwatch = faStopwatch;
+  faShieldHalved = faShieldHalved;
   raptorState =  'stopped';
   showCredits = false;
 
