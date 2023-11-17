@@ -10,21 +10,39 @@ import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, m
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
 import { WindowRefService } from './services/window-ref.service';
+import { AboutMeComponent } from './sections/about-me/about-me.component';
+import { PlaceholderComponent } from './components/placeholder/placeholder.component';
+import { SkillsComponent } from "./sections/skills/skills.component";
+import { WorkExperiencesComponent } from "./sections/work-experiences/work-experiences.component";
+import { ProjectsComponent } from "./sections/projects/projects.component";
+import { OpenSourceComponent } from "./sections/open-source/open-source.component";
+import { InterestsComponent } from "./sections/interests/interests.component";
+import { ContactsComponent } from "./sections/contacts/contacts.component";
+import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
 
 @Component({
-  selector: 'fc-root',
-  standalone: true,
-  imports: [
-    CommonModule,
-    DynamicSection,
-    FontAwesomeModule,
-    ScrollManagerDirective,
-    ScrollSectionDirective,
-    ScrollAnchorDirective,
-    NgOptimizedImage
-  ],
-  templateUrl: 'app.component.html',
-  styleUrls: ['app.component.scss'],
+    selector: 'fc-root',
+    standalone: true,
+    templateUrl: 'app.component.html',
+    styleUrls: ['app.component.scss'],
+    imports: [
+        CommonModule,
+        DynamicSection,
+        FontAwesomeModule,
+        ScrollManagerDirective,
+        ScrollSectionDirective,
+        ScrollAnchorDirective,
+        NgOptimizedImage,
+        PlaceholderComponent,
+        AboutMeComponent,
+        SkillsComponent,
+        WorkExperiencesComponent,
+        ProjectsComponent,
+        OpenSourceComponent,
+        InterestsComponent,
+        ContactsComponent,
+        ExtraContentComponent
+    ]
 })
 export class AppComponent implements AfterViewInit, OnInit {
 
@@ -42,7 +60,6 @@ export class AppComponent implements AfterViewInit, OnInit {
 
   contactComponent?: ComponentRef<unknown>;
 
-  @ViewChildren(DynamicSection) sectionHosts!:  QueryList<DynamicSection>;
   @ViewChild('top') top!: ElementRef;
 
   constructor(private http: HttpClient, private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
@@ -53,13 +70,6 @@ export class AppComponent implements AfterViewInit, OnInit {
       map(menuVoiceListString => true),
       take(1)
     );
-
-    this.extraEnabled$.subscribe( _ => {
-      import('./sections/extra-content/extra-content.component').then(({ ExtraContentComponent }) => {
-        this.initComponent(6, ExtraContentComponent);
-        this.contactComponent?.setInput('hideExtraContentHint', true);
-      });
-    });
 
     this.quote$ = this.http.get<Quote[]>('/assets/quotes.json').pipe(
       map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
@@ -77,7 +87,6 @@ export class AppComponent implements AfterViewInit, OnInit {
       const scrollEvent = fromEvent(this.windowRef.nativeWindow, 'scroll', { capture: true });
       merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
         this.loadIubendaScript();
-        this.loadComponents();
       });
 
       scrollEvent.subscribe( _ => {
@@ -90,37 +99,6 @@ export class AppComponent implements AfterViewInit, OnInit {
         }
       });
     }
-  }
-
-  loadComponents() {
-
-    import('./sections/about-me/about-me.component').then(({ AboutMeComponent}) => {
-      this.initComponent(0, AboutMeComponent);
-    });
-
-    import('./sections/skills/skills.component').then(({ SkillsComponent}) => {
-      this.initComponent(1, SkillsComponent);
-    });
-
-    import('./sections/work-experiences/work-experiences.component').then(({ WorkExperiencesComponent}) => {
-      this.initComponent(2, WorkExperiencesComponent);
-    });
-
-    import('./sections/projects/projects.component').then(({ ProjectsComponent }) => {
-      this.initComponent(3, ProjectsComponent );
-    });
-
-    import('./sections/open-source/open-source.component').then(({ OpenSourceComponent }) => {
-      this.initComponent(4, OpenSourceComponent);
-    });
-
-    import('./sections/interests/interests.component').then(({ InterestsComponent }) => {
-      this.initComponent(5, InterestsComponent);
-    });
-
-    import('./sections/contacts/contacts.component').then(({ ContactsComponent }) => {
-      this.contactComponent = this.initComponent(7, ContactsComponent);
-    });
   }
 
   loadIubendaScript() : void {
@@ -146,12 +124,5 @@ export class AppComponent implements AfterViewInit, OnInit {
     this.top.nativeElement.scrollIntoView({
       behavior: 'smooth',
     });
-  }
-
-  private initComponent(index: number, type: Type<unknown>) : ComponentRef<unknown> {
-    const viewContainerRef = this.sectionHosts.get(index)!.viewContainerRef;
-      viewContainerRef.clear();
-      const cRef = viewContainerRef.createComponent(type);
-      return cRef;
   }
 }

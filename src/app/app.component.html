@@ -1,6 +1,6 @@
 <div class="outer" appScrollManager [ngClass]="{ 'edge': isEdge}">
     <nav class="navigation">
-        <button id="menu" aria-label="menu" class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars"></fa-icon></button>
+        <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars"></fa-icon></button>
         <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu }">
             <ul class="links">
                 <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu(0)">About me</li>
@@ -33,36 +33,64 @@
         </section>
     </div>
     <section class="buffer"></section>
-    <div class="s s1">
-        <ng-template sectionHost></ng-template>
+    <fc-placeholder />
+    <div class="s">
+        @defer (on viewport;  on interaction(menuButton)) {
+            <fc-about-me></fc-about-me>
+        } @placeholder {
+            <fc-placeholder appScrollSection="about-me" />
+        }
     </div>
     <section class="buffer"></section>
-    <div class="s s2">
-        <ng-template sectionHost></ng-template>
+    <div class="s">
+        @defer (on viewport; on interaction(menuButton)) {
+            <fc-skills></fc-skills>
+        } @placeholder {
+            <fc-placeholder appScrollSection="skills" />
+        }
     </div>
     <section class="buffer"></section>
-    <div class="s s3">
-        <ng-template sectionHost></ng-template>
+    <div class="s">
+        @defer (on viewport; on interaction(menuButton)) {
+            <fc-work-experiences appScrollSection="work-experiences"></fc-work-experiences>
+        } @placeholder {
+            <fc-placeholder />
+        }
     </div>
     <section class="buffer"></section>
-    <div class="s s4">
-        <ng-template sectionHost></ng-template>
+    <div class="s">
+        @defer (on viewport; on interaction(menuButton)) {
+            <fc-projects appScrollSection="projects"></fc-projects>
+        } @placeholder {
+            <fc-placeholder />
+        }
     </div>
     <section class="buffer"></section>
-    <div class="s s5">
-        <ng-template sectionHost></ng-template>
+    <div class="s">
+        @defer (on viewport; on interaction(menuButton)) {
+            <fc-open-source></fc-open-source>
+        } @placeholder {
+            <fc-placeholder appScrollSection="open-source" />
+        }
     </div>
     <section class="buffer"></section>
-    <div class="s s6">
-        <ng-template sectionHost></ng-template>
-
+    <div class="s">
+        @defer (on viewport; on interaction(menuButton)) {
+            <fc-interests></fc-interests>
+        } @placeholder {
+            <fc-placeholder appScrollSection="interests" />
+        }
     </div>
     <section class="buffer"></section>
-    <div class="extra-content-container" [ngClass]="{ 'show-extra': (extraEnabled$ | async)}">
-        <ng-template sectionHost></ng-template>
+    @defer(when (extraEnabled$ | async)){
+        <fc-extra-content></fc-extra-content>
         <section class="buffer"></section>
-    </div>
-    <ng-template sectionHost></ng-template>
+    }
+    @defer(on viewport; on interaction(menuButton)) {
+        <fc-contacts [hideExtraContentHint]="(extraEnabled$ | async) || false"></fc-contacts>
+    } @placeholder {
+        <fc-placeholder />
+    }
 </div>
 
 @if(showScrollToTop){
