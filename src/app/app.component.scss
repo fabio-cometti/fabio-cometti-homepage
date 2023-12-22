@@ -140,25 +140,22 @@
 }
 
 .scroll-to-top {
-    width: 20px;
-    height: 20px;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
     position: fixed;
     bottom: 0;
     left: 0;
     z-index: 1000;
     cursor: pointer;
     color: var(--accent);
-    padding: 8px;
+    padding: 0;
     margin: 16px;
     animation: fadeIn 0.5s;
+    text-align: center;
 
     &::before {
         transition: none;
-    }
-
-    svg {
-        height: 20px;
-        width: 20px;
     }
 }
 
