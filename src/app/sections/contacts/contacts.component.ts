@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faFacebook, faTwitter, faLinkedin, faGithub, faInstagram, faWordpress } from '@fortawesome/free-brands-svg-icons';
 import { faAt, faClose } from '@fortawesome/free-solid-svg-icons';
@@ -20,19 +20,19 @@ import { CreditsComponent } from 'src/app/components/credits/credits.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactsComponent {
-  faFacebook = faFacebook;
-  faTwitter = faTwitter;
-  faLinkedin = faLinkedin;
-  faGithub = faGithub;
-  faInstagram = faInstagram;
-  faAt = faAt;
-  faWordpress = faWordpress;
-  faClose = faClose;
+  faFacebook = signal(faFacebook);
+  faTwitter = signal(faTwitter);
+  faLinkedin = signal(faLinkedin);
+  faGithub = signal(faGithub);
+  faInstagram = signal(faInstagram);
+  faAt = signal(faAt);
+  faWordpress = signal(faWordpress);
+  faClose = signal(faClose);
 
-  public isContactFormVisible: boolean = false;
-  showCredits = false;
+  public isContactFormVisible = signal(false);
+  showCredits = signal(false);
 
-  @Input('hideExtraContentHint') hideExtraContentHint = false;
+  hideExtraContentHint = input(false);
 
   contactRequestForm = this.fb.group<ContactRequestForm>({
     email: this.fb.control('', {nonNullable: true, validators: [Validators.required, Validators.email]}),
@@ -48,11 +48,11 @@ export class ContactsComponent {
 
   showContactForm(ev: Event): void{
     ev.preventDefault();
-    this.isContactFormVisible = true;
+    this.isContactFormVisible.set(true);
   }
 
   hideContactForm(): void{
-    this.isContactFormVisible = false;
+    this.isContactFormVisible.set(false);
   }
 
   onSubmit(): void {
@@ -71,20 +71,20 @@ export class ContactsComponent {
       }
     ).subscribe({
       next: () => {
-          this.isContactFormVisible = false;
+          this.isContactFormVisible.set(false);
       },
       error: () => {
-        this.isContactFormVisible = false;
+        this.isContactFormVisible.set(false);
       }
     });
   }
 
   credits(event: Event): void {
     event.preventDefault();
-    this.showCredits = true;
+    this.showCredits.set(true);
   }
 
   closeCredits(): void {
-    this.showCredits = false;
+    this.showCredits.set(false);
   }
 }

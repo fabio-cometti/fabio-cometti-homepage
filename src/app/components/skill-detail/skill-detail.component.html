@@ -8,7 +8,7 @@
             cy="50%"
         />
 
-        <circle [ngStyle]="{ 'stroke-dashoffset': offset + '%'}"
+        <circle [ngStyle]="{ 'stroke-dashoffset': offset() + '%'}"
             class="progress-ring__circle"
             stroke-width="4"
             fill="transparent"
@@ -17,6 +17,6 @@
             cy="50%"
         />
     </svg>
-    <div class="percent">{{ percent | number:'1.0-0'}}%</div>
-    <div class="skill-label">{{label}}</div>
+    <div class="percent">{{ percent() | number:'1.0-0'}}%</div>
+    <div class="skill-label">{{label()}}</div>
 </div>

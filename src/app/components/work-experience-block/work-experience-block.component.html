@@ -1,8 +1,8 @@
 <div class="card">
   <div class="visibility-trigger" observeVisibility (visible)="onVisible()"></div>
-  <div [ngClass]="{ 'out-of-view': isHide}" class="info glass">
-      <h2 class="title head">{{year}}</h2>
-      <h3 class="head">{{company}}</h3>
-      <p class="text">{{description}}</p>
+  <div [ngClass]="{ 'out-of-view': isHide()}" class="info glass">
+      <h2 class="title head">{{year()}}</h2>
+      <h3 class="head">{{company()}}</h3>
+      <p class="text">{{description()}}</p>
   </div>
 </div>

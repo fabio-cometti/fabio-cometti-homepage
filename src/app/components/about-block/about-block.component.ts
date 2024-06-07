@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, computed, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 
@@ -11,10 +11,12 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutBlockComponent {
-  @Input('position') position: 'left' | 'right' = 'left';
-  @Input('large') large: boolean = false;
 
-  isHide = {isHide: true};
+  position = input.required<'left' | 'right'>();
+  isLeft = computed(() => this.position() === 'left');
+  isRight = computed(() => this.position() === 'right');
+  large = input<boolean>(false);
+  isHide = signal({isHide: true});
 
   @HostBinding('class') display = 'block-component';
 }

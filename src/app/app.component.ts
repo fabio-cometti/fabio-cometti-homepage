@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChild, ViewChildren, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChild, ViewChildren, ElementRef, ChangeDetectionStrategy, signal, viewChild } from '@angular/core';
 import { CommonModule, NgOptimizedImage, isPlatformBrowser } from '@angular/common';
 import { DynamicSection } from './directives/dynamic-section.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -19,9 +19,11 @@ import { OpenSourceComponent } from "./sections/open-source/open-source.componen
 import { InterestsComponent } from "./sections/interests/interests.component";
 import { ContactsComponent } from "./sections/contacts/contacts.component";
 import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'fc-root',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: true,
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.scss'],
@@ -46,39 +48,36 @@ import { ExtraContentComponent } from "./sections/extra-content/extra-content.co
 })
 export class AppComponent implements AfterViewInit, OnInit {
 
-  showMenu: boolean = false;
-  showScrollToTop = false;
-  faBars = faBars;
-  faArrowUp = faArrowUp;
-  isEdge = false;
+  showMenu = signal(false);
+  showScrollToTop = signal(false);
+  faBars = signal(faBars);
+  faArrowUp = signal(faArrowUp);
+  isEdge = signal(false);
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  extraEnabled$: Observable<boolean>;
+  extraEnabled = toSignal(this.extraBehaviorSubject.asObservable().pipe(
+    bufferCount(3, 1),
+    map(menuVoiceList => menuVoiceList.join('')),
+    filter(menuVoiceListString => menuVoiceListString == '042'),
+    map(menuVoiceListString => true),
+    take(1)
+  ));
   private menuSubject: Subject<void> = new Subject<void>();
 
-  quote$: Observable<Quote>;
+  quote = toSignal(this.http.get<Quote[]>('/assets/quotes.json').pipe(
+    map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
+  ));
 
   contactComponent?: ComponentRef<unknown>;
 
-  @ViewChild('top') top!: ElementRef;
+  top = viewChild.required<ElementRef>('top');
 
   constructor(private http: HttpClient, private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
-    this.extraEnabled$ = this.extraBehaviorSubject.asObservable().pipe(
-      bufferCount(3, 1),
-      map(menuVoiceList => menuVoiceList.join('')),
-      filter(menuVoiceListString => menuVoiceListString == '042'),
-      map(menuVoiceListString => true),
-      take(1)
-    );
-
-    this.quote$ = this.http.get<Quote[]>('/assets/quotes.json').pipe(
-      map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
-    )
   }
 
   ngOnInit(): void {
     if(isPlatformBrowser(this.platformId)) {
-      this.isEdge = this.windowRef.nativeWindow.navigator.userAgent.toLowerCase().indexOf('edg/') >= 0;
+      this.isEdge.set(this.windowRef.nativeWindow.navigator.userAgent.toLowerCase().indexOf('edg/') >= 0);
     }
   }
 
@@ -93,9 +92,9 @@ export class AppComponent implements AfterViewInit, OnInit {
         var height = this.windowRef.nativeWindow.scrollY;
         var winheight = this.windowRef.nativeWindow.innerHeight;
         if(height  > winheight) {
-          this.showScrollToTop = true;
+          this.showScrollToTop.set(true);
         } else {
-          this.showScrollToTop = false;
+          this.showScrollToTop.set(false);
         }
       });
     }
@@ -111,17 +110,17 @@ export class AppComponent implements AfterViewInit, OnInit {
   }
 
   toggleMenu(): void {
-    this.showMenu = !this.showMenu;
+    this.showMenu.set(!this.showMenu());
     this.menuSubject.next();
   }
 
   closeMenu(menuVoice: number): void {
-    this.showMenu = false;
+    this.showMenu.set(false);
     this.extraBehaviorSubject.next('' + menuVoice);
   }
 
   scrollToTop(): void {
-    this.top.nativeElement.scrollIntoView({
+    this.top().nativeElement.scrollIntoView({
       behavior: 'smooth',
     });
   }

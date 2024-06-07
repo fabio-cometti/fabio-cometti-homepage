@@ -1,9 +1,10 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewChild, signal, viewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Observable, delay, of, take } from 'rxjs';
 
 @Component({
   selector: 'fc-raptorize',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule],
   templateUrl: './raptorize.component.html',
@@ -11,15 +12,15 @@ import { Observable, delay, of, take } from 'rxjs';
 })
 export class RaptorizeComponent {
 
-  @ViewChild('audio') private audio?: any;
+   audio = viewChild<any>('audio');
 
-  loaded = false;
+  loaded = signal(false);
 
   ngOnInit() {
-    of(1).pipe(delay(3000), take(1)).subscribe(() => this.loaded = true);
+    of(1).pipe(delay(3000), take(1)).subscribe(() => this.loaded.set(true));
   }
 
   public roar() {
-    this.audio?.nativeElement.play();
+    this.audio()?.nativeElement.play();
   }
 }

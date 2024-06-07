@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input } from '@angular/core';
+import { Directive, HostListener, Input, input, signal } from '@angular/core';
 import { ScrollManagerDirective } from './scroll-manager.directive';
 
 @Directive({
@@ -6,12 +6,12 @@ import { ScrollManagerDirective } from './scroll-manager.directive';
   standalone: true
 })
 export class ScrollAnchorDirective {
-  @Input('appScrollAnchor') id!: string | number;
+  appScrollAnchor = input.required<string | number>();
 
   constructor(private manager: ScrollManagerDirective) {}
 
   @HostListener('click')
   scroll() {
-    this.manager.scroll(this.id);
+    this.manager.scroll(this.appScrollAnchor());
   }
 }

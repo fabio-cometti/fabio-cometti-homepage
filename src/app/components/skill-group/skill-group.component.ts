@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillGroup } from 'src/app/models/skills';
 import { SkillDetailComponent } from '../skill-detail/skill-detail.component';
@@ -13,12 +13,13 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillGroupComponent {
-  @Input('group') group!: SkillGroup;
+  group =  input.required<SkillGroup>();
+
   @HostBinding('class') display = 'block-component';
 
-  isHide: boolean = true;  
+  isHide = signal(true);
 
   onVisible(): void {
-    this.isHide = false;
+    this.isHide.set(false);
   }
 }

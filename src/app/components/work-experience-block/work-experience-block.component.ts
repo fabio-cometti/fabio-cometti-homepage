@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, input, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 
@@ -10,13 +10,13 @@ import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibilit
   styleUrls: ['./work-experience-block.component.scss']
 })
 export class WorkExperienceBlockComponent {
-  @Input('year') year: string = '';
-  @Input('company') company: string = '';
-  @Input('description') description: string = '';
+  year = input<string>('');
+  company = input<string>('');
+  description = input<string>('');
 
-  isHide: boolean = true; 
+  isHide = signal(true);
 
   onVisible(): void {
-    this.isHide = false;
+    this.isHide.set(false);
   }
 }

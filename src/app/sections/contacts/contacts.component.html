@@ -1,27 +1,27 @@
-<div class="extra-content-hint" [ngClass]="{ 'hide-extra-hint': hideExtraContentHint}">
+<div class="extra-content-hint" [ngClass]="{ 'hide-extra-hint': hideExtraContentHint()}">
     Ehi, are you sure you've seen everything? Maybe there are some extra content you can unlock…
 </div>
 <footer class="container">
     <div observeVisibility (visible)="onVisible()"></div>
-    <a href="https://www.facebook.com/fabio.cometti" target="_blank"><fa-icon title="Facebook" [icon]="faFacebook"></fa-icon></a>
-    <a href="http://instagram.com/fabio_cometti" target="_blank"><fa-icon title="Instagram" [icon]="faInstagram"></fa-icon></a>
-    <a href="https://twitter.com/il_numero_10" target="_blank"><fa-icon title="Twitter" [icon]="faTwitter"></fa-icon></a>
-    <a href="https://www.linkedin.com/in/fabio-cometti-9984984" target="_blank"><fa-icon title="LinkedIn" [icon]="faLinkedin"></fa-icon></a>
-    <a href="http://fabiocometti.wordpress.com" target="_blank"><fa-icon title="Blog" [icon]="faWordpress"></fa-icon></a>
-    <a href="https://github.com/fabio-cometti" target="_blank"><fa-icon title="Github" [icon]="faGithub"></fa-icon></a>
-    <a href="#" (click)="showContactForm($event)" target="_blank"><fa-icon title="Email" [icon]="faAt"></fa-icon></a>
+    <a href="https://www.facebook.com/fabio.cometti" target="_blank"><fa-icon title="Facebook" [icon]="faFacebook()"></fa-icon></a>
+    <a href="http://instagram.com/fabio_cometti" target="_blank"><fa-icon title="Instagram" [icon]="faInstagram()"></fa-icon></a>
+    <a href="https://twitter.com/il_numero_10" target="_blank"><fa-icon title="Twitter" [icon]="faTwitter()"></fa-icon></a>
+    <a href="https://www.linkedin.com/in/fabio-cometti-9984984" target="_blank"><fa-icon title="LinkedIn" [icon]="faLinkedin()"></fa-icon></a>
+    <a href="http://fabiocometti.wordpress.com" target="_blank"><fa-icon title="Blog" [icon]="faWordpress()"></fa-icon></a>
+    <a href="https://github.com/fabio-cometti" target="_blank"><fa-icon title="Github" [icon]="faGithub()"></fa-icon></a>
+    <a href="#" (click)="showContactForm($event)" target="_blank"><fa-icon title="Email" [icon]="faAt()"></fa-icon></a>
     <div>
         <a href="https://www.iubenda.com/privacy-policy/64364126" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe " title="Privacy Policy ">Privacy Policy</a>
         &nbsp;|&nbsp;
         <a href="#" (click)="credits($event)" class="iubenda-white">Credits</a>
     </div>
 </footer>
-<div class="contact-form"  [ngClass]="{ 'visible-form': isContactFormVisible}">
+<div class="contact-form"  [ngClass]="{ 'visible-form': isContactFormVisible()}">
     <div class="glass">
         <form [formGroup]="contactRequestForm" name="feedbackForm" (ngSubmit)="onSubmit()" class="form">
             <div class="close-button-row">
                 <div>
-                    <fa-icon title="close" [icon]="faClose" (click)="hideContactForm()"></fa-icon>
+                    <fa-icon title="close" [icon]="faClose()" (click)="hideContactForm()"></fa-icon>
                 </div>
             </div>
             <div>
@@ -38,4 +38,6 @@
         </form>
     </div>
 </div>
-<fc-credits (close)="closeCredits()" *ngIf="showCredits"></fc-credits>
+@if(showCredits()){
+    <fc-credits (onClose)="closeCredits()"></fc-credits>
+}

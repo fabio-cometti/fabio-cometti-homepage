@@ -1,8 +1,8 @@
-<div class="visibility-trigger" observeVisibility (visible)="isHide.isHide=false"></div>
-<div [class.out-of-view]="isHide.isHide"
-    [class.left] = "position == 'left'"
-    [class.right] = "position == 'right'"
-    [class.large] = "large"
+<div class="visibility-trigger" observeVisibility (visible)="isHide.set({isHide: false})"></div>
+<div [class.out-of-view]="isHide().isHide"
+    [class.left] = "isLeft()"
+    [class.right] = "isRight()"
+    [class.large] = "large()"
     class="glass">
     <ng-content></ng-content>
 </div>

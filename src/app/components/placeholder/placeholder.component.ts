@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'fc-placeholder',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
   template: `
-    <div class="outer-placeholder"><div class="inner-placeholder blink"><fa-icon [icon]="faImage"></fa-icon></div></div>
+    <div class="outer-placeholder"><div class="inner-placeholder blink"><fa-icon [icon]="faImage()"></fa-icon></div></div>
   `,
   styles: `
     .outer-placeholder {
@@ -34,5 +35,5 @@ import { faImage } from '@fortawesome/free-solid-svg-icons';
   `
 })
 export class PlaceholderComponent {
-  faImage = faImage;
+  faImage = signal(faImage);
 }

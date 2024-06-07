@@ -1,7 +1,7 @@
-<div class="outer" appScrollManager [ngClass]="{ 'edge': isEdge}">
+<div class="outer" appScrollManager [ngClass]="{ 'edge': isEdge()}">
     <nav class="navigation">
-        <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars"></fa-icon></button>
-        <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu }">
+        <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars()"></fa-icon></button>
+        <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu() }">
             <ul class="links">
                 <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu(0)">About me</li>
                 <li class="inset-border" appScrollAnchor="skills" (click)="closeMenu(1)">Skills</li>
@@ -9,7 +9,9 @@
                 <li class="inset-border" appScrollAnchor="projects" (click)="closeMenu(3)">Projects</li>
                 <li class="inset-border" appScrollAnchor="open-source" (click)="closeMenu(4)">Open source</li>
                 <li class="inset-border" appScrollAnchor="interests" (click)="closeMenu(5)">Interests</li>
-                <li *ngIf="(extraEnabled$ | async)" class="inset-border" appScrollAnchor="extra" (click)="closeMenu(6)">Extra</li>
+                @if(extraEnabled()) {
+                    <li class="inset-border" appScrollAnchor="extra" (click)="closeMenu(6)">Extra</li>
+                }
             </ul>
         </div>
     </nav>
@@ -24,12 +26,14 @@
                     Technical leader
                 </div>
             </div>
-            <div class="quote glass" *ngIf="(quote$ | async) as quote">
-                <span>"{{quote.quote}}"</span><br>
-                <div>
-                    [{{quote.author}} <span *ngIf="!!quote.opera">- {{quote.opera}}</span>]
+            @if(quote(); as quote){
+                <div class="quote glass" >
+                    <span>"{{quote.quote}}"</span><br>
+                    <div>
+                        [{{quote.author}} <span *ngIf="!!quote.opera">- {{quote.opera}}</span>]
+                    </div>
                 </div>
-            </div>
+            }
         </section>
     </div>
     <section class="buffer"></section>
@@ -81,19 +85,19 @@
         }
     </div>
     <section class="buffer"></section>
-    @defer(when (extraEnabled$ | async)){
+    @defer(when (extraEnabled())){
         <fc-extra-content></fc-extra-content>
         <section class="buffer"></section>
     }
     @defer(on viewport; on interaction(menuButton)) {
-        <fc-contacts [hideExtraContentHint]="(extraEnabled$ | async) || false"></fc-contacts>
+        <fc-contacts [hideExtraContentHint]="(extraEnabled()) || false"></fc-contacts>
     } @placeholder {
         <fc-placeholder />
     }
 </div>
 
-@if(showScrollToTop){
+@if(showScrollToTop()){
     <div title="Scroll to top" class="glass scroll-to-top" (click)="scrollToTop()">
-        <fa-icon [icon]="faArrowUp"></fa-icon>
+        <fa-icon [icon]="faArrowUp()"></fa-icon>
     </div>
 }
