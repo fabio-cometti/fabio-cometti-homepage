@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Title } from '@angular/platform-browser';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
@@ -10,6 +10,7 @@ import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fc-open-source',
@@ -28,12 +29,11 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 })
 export class OpenSourceComponent {
 
-  faGithub = faGithub;
+  faGithub = signal(faGithub);
 
-  gallery$: Observable<GalleryItem[]>;
+  gallery = toSignal(this.http.get<GalleryItem[]>('/assets/gallery6.json'), { initialValue: []});
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery6.json');
   }
 
   onVisible(): void {

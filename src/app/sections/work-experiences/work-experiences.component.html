@@ -2,7 +2,7 @@
     <section id="work-experiences" appScrollSection="work-experiences">
         <div observeVisibility (visible)="onVisible()"></div>
         <div class="glass"
-            [ngClass]="{ 'out-of-view': isHide}"
+            [ngClass]="{ 'out-of-view': isHide()}"
             observeVisibility
             (visible)="onVisible()">
             <h2 class="head">Work Experiences</h2>
@@ -13,14 +13,17 @@
 
         <div class="timeline">
             <div class="outer">
-                <ng-container *ngFor="let experience of experiences"
-                    [ngTemplateOutlet]="blockTemplate"
-                    [ngTemplateOutletContext]="{$implicit: experience}">
-                </ng-container>
+                @for(experience of experiences(); let i = $index; track i)
+                {
+                    <ng-container
+                        [ngTemplateOutlet]="blockTemplate"
+                        [ngTemplateOutletContext]="{$implicit: experience}">
+                    </ng-container>
+                }
             </div>
           </div>
     </section>
-    <fc-gallery [items]="(gallery$ | async) || []"></fc-gallery>
+    <fc-gallery [items]="gallery()"></fc-gallery>
 </div>
 
 <ng-template #blockTemplate let-experience>

@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild, signal, viewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
@@ -12,9 +12,11 @@ import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fc-extra-content',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
     CommonModule,
@@ -50,20 +52,18 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 })
 export class ExtraContentComponent {
 
-  faGift = faGift;
-  faGraduationCap = faGraduationCap;
-  faFilm = faFilm;
-  faStopwatch = faStopwatch;
-  faShieldHalved = faShieldHalved;
-  raptorState =  'stopped';
-  showCredits = false;
+  faGift = signal(faGift);
+  faGraduationCap = signal(faGraduationCap);
+  faFilm = signal(faFilm);
+  faStopwatch = signal(faStopwatch);
+  faShieldHalved = signal(faShieldHalved);
+  raptorState =  signal('stopped');
 
-  @ViewChild('raptor') raptor?: RaptorizeComponent;
+  raptor = viewChild.required<RaptorizeComponent>('raptor');
 
-  gallery$: Observable<GalleryItem[]>;
+  gallery = toSignal(this.http.get<GalleryItem[]>('/assets/gallery7.json'), {initialValue: []});
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery7.json');
   }
 
   onVisible(): void {
@@ -72,23 +72,14 @@ export class ExtraContentComponent {
 
   raptorize(event: Event): void {
     event.preventDefault();
-    this.raptorState = 'running';
+    this.raptorState.set('running');
   }
 
   public resetRaptor(event: any){
-    this.raptorState = 'stopped';
+    this.raptorState.set('stopped');
   }
 
   public roar(event: any){
-    this.raptor?.roar();
-  }
-
-  credits(event: Event): void {
-    event.preventDefault();
-    this.showCredits = true;
-  }
-
-  closeCredits(): void {
-    this.showCredits = false;
+    this.raptor().roar();
   }
 }

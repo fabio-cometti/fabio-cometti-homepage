@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SkillDetailComponent } from 'src/app/components/skill-detail/skill-detail.component';
 import { SkillGroup } from 'src/app/models/skills';
@@ -10,6 +10,7 @@ import { GalleryItem } from 'src/app/models/gallery-item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fc-skills',
@@ -26,7 +27,7 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillsComponent {
-  skills: SkillGroup[] = [
+  skills = signal<SkillGroup[]>([
     {
       "name": "Architectural knowledge",
       "skills": [
@@ -122,9 +123,9 @@ export class SkillsComponent {
         { "name": "Jenkins", "percent": 50}
       ]
     }
-  ];
-  isHide: boolean = true;
-  gallery$: Observable<GalleryItem[]>;
+  ]);
+  isHide = signal(true);
+  gallery = toSignal(this.http.get<GalleryItem[]>('/assets/gallery3.json'), { initialValue: []});
 
   trackGroup(index: number, group: SkillGroup) {
     return index ? index : undefined;
@@ -132,11 +133,10 @@ export class SkillsComponent {
 
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery3.json');
   }
 
   onVisible(): void {
-    this.isHide = false;
+    this.isHide.set(false);
     this.title.setTitle('Fabio Cometti - Skills');
   }
 }

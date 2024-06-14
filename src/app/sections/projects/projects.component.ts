@@ -8,6 +8,7 @@ import { GalleryItem } from 'src/app/models/gallery-item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fc-projects',
@@ -25,10 +26,9 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 })
 export class ProjectsComponent {
 
-  gallery$: Observable<GalleryItem[]>;
+  gallery = toSignal(this.http.get<GalleryItem[]>('/assets/gallery5.json'), { initialValue: []})
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery5.json');
   }
 
   onVisible(): void {

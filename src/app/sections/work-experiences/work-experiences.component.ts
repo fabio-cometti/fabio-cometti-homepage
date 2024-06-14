@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
@@ -9,6 +9,7 @@ import { GalleryItem } from 'src/app/models/gallery-item';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'fc-work-experiences',
@@ -25,10 +26,10 @@ import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkExperiencesComponent {
-  isHide: boolean = true;
-  gallery$: Observable<GalleryItem[]>;
+  isHide = signal(true);
+  gallery = toSignal(this.http.get<GalleryItem[]>('/assets/gallery4.json'), {initialValue: []});
 
-  experiences: Experience[] = [
+  experiences = signal<Experience[]>([
     {
       year: '2022',
       company: 'Lemonpie S.r.l.',
@@ -44,16 +45,13 @@ export class WorkExperiencesComponent {
       company: 'Disc S.p.A.',
       description: 'I started my professional career at Disc in March 2008 as a Java developer, mainly working on software focused on sending XML requests to external scoring services. After a few months I switched to the .NET platform on which I mainly built distributed web applications. In parallel with the .NET development of web applications, I have deepened the study of the Microsoft SharePoint platforms (from the 2007 version to the online version) and Microsoft BizTalk (from the 2006 version to the 2020 version). My tasks included, in addition to the development activity, the research and development activity on new technologies and tools to be adopted, the architecture design and training for junior developers.'
     }
-  ];
-
-
+  ]);
 
   constructor(private title: Title, private http: HttpClient) {
-    this.gallery$ = this.http.get<GalleryItem[]>('/assets/gallery4.json');
   }
 
   onVisible(): void {
     this.title.setTitle('Fabio Cometti - Work experiences');
-    this.isHide = false;
+    this.isHide.set(false);
   }
 }
