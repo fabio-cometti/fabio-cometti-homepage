@@ -36,18 +36,13 @@
         width: 140px;
         height: 110px;
         line-height: 80px;
-
         border: var(--glass-border);
         border-radius: var(--border-radius);
-
         user-select: none;
-
         padding: 0.5em;
-
-        background: rgba( 0, 0, 0, 0.45 );
-        backdrop-filter: blur( 8px );
-        -webkit-backdrop-filter: blur( 8px );
-
+        background: rgba(0, 0, 0, 0.45);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
         color: var(--accent);
 
         &:visited {
@@ -56,9 +51,6 @@
 
         &:hover {
             background-color: #FFF;
-            -webkit-box-shadow: var(--contacts-shadow);
-            -moz-box-shadow: var(--contacts-shadow);
-            -o-box-shadow: var(--contacts-shadow);
             box-shadow: var(--contacts-shadow);
             border: none 0;
             transition: all 0.3s ease-in;
@@ -82,7 +74,6 @@
             &.q-dev {
                 width: 105px;
                 background-image: url(/assets/images/QuokkaDevLogo_White.svg);
-                background-size: auto 80px;
                 background-size: auto 80px;
                 background-repeat: no-repeat;
                 background-position: center center;

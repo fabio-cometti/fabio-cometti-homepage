@@ -28,24 +28,16 @@
         height: 1em;
         line-height: 1em;
 
-        &:hover {
+        &:hover, &:visited:hover {
             color: var(--primary);
+            background-color: #FFF;
+            box-shadow: var(--contacts-shadow);
             border: none 0;
             transition: all 0.2s ease-in;
         }
 
         &:visited {
             color: #DEDEDE;
-
-            &:hover {
-                color: var(--primary);
-                background-color: #FFF;
-                -webkit-box-shadow: var(--contacts-shadow);
-                -moz-box-shadow: var(--contacts-shadow);
-                -o-box-shadow: var(--contacts-shadow);
-                box-shadow: var(--contacts-shadow);
-                border: none 0;
-            }
         }
 
         &.iubenda-white {
@@ -110,10 +102,6 @@
                 &:hover {
                     color: var(--primary);
                     background-color: #FFF;
-
-                    -webkit-box-shadow: var(--contacts-shadow);
-                    -moz-box-shadow: var(--contacts-shadow);
-                    -o-box-shadow: var(--contacts-shadow);
                     box-shadow: var(--contacts-shadow);
                     border: none 0;
                     transition: all 0.3s ease-in;

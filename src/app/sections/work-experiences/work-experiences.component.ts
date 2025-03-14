@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
-import { WorkExperienceBlockComponent } from 'src/app/components/work-experience-block/work-experience-block.component';
 import { Experience } from 'src/app/models/experience';
 import { Title } from '@angular/platform-browser';
 import { GalleryItem } from 'src/app/models/gallery-item';
@@ -18,7 +17,6 @@ import { toSignal } from '@angular/core/rxjs-interop';
     CommonModule,
     ScrollSectionDirective,
     ObserveVisibilityDirective,
-    WorkExperienceBlockComponent,
     GalleryComponent
   ],
   templateUrl: './work-experiences.component.html',

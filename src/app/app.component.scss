@@ -8,11 +8,9 @@
 #intro {
     transform: translateY(16em);
     overflow: hidden;
-
     color: var(--primary);
     font-family: var(--ubuntu-300);
     font-weight: bold;
-
     padding: 0.8em;
 
     .intro-container {
@@ -66,7 +64,6 @@
         opacity: 0;
         transition: transform 0.5s, opacity 0.5s, height 3s;
         height: 0;
-
         will-change: transform;
 
         &.open {
@@ -91,15 +88,11 @@
                font-weight: bolder;
                margin-bottom: 1em;
                color: #FFF;
-
                user-select: none;
 
                &:hover {
                 color: var(--primary);
                 background-color: #FFF;
-                -webkit-box-shadow: var(--contacts-shadow);
-                -moz-box-shadow: var(--contacts-shadow);
-                -o-box-shadow: var(--contacts-shadow);
                 box-shadow: var(--contacts-shadow);
                 border: none 0;
                 transition: all 0.3s ease-in;
@@ -115,13 +108,8 @@
     font-size: 1.5em;
     font-style: italic;
     margin-top: 2.5em;
-
     position: relative;
-
-    animation: move 1s;
-    animation-delay: 0.5s;
-    animation-fill-mode: forwards;
-
+    animation: move 1s 0.5s forwards;
     opacity: 0;
 
     div {
@@ -164,11 +152,15 @@
         transform: scale(500%);
         opacity: 0;
     }
-
     100% {
         transform: scale(100%);
         opacity: 0.8;
     }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @include tablet {
@@ -197,9 +189,6 @@
     .quote {
         margin-top: 1em;
         font-size: 3.5em;
-        // background-color: var(--dark-gray);
-        // padding: 0.5em;
-        // border-radius: var(--border-radius);
     }
 
     .navigation {
@@ -213,8 +202,3 @@
         }
     }
 }
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-  }
