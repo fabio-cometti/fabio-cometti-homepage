@@ -9,15 +9,79 @@
   <meta name="theme-color" content="darkOrange">
   <meta property="og:image" content="https://ik.imagekit.io/bzuos3bkr/tr:w-200,h-200,e-grayscale/aboutMe.jpg?updatedAt=1695217934470" />
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preconnect" href="https://ik.imagekit.io" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link rel="preconnect" href="https://cdn.iubenda.com" />
-  <link rel="preconnect" href="https://cs.iubenda.com" />
-  <link rel="preload" as="image" fetchpriority="high" href="https://ik.imagekit.io/bzuos3bkr/intro-mobile.webp?updatedAt=1691584018723" type="image/webp" >
-  <link rel="preload" as="style" crossorigin="" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap">
-  <link rel="preload" as="font" crossOrigin href="https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoC1CzjsGyNPYZvgw.woff2" font="font/woff2">
-  <link rel="preload" as="script" href="https://cs.iubenda.com/autoblocking/3324443.js" type="text/javascript">
+  
+  <!-- Preconnect to external domains -->
+  <link rel="preconnect" href="https://ik.imagekit.io" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.iubenda.com" crossorigin />
+  <link rel="preconnect" href="https://cs.iubenda.com" crossorigin />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" as="image" fetchpriority="high" href="https://ik.imagekit.io/bzuos3bkr/intro-mobile.webp?updatedAt=1691584018723" type="image/webp" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" crossorigin />
+  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoC1CzjsGyNPYZvgw.woff2" type="font/woff2" crossorigin />
+  
+  <!-- Critical CSS -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #505050;
+    }
+
+    .loading {
+      color: #FFF;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: lighter;
+      font-size: 1.5em;
+      text-align: center;
+      width: 100%;
+    }
+
+    .lds-ring {
+      width: 180px;
+      height: 180px;
+      margin: auto;
+      margin-top: 20%;
+    }
+
+    .lds-ring div {
+      box-sizing: border-box;
+      display: block;
+      position: absolute;
+      width: 164px;
+      height: 164px;
+      margin: 4px;
+      border: 4px solid #FFF;
+      border-radius: 50%;
+      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border-color: #FFF transparent transparent transparent;
+    }
+
+    .lds-ring div:nth-child(1) {
+      animation-delay: -0.45s;
+    }
+
+    .lds-ring div:nth-child(2) {
+      animation-delay: -0.3s;
+    }
+
+    .lds-ring div:nth-child(3) {
+      animation-delay: -0.15s;
+    }
+
+    @keyframes lds-ring {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+  
+  <!-- Iubenda configuration -->
   <script type="text/javascript" nonce="999999999">
     var _iub = _iub || [];
     _iub.csConfiguration = {
@@ -39,70 +103,32 @@
         "listPurposes":true,
         "position":"float-top-center",
         "enableRemoteConsent": true
-      }};
+      }
+    };
   </script>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background-color: #505050;
-    }
-
-    .loading{
-      color: #FFF;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      font-weight: lighter;
-      font-size: 1.5em;
-      text-align: center;
-      width: 100%;
-    }
-    .lds-ring {
-      width: 180px;
-      height: 180px;
-      margin: auto;
-      margin-top: 20%;
-    }
-    .lds-ring div {
-      box-sizing: border-box;
-      display: block;
-      position: absolute;
-      width: 164px;
-      height: 164px;
-      margin: 4px;
-      border: 4px solid #FFF;
-      border-radius: 50%;
-      animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-      border-color: #FFF transparent transparent transparent;
-    }
-    .lds-ring div:nth-child(1) {
-      animation-delay: -0.45s;
-    }
-    .lds-ring div:nth-child(2) {
-      animation-delay: -0.3s;
-    }
-    .lds-ring div:nth-child(3) {
-      animation-delay: -0.15s;
-    }
-    @keyframes lds-ring {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  </style>
 </head>
 <body>
-  <fc-router-wrapper ngCspNonce="999999999"><div class="lds-ring"><div></div><div></div><div></div><div></div></div><div class="loading">Loading...</div></fc-router-wrapper>
+  <fc-router-wrapper ngCspNonce="999999999">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="loading">Loading...</div>
+  </fc-router-wrapper>
+  
   <noscript>Please enable JavaScript to continue using this application.</noscript>
+  
   <form name="contactRequestForm" netlify netlify-honeypot="bot-field" hidden>
     <input type="text" name="email" autocomplete="off" />
     <textarea type="text" name="message" autocomplete="off"></textarea>
   </form>
-  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3324443.js" async></script>
+  
+  <!-- Load non-critical scripts -->
+  <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3324443.js" async defer></script>
   <script type="text/javascript" nonce="999999999">
-    window.onbeforeunload = function(){ 	window.scrollTo(0,0); }
+    window.onbeforeunload = function(){ window.scrollTo(0,0); }
   </script>
 </body>
 </html>
