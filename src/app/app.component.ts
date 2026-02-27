@@ -19,6 +19,7 @@ import { InterestsComponent } from "./sections/interests/interests.component";
 import { ContactsComponent } from "./sections/contacts/contacts.component";
 import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
 import { toSignal } from '@angular/core/rxjs-interop';
+import { subscribe } from 'diagnostics_channel';
 
 @Component({
     selector: 'fc-root',
@@ -61,9 +62,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   ));
   private menuSubject: Subject<void> = new Subject<void>();
 
-  quote = toSignal(this.http.get<Quote[]>('/assets/quotes.json').pipe(
-    map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
-  ));
+  quote = signal<Quote | null>(null);
 
   contactComponent?: ComponentRef<unknown>;
 
@@ -97,6 +96,11 @@ export class AppComponent implements AfterViewInit, OnInit {
         }
       });
     }
+
+    this.http.get<Quote[]>('/assets/quotes.json').pipe(
+      map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])).subscribe(quotes => {
+        this.quote.set(quotes);
+      });
   }
 
   loadIubendaScript() : void {
