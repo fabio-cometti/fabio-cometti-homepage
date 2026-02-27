@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewChild, signal, viewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
@@ -19,14 +19,13 @@ import { toSignal } from '@angular/core/rxjs-interop';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    CommonModule,
     ObserveVisibilityDirective,
     ScrollSectionDirective,
     AboutBlockComponent,
     FontAwesomeModule,
     RaptorizeComponent,
     GalleryComponent
-  ],
+],
   templateUrl: './extra-content.component.html',
   styleUrls: ['./extra-content.component.scss'],
   animations: [

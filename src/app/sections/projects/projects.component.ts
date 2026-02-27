@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { Title } from '@angular/platform-browser';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
@@ -14,12 +14,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
   selector: 'fc-projects',
   standalone: true,
   imports: [
-    CommonModule,
     ObserveVisibilityDirective,
     AboutBlockComponent,
     ScrollSectionDirective,
     GalleryComponent
-  ],
+],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

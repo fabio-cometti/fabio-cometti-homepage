@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { AppComponent } from 'src/app/app.component';
 import { RouterOutlet } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { RouterOutlet } from '@angular/router';
   selector: 'fc-router-wrapper',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [RouterOutlet],
   template: `
     <router-outlet></router-outlet>
   `,

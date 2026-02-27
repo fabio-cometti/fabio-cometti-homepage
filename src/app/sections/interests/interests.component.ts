@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { Title } from '@angular/platform-browser';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -15,13 +15,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
   selector: 'fc-interests',
   standalone: true,
   imports: [
-    CommonModule,
     ObserveVisibilityDirective,
     ScrollSectionDirective,
     AboutBlockComponent,
     FontAwesomeModule,
     GalleryComponent
-  ],
+],
   templateUrl: './interests.component.html',
   styleUrls: ['./interests.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,40 +1,42 @@
 <div class="parallax-container work-experiences">
-    <section id="work-experiences" appScrollSection="work-experiences">
-        <div observeVisibility (visible)="onVisible()"></div>
-        <div class="glass"
-            [ngClass]="{ 'out-of-view': isHide()}"
-            observeVisibility
-            (visible)="onVisible()">
-            <h2 class="head">Work Experiences</h2>
-            <p class="text">
-                My work experiences
-            </p>
-        </div>
+  <section id="work-experiences" appScrollSection="work-experiences">
+    <div observeVisibility (visible)="onVisible()"></div>
+    <div class="glass"
+      [ngClass]="{ 'out-of-view': isHide()}"
+      observeVisibility
+      (visible)="onVisible()">
+      <h2 class="head">Work Experiences</h2>
+      <p class="text">
+        My work experiences
+      </p>
+    </div>
 
-        <div class="timeline">
-            <div class="outer">
-                @for(experience of experiences(); let i = $index; track i)
-                {
-                    <ng-container
-                        [ngTemplateOutlet]="blockTemplate"
-                        [ngTemplateOutletContext]="{$implicit: experience}">
-                    </ng-container>
-                }
-            </div>
-          </div>
-    </section>
-    <fc-gallery [items]="gallery()"></fc-gallery>
+    <div class="timeline">
+      <div class="outer">
+        @for(experience of experiences(); let i = $index; track i)
+          {
+          <ng-container
+            [ngTemplateOutlet]="blockTemplate"
+            [ngTemplateOutletContext]="{$implicit: experience}">
+          </ng-container>
+        }
+      </div>
+    </div>
+  </section>
+  <fc-gallery [items]="gallery()"></fc-gallery>
 </div>
 
 <ng-template #blockTemplate let-experience>
-    <div class="card" *ngIf="{ isHide: true} as IsLocalHide">
-        <div class="visibility-trigger" observeVisibility (visible)="IsLocalHide.isHide=false"></div>
-        <div [ngClass]="{ 'out-of-view': IsLocalHide.isHide}"
+  @if ({ isHide: true}; as IsLocalHide) {
+    <div class="card">
+      <div class="visibility-trigger" observeVisibility (visible)="IsLocalHide.isHide=false"></div>
+      <div [ngClass]="{ 'out-of-view': IsLocalHide.isHide}"
         class="info glass">
-            <h2 class="title head">{{experience.year}}</h2>
-            <h3 class="head">{{experience.company}}</h3>
-            <p class="text">{{experience.description}}</p>
-        </div>
-        <div class="dot"></div>
+        <h2 class="title head">{{experience.year}}</h2>
+        <h3 class="head">{{experience.company}}</h3>
+        <p class="text">{{experience.description}}</p>
+      </div>
+      <div class="dot"></div>
     </div>
+  }
 </ng-template>

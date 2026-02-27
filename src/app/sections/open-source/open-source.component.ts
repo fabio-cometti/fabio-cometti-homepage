@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { Title } from '@angular/platform-browser';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
@@ -16,13 +16,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
   selector: 'fc-open-source',
   standalone: true,
   imports: [
-    CommonModule,
     ObserveVisibilityDirective,
     AboutBlockComponent,
     ScrollSectionDirective,
     FontAwesomeModule,
     GalleryComponent
-  ],
+],
   templateUrl: './open-source.component.html',
   styleUrls: ['./open-source.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

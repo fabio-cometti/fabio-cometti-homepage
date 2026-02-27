@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { Title } from '@angular/platform-browser';
@@ -14,12 +14,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
   selector: 'fc-about-me',
   standalone: true,
   imports: [
-    CommonModule,
     AboutBlockComponent,
     ScrollSectionDirective,
     ObserveVisibilityDirective,
     GalleryComponent
-  ],
+],
   templateUrl: './about-me.component.html',
   styleUrls: ['about-me.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
