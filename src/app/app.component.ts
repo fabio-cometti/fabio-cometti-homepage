@@ -19,7 +19,6 @@ import { InterestsComponent } from "./sections/interests/interests.component";
 import { ContactsComponent } from "./sections/contacts/contacts.component";
 import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
 import { toSignal } from '@angular/core/rxjs-interop';
-import { subscribe } from 'diagnostics_channel';
 
 @Component({
     selector: 'fc-root',
