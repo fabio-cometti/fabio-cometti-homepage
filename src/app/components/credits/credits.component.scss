@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 div.bg {
     background-color: black;
@@ -203,7 +203,7 @@ h1 sub
 	}
 }
 
-@include laptop {
+@include media-query.laptop {
     p#start {
 		transform: translateY(10vh);
 	}
@@ -213,7 +213,7 @@ h1 sub
 	}
 }
 
-@include desktop {
+@include media-query.desktop {
     p#start {
 		transform: translateY(10vh);
 	}

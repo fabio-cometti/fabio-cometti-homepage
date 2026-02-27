@@ -31,6 +31,6 @@ export class SkillDetailComponent {
   offset = signal(314.15927);
   circumference = signal(314.15927);
 
-  constructor(private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
+  constructor(private windowRef: WindowRefService) {
   }
 }

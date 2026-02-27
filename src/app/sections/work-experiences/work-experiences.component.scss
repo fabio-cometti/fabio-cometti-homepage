@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .work-experiences {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/workExperiences-mobile.webp?updatedAt=1692629028936);
@@ -111,7 +111,7 @@
     }
 }
 
-@include tablet {
+@include media-query.tablet {
     .work-experiences {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/workExperiences.jpg?updatedAt=1695218939802);
     }
@@ -122,7 +122,7 @@
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .work-experiences {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-800,e-grayscale/workExperiences.jpg?updatedAt=1695218939802);
     }
@@ -133,7 +133,7 @@
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .work-experiences {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-800,e-grayscale/workExperiences.jpg?updatedAt=1695218939802);
         background-repeat: no-repeat;      /* Prevent tiling */

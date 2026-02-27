@@ -1,4 +1,4 @@
-@import 'media-query.scss';
+@use 'media-query';
 
 @supports not (display: flex) {
     .out-of-view {
@@ -174,13 +174,13 @@ fc-raptorize {
     }
 }
 
-@include tablet {
+@include media-query.tablet {
     .glass {
         font-size: 1.5em;
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .glass {
         font-size: 2em;
 
@@ -201,7 +201,7 @@ fc-raptorize {
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .glass {
         font-size: 2em;
 

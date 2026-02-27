@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .open-source {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/openSource-mobile.webp?updatedAt=1693498159333);
@@ -98,13 +98,13 @@
     }
 }
 
-@include tablet {
+@include media-query.tablet {
     .open-source {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/openSource.jpg?updatedAt=1695219366946);
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .open-source {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/openSource.jpg?updatedAt=1695219366946);
     }
@@ -116,7 +116,7 @@
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .open-source {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/openSource.jpg?updatedAt=1695219366946);
         background-repeat: no-repeat;      /* Prevent tiling */

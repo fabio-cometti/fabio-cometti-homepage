@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .container {
     display: flex;
@@ -63,7 +63,7 @@
     }
   }
 
-@include tablet {
+@include media-query.tablet {
     .container .card {
       height: 50vmin;
     }

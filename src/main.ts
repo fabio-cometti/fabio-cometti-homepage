@@ -1,3 +1,4 @@
+import { provideZoneChangeDetection } from "@angular/core";
 import { bootstrapApplication } from '@angular/platform-browser';
 import { appConfig } from './app/app.config';
 import { config } from '@fortawesome/fontawesome-svg-core'
@@ -5,5 +6,5 @@ import { RouterWrapperComponent } from './app/components/router-wrapper/router-w
 
 config.autoAddCss = false;
 
-bootstrapApplication(RouterWrapperComponent, appConfig)
+bootstrapApplication(RouterWrapperComponent, {...appConfig, providers: [provideZoneChangeDetection(), ...appConfig.providers]})
   .catch((err) => console.error(err));

@@ -1,4 +1,4 @@
-@import '../media-query.scss';
+@use '../media-query';
 
 .intro {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/intro-mobile.webp?updatedAt=1691584018723);
@@ -163,7 +163,7 @@
     100% { opacity: 1; }
 }
 
-@include tablet {
+@include media-query.tablet {
     #intro {
         transform: translateY(25em);
     }
@@ -177,7 +177,7 @@
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     #intro {
         transform: translateY(5em);
     }
@@ -203,7 +203,7 @@
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     #intro {
         transform: translateY(5em);
     }

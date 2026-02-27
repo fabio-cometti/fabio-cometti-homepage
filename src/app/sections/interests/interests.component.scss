@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .interests {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/interests-mobile.webp?updatedAt=1694170610874);
@@ -8,19 +8,19 @@
     color: var(--accent);
 }
 
-@include tablet {
+@include media-query.tablet {
     .interests {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/interests.jpg?updatedAt=1695222424882);
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .interests {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/interests.jpg?updatedAt=1695222424882);
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .interests {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/interests.jpg?updatedAt=1695222424882);
         background-repeat: no-repeat;      /* Prevent tiling */

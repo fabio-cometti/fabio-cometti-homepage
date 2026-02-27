@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .container {
     padding: 0.8em;
@@ -129,14 +129,14 @@
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .contact-form .glass {
         height: 80vh;
         font-size: 1.5em;
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .contact-form .glass {
         height: 80vh;
         font-size: 1.5em;

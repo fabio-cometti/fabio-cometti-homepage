@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .skills {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/skills-mobile.webp?updatedAt=1691584769231);
@@ -18,19 +18,19 @@
 
 }
 
-@include tablet {
+@include media-query.tablet {
     .skills {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1600/skills.jpg?updatedAt=1695218431044);
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .skills {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-bottom_right/skills.jpg?updatedAt=1695218431044);
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .skills {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-bottom_right/skills.jpg?updatedAt=1695218431044);
         background-repeat: no-repeat;      /* Prevent tiling */

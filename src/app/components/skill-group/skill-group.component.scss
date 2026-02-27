@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .skills-container {
     display: flex;
@@ -12,19 +12,19 @@
     }
 }
 
-@include tablet {
+@include media-query.tablet {
     .skills-container fc-skill-detail{
         width: 120px;
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .skills-container fc-skill-detail{
         width: 160px;
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .skills-container fc-skill-detail{
         width: 160px;
     }

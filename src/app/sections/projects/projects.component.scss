@@ -1,4 +1,4 @@
-@import '../../../media-query.scss';
+@use '../../../media-query';
 
 .projects {
     background-image: url(https://ik.imagekit.io/bzuos3bkr/projects-mobile.webp?updatedAt=1693488500033);
@@ -30,19 +30,19 @@
     }
 }
 
-@include tablet {
+@include media-query.tablet {
     .projects {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/projects.jpg?updatedAt=1695219153848);
     }
 }
 
-@include laptop {
+@include media-query.laptop {
     .projects {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/projects.jpg?updatedAt=1695219153848);
     }
 }
 
-@include desktop {
+@include media-query.desktop {
     .projects {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/projects.jpg?updatedAt=1695219153848);
         background-repeat: no-repeat;      /* Prevent tiling */

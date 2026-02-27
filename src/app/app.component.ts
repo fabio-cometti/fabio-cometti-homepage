@@ -86,24 +86,28 @@ export class AppComponent implements AfterViewInit, OnInit {
       });
 
       scrollEvent.subscribe( _ => {
-        var height = this.windowRef.nativeWindow.scrollY;
-        var winheight = this.windowRef.nativeWindow.innerHeight;
-        if(height  > winheight) {
-          this.showScrollToTop.set(true);
-        } else {
-          this.showScrollToTop.set(false);
+        if(isPlatformBrowser(this.platformId)) {
+          var height = this.windowRef.nativeWindow.scrollY;
+          var winheight = this.windowRef.nativeWindow.innerHeight;
+          if(height  > winheight) {
+            this.showScrollToTop.set(true);
+          } else {
+            this.showScrollToTop.set(false);
+          }
         }
       });
     }
   }
 
   loadIubendaScript() : void {
-    let scriptEle = document.createElement("script");
-    scriptEle.setAttribute("src", "https://cdn.iubenda.com/cs/iubenda_cs.js");
-    scriptEle.setAttribute("type", "text/javascript");
-    scriptEle.setAttribute("async", "async");
-    scriptEle.setAttribute("charset", "UTF-8");
-    document.body.appendChild(scriptEle);
+    if(isPlatformBrowser(this.platformId)) {
+      let scriptEle = document.createElement("script");
+      scriptEle.setAttribute("src", "https://cdn.iubenda.com/cs/iubenda_cs.js");
+      scriptEle.setAttribute("type", "text/javascript");
+      scriptEle.setAttribute("async", "async");
+      scriptEle.setAttribute("charset", "UTF-8");
+      document.body.appendChild(scriptEle);
+    }
   }
 
   toggleMenu(): void {
