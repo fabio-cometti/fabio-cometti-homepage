@@ -61,7 +61,9 @@ export class AppComponent implements AfterViewInit, OnInit {
   ));
   private menuSubject: Subject<void> = new Subject<void>();
 
-  quote = signal<Quote | null>(null);
+  quote = toSignal(this.http.get<Quote[]>('/assets/quotes.json').pipe(
+    map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
+  ));
 
   contactComponent?: ComponentRef<unknown>;
 
@@ -95,11 +97,6 @@ export class AppComponent implements AfterViewInit, OnInit {
         }
       });
     }
-
-    this.http.get<Quote[]>('/assets/quotes.json').pipe(
-      map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])).subscribe(quotes => {
-        this.quote.set(quotes);
-      });
   }
 
   loadIubendaScript() : void {
