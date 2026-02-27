@@ -136,3 +136,10 @@
     }
 }
 
+@include desktop {
+    .contact-form .glass {
+        height: 80vh;
+        font-size: 1.5em;
+    }
+}
+

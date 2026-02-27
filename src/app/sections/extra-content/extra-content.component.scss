@@ -19,3 +19,12 @@
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-custom,e-grayscale/wip.jpg?updatedAt=1695222445796);
     }
 }
+
+@include desktop {
+    .extra {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-custom,e-grayscale/wip.jpg?updatedAt=1695222445796);
+        background-repeat: no-repeat;      /* Prevent tiling */
+        background-position: center center;/* Keep image centered */
+        background-size: cover;
+    }
+}

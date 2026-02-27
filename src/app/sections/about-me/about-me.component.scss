@@ -20,3 +20,12 @@
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-900,c-mantain_ratio,fo-custom,e-grayscale/aboutMe.jpg?updatedAt=1695217934470);
     }
 }
+
+@include desktop {
+    .about-me {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-900,c-mantain_ratio,fo-custom,e-grayscale/aboutMe.jpg?updatedAt=1695217934470);
+        background-repeat: no-repeat;      /* Prevent tiling */
+        background-position: center center;/* Keep image centered */
+        background-size: cover;
+    }
+}

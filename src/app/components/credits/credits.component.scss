@@ -212,3 +212,13 @@ h1 sub
 		top: 20%;
 	}
 }
+
+@include desktop {
+    p#start {
+		transform: translateY(10vh);
+	}
+
+	h1 {
+		top: 20%;
+	}
+}

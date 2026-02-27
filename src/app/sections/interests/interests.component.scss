@@ -19,3 +19,12 @@
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/interests.jpg?updatedAt=1695222424882);
     }
 }
+
+@include desktop {
+    .interests {
+        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/interests.jpg?updatedAt=1695222424882);
+        background-repeat: no-repeat;      /* Prevent tiling */
+        background-position: center center;/* Keep image centered */
+        background-size: cover;
+    }
+}
