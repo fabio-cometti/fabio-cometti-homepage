@@ -5,7 +5,7 @@ import { faArrowUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
-import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, map, merge, take, timer } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, map, merge, mergeMap, switchMap, take, timer } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
 import { WindowRefService } from './services/window-ref.service';
@@ -19,7 +19,6 @@ import { InterestsComponent } from "./sections/interests/interests.component";
 import { ContactsComponent } from "./sections/contacts/contacts.component";
 import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
 import { toSignal } from '@angular/core/rxjs-interop';
-import quotes from '../assets/quotes.json';
 
 @Component({
     selector: 'fc-root',
@@ -50,8 +49,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   showScrollToTop = signal(false);
   faBars = signal(faBars);
   faArrowUp = signal(faArrowUp);
-  isEdge = signal(false);
-  quote = signal(quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
+  isEdge = signal(false);  
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   extraEnabled = toSignal(this.extraBehaviorSubject.asObservable().pipe(
@@ -63,9 +61,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   ));
   private menuSubject: Subject<void> = new Subject<void>();
 
-  // quote = toSignal(this.http.get<Quote[]>('/assets/quotes.json').pipe(
-  //   map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
-  // ));
+  quote = signal<Quote | undefined>(undefined);
 
   contactComponent?: ComponentRef<unknown>;
 
@@ -85,6 +81,14 @@ export class AppComponent implements AfterViewInit, OnInit {
       const scrollEvent = fromEvent(this.windowRef.nativeWindow, 'scroll', { capture: true });
       merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
         this.loadIubendaScript();
+      });
+
+      scrollEvent.pipe(
+        take(1),
+        switchMap(val => this.http.get<Quote[]>('/assets/quotes.json')),
+        map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
+      ).subscribe(q => {
+        this.quote.set(q);
       });
 
       scrollEvent.subscribe( _ => {
