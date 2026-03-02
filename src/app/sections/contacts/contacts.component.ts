@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, input, signal } from '@angul
 import { CommonModule } from '@angular/common';
 import { faFacebook, faTwitter, faLinkedin, faGithub, faInstagram, faWordpress } from '@fortawesome/free-brands-svg-icons';
 import { faAt, faClose } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -14,7 +14,7 @@ import { CreditsComponent } from 'src/app/components/credits/credits.component';
 @Component({
   selector: 'fc-contacts',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, ObserveVisibilityDirective, ReactiveFormsModule, CreditsComponent],
+  imports: [CommonModule, FaIconComponent, ObserveVisibilityDirective, ReactiveFormsModule, CreditsComponent],
   templateUrl: './contacts.component.html',
   styleUrls: ['./contacts.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

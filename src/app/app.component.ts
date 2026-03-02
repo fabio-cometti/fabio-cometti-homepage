@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChild, ViewChildren, ElementRef, ChangeDetectionStrategy, signal, viewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faArrowUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
@@ -28,7 +28,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     styleUrls: ['app.component.scss'],
     imports: [
         CommonModule,
-        FontAwesomeModule,
+        FaIconComponent,
         ScrollManagerDirective,
         ScrollSectionDirective,
         ScrollAnchorDirective,

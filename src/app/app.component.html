@@ -1,5 +1,5 @@
 <div class="outer" appScrollManager [ngClass]="{ 'edge': isEdge()}">
-  <nav class="navigation">
+  <nav class="navigation">    
     <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars()"></fa-icon></button>
     <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu() }">
       <ul class="links">
@@ -15,7 +15,7 @@
       </ul>
     </div>
   </nav>
-  <div role="main" class="parallax-container intro">
+  <main class="parallax-container intro">
     <section #top id="intro" appScrollSection="intro">
       <div class="intro-container glass">
         <div class="name">
@@ -37,7 +37,7 @@
         </div>
       }
     </section>
-  </div>
+  </main>
   <section class="buffer"></section>
   <div class="s">
     @defer (on viewport;  on interaction(menuButton)) {
@@ -49,7 +49,7 @@
 <section class="buffer"></section>
 <div class="s">
   @defer (on viewport; on interaction(menuButton)) {
-  <fc-skills></fc-skills>
+   <fc-skills></fc-skills>
   } @placeholder {
   <fc-placeholder appScrollSection="skills" />
 }

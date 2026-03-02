@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
@@ -19,7 +19,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     ObserveVisibilityDirective,
     AboutBlockComponent,
     ScrollSectionDirective,
-    FontAwesomeModule,
+    FaIconComponent,
     GalleryComponent
 ],
   templateUrl: './open-source.component.html',

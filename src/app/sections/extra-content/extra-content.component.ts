@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewChild, signal, viewChild } from
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faFilm, faGift, faGraduationCap, faShieldHalved, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@angular/platform-browser';
 import { RaptorizeComponent } from 'src/app/components/raptorize/raptorize.component';
@@ -20,7 +20,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     ObserveVisibilityDirective,
     ScrollSectionDirective,
     AboutBlockComponent,
-    FontAwesomeModule,
+    FaIconComponent,
     RaptorizeComponent,
     GalleryComponent
 ],

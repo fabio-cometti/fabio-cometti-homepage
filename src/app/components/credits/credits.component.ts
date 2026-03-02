@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild, output, signal, viewChild } from '@angular/core';
 import { faClose } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { Subject, take } from 'rxjs';
 
 @Component({
   selector: 'fc-credits',
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FaIconComponent],
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,13 +1,13 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faImage } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'fc-placeholder',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [FontAwesomeModule],
+  imports: [FaIconComponent],
   template: `
     <div class="outer-placeholder"><div class="inner-placeholder blink"><fa-icon [icon]="faImage()"></fa-icon></div></div>
   `,
