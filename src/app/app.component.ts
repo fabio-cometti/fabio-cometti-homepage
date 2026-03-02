@@ -19,6 +19,7 @@ import { InterestsComponent } from "./sections/interests/interests.component";
 import { ContactsComponent } from "./sections/contacts/contacts.component";
 import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
 import { toSignal } from '@angular/core/rxjs-interop';
+import quotes from '../assets/quotes.json';
 
 @Component({
     selector: 'fc-root',
@@ -50,6 +51,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   faBars = signal(faBars);
   faArrowUp = signal(faArrowUp);
   isEdge = signal(false);
+  quote = signal(quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   extraEnabled = toSignal(this.extraBehaviorSubject.asObservable().pipe(
@@ -61,9 +63,9 @@ export class AppComponent implements AfterViewInit, OnInit {
   ));
   private menuSubject: Subject<void> = new Subject<void>();
 
-  quote = toSignal(this.http.get<Quote[]>('/assets/quotes.json').pipe(
-    map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
-  ));
+  // quote = toSignal(this.http.get<Quote[]>('/assets/quotes.json').pipe(
+  //   map(quotes => quotes[Math.floor(Math.random() * quotes.length) % quotes.length])
+  // ));
 
   contactComponent?: ComponentRef<unknown>;
 
