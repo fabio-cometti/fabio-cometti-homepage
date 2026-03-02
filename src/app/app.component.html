@@ -1,6 +1,6 @@
 <div class="outer" appScrollManager [ngClass]="{ 'edge': isEdge()}">
   <nav class="navigation">    
-    <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()"><fa-icon [icon]="faBars()"></fa-icon></button>
+    <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()">≡</button>
     <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu() }">
       <ul class="links">
         <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu(0)">About me</li>
@@ -99,7 +99,5 @@
 </div>
 
 @if(showScrollToTop()){
-  <div title="Scroll to top" class="glass scroll-to-top" (click)="scrollToTop()">
-    <fa-icon [icon]="faArrowUp()"></fa-icon>
-  </div>
+  <div title="Scroll to top" class="glass scroll-to-top" (click)="scrollToTop()">↑</div>
 }

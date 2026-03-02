@@ -8,7 +8,6 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { GalleryComponent } from 'src/app/components/gallery/gallery.component';
 import { toSignal } from '@angular/core/rxjs-interop';
 

@@ -6,9 +6,8 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { Title } from '@angular/platform-browser';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ContactRequest, ContactRequestForm } from 'src/app/models/contact-request';
+import { ContactRequestForm } from 'src/app/models/contact-request';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { CreditsComponent } from 'src/app/components/credits/credits.component';
 
 @Component({

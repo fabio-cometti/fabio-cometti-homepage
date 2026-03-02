@@ -1,11 +1,9 @@
-import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, QueryList, Type, ViewChild, ViewChildren, ElementRef, ChangeDetectionStrategy, signal, viewChild } from '@angular/core';
+import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, ElementRef, ChangeDetectionStrategy, signal, viewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faArrowUp, faBars } from '@fortawesome/free-solid-svg-icons';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
-import { BehaviorSubject, Observable, Subject, bufferCount, filter, fromEvent, map, merge, mergeMap, switchMap, take, timer } from 'rxjs';
+import { BehaviorSubject, Subject, bufferCount, filter, fromEvent, map, merge, switchMap, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
 import { WindowRefService } from './services/window-ref.service';
@@ -27,8 +25,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     templateUrl: 'app.component.html',
     styleUrls: ['app.component.scss'],
     imports: [
-        CommonModule,
-        FaIconComponent,
+        CommonModule,        
         ScrollManagerDirective,
         ScrollSectionDirective,
         ScrollAnchorDirective,
@@ -46,9 +43,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class AppComponent implements AfterViewInit, OnInit {
 
   showMenu = signal(false);
-  showScrollToTop = signal(false);
-  faBars = signal(faBars);
-  faArrowUp = signal(faArrowUp);
+  showScrollToTop = signal(false);  
   isEdge = signal(false);  
 
   private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');

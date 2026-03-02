@@ -45,12 +45,11 @@
     perspective: 300px;
 
     .menu-button {
-        display: inline-block;
-        width: 3em;
-        height: 3em;
+        display: inline-block;        
         border-radius: 50%;
         color: var(--primary);
-        font-size: 1.25em;
+        font-size: 2.5em;
+        padding: 0 12px;
         cursor: pointer;
 
         &::before {
@@ -107,7 +106,7 @@
     font-family: var(--ubuntu-300);
     font-size: 1.5em;
     font-style: italic;
-    margin-top: 3.5em;
+    margin-top: 5.5em;
     position: relative;
     animation: move 1s 0.5s forwards;
     opacity: 0;
@@ -129,7 +128,7 @@
 .scroll-to-top {
     width: 36px;
     height: 36px;
-    line-height: 36px;
+    line-height: 28px;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -186,7 +185,7 @@
     }
 
     .quote {
-        margin-top: 1em;
+        margin-top: 4em;
         font-size: 3.5em;
     }
 
