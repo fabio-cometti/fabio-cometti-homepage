@@ -77,8 +77,6 @@ div.bg {
 	100% { top: -170%; }
 }
 
-
-
 p#start {
     position: relative;
     width: 100%;
@@ -204,16 +202,6 @@ h1 sub
 }
 
 @include media-query.laptop {
-    p#start {
-		transform: translateY(10vh);
-	}
-
-	h1 {
-		top: 20%;
-	}
-}
-
-@include media-query.desktop {
     p#start {
 		transform: translateY(10vh);
 	}

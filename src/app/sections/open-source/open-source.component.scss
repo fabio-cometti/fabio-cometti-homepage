@@ -117,16 +117,9 @@
 }
 
 @include media-query.desktop {
-    .open-source {
-        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/openSource.jpg?updatedAt=1695219366946);
-        background-repeat: no-repeat;      /* Prevent tiling */
-        background-position: center center;/* Keep image centered */
+    .open-source {        
+        background-repeat: no-repeat;
+        background-position: center center;
         background-size: cover;
-    }
-
-    .icon-container {
-        a {
-            height: 120px;
-        }
     }
 }

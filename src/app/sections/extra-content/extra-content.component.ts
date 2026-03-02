@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, ViewChild, signal, viewChild } from '@angular/core';
-
 import { ObserveVisibilityDirective } from 'src/app/directives/observe-visibility.directive';
 import { ScrollSectionDirective } from 'src/app/directives/scroll-section.directive';
 import { AboutBlockComponent } from 'src/app/components/about-block/about-block.component';
@@ -7,7 +6,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFilm, faGift, faGraduationCap, faShieldHalved, faStopwatch } from '@fortawesome/free-solid-svg-icons';
 import { Title } from '@angular/platform-browser';
 import { RaptorizeComponent } from 'src/app/components/raptorize/raptorize.component';
-import { animate, keyframes, state, style, transition, trigger } from '@angular/animations';
 import { GalleryItem } from 'src/app/models/gallery-item';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -27,27 +25,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     GalleryComponent
 ],
   templateUrl: './extra-content.component.html',
-  styleUrls: ['./extra-content.component.scss'],
-  animations: [
-    trigger('runState', [
-      state('stopped', style({
-        right: '-50%',
-        bottom: '-100%',
-        visibility: 'hidden'
-      })),
-      state('running', style({
-        right: '100%',
-        bottom: '-5%',
-        visibility: 'visible'
-      })),
-      transition('stopped => running', animate('2000ms ease-in', keyframes([
-        style({right: '-50%', bottom: '-100%', visibility: 'visible', offset: 0}),
-        style({right: '-50%', bottom: '0', offset: 0.1}),
-        style({right: '-50%', bottom: '-5%', offset: 0.2}),
-        style({right: '100%', bottom: '-5%', offset: 1})
-      ])))
-    ])
-  ]
+  styleUrls: ['./extra-content.component.scss']  
 })
 export class ExtraContentComponent {
 
@@ -56,7 +34,7 @@ export class ExtraContentComponent {
   faFilm = signal(faFilm);
   faStopwatch = signal(faStopwatch);
   faShieldHalved = signal(faShieldHalved);
-  raptorState =  signal('stopped');
+  raptorIsRunning =  signal(false);  
 
   raptor = viewChild.required<RaptorizeComponent>('raptor');
 
@@ -71,14 +49,15 @@ export class ExtraContentComponent {
 
   raptorize(event: Event): void {
     event.preventDefault();
-    this.raptorState.set('running');
+    this.roar();
+    this.raptorIsRunning.set(false);
+
+    requestAnimationFrame(() => {
+      this.raptorIsRunning.set(true);
+    });
   }
 
-  public resetRaptor(event: any){
-    this.raptorState.set('stopped');
-  }
-
-  public roar(event: any){
+  public roar(){
     this.raptor().roar();
   }
 }

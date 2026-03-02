@@ -204,30 +204,9 @@
 }
 
 @include media-query.desktop {
-    #intro {
-        transform: translateY(5em);
-    }
-
-    .intro {
-        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,cm-extract,fo-bottom_center,e-grayscale/verona-2022.jpg?updatedAt=1695298683410);
+    .intro {        
         background-repeat: no-repeat;      /* Prevent tiling */
         background-position: center center;/* Keep image centered */
         background-size: cover;
-    }
-
-    .quote {
-        margin-top: 1em;
-        font-size: 3.5em;
-    }
-
-    .navigation {
-        .menu-button {
-            margin-right: 1em;
-        }
-
-        .links-container {
-            font-size: 1.5em;
-            margin-right: 1em;
-        }
     }
 }

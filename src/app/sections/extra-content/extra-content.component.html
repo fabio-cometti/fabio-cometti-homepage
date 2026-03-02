@@ -21,7 +21,9 @@
             <h2 class="head"><img alt="Raptor" height="30px" src="/assets/images/raptor.png" /> Raptorize</h2>
             <p class="text">Click on <a href="#" (click)="raptorize($event)">this link</a> if you agree that a real website should have a velociraptor inside...</p>
         </fc-about-block>
-        <fc-raptorize #raptor [@runState]="raptorState()" (@runState.start)="roar($event)" (@runState.done)="resetRaptor($event)"></fc-raptorize>
+        <div class="runner" [class.running]="raptorIsRunning()">
+            <fc-raptorize #raptor></fc-raptorize>
+        </div>
     </section>
     <fc-gallery [items]="gallery()"></fc-gallery>
 </div>

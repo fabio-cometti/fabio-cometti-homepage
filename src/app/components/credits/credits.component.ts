@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild, output, signal, viewChild } from '@angular/core';
-
 import { faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Subject, take } from 'rxjs';

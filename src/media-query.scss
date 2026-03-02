@@ -3,19 +3,19 @@ $laptop-width: 1366px;
 $desktop-width: 1920px;
 
 @mixin tablet {
-    @media (min-width: #{$tablet-width}) and (max-width: #{$laptop-width - 1px}) {
+    @media (min-width: #{$tablet-width}) {
         @content;
     }
 }
 
 @mixin laptop {
-    @media (min-width: #{$laptop-width}) and (max-width: #{$desktop-width}) {
+    @media (min-width: #{$laptop-width})  {
         @content;
     }
 }
 
 @mixin desktop {
-    @media (min-width: #{$desktop-width + 1px}) {
+    @media (min-width: #{$desktop-width}) {
         @content;
     }
 }

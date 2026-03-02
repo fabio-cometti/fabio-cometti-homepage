@@ -43,10 +43,9 @@
 }
 
 @include media-query.desktop {
-    .projects {
-        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/projects.jpg?updatedAt=1695219153848);
-        background-repeat: no-repeat;      /* Prevent tiling */
-        background-position: center center;/* Keep image centered */
+    .projects {        
+        background-repeat: no-repeat;
+        background-position: center center;
         background-size: cover;
     }
 }

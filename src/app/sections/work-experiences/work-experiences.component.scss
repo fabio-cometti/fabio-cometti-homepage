@@ -134,16 +134,10 @@
 }
 
 @include media-query.desktop {
-    .work-experiences {
-        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-800,e-grayscale/workExperiences.jpg?updatedAt=1695218939802);
-        background-repeat: no-repeat;      /* Prevent tiling */
-        background-position: center center;/* Keep image centered */
+    .work-experiences {        
+        background-repeat: no-repeat;
+        background-position: center center;
         background-size: cover;
-    }
-
-    .timeline .card{
-        position: relative;
-        max-width: 85vw;
     }
 }
 

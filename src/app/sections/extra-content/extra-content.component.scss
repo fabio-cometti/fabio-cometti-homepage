@@ -8,6 +8,45 @@
     color: var(--accent);
 }
 
+.runner {
+  position: fixed;
+  right: -50%;
+  bottom: -100%;
+  visibility: hidden;
+  z-index: 2000;
+}
+
+.runner.running {
+  animation: runAnimation 2000ms ease-in forwards;
+}
+
+@keyframes runAnimation {
+
+  0% {
+    right: -50%;
+    bottom: -100%;
+    visibility: visible;
+  }
+
+  1% {
+    right: 0;    
+    visibility: visible;
+  }
+
+  10% {    
+    bottom: 0;
+  }
+
+  20% {    
+    bottom: -5%;
+  }
+
+  100% {
+    right: 100%;
+    bottom: -5%;
+  }
+}
+
 @include media-query.tablet {
     .extra {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/wip.jpg?updatedAt=1695222445796);
@@ -21,10 +60,9 @@
 }
 
 @include media-query.desktop {
-    .extra {
-        background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-custom,e-grayscale/wip.jpg?updatedAt=1695222445796);
-        background-repeat: no-repeat;      /* Prevent tiling */
-        background-position: center center;/* Keep image centered */
+    .extra {        
+        background-repeat: no-repeat;      
+        background-position: center center;
         background-size: cover;
     }
 }

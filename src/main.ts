@@ -6,5 +6,13 @@ import { RouterWrapperComponent } from './app/components/router-wrapper/router-w
 
 config.autoAddCss = false;
 
-bootstrapApplication(RouterWrapperComponent, {...appConfig, providers: [provideZoneChangeDetection(), ...appConfig.providers]})
+bootstrapApplication(
+  RouterWrapperComponent, 
+  {...appConfig, 
+    providers: [
+      provideZoneChangeDetection(),      
+      ...appConfig.providers
+    ]})
   .catch((err) => console.error(err));
+
+

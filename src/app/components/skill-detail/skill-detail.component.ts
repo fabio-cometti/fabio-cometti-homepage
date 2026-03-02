@@ -12,8 +12,6 @@ import { WindowRefService } from 'src/app/services/window-ref.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SkillDetailComponent {
-  private _isVisible: boolean = false;
-
   percent = input.required<number>();
   label = input('');
   isVisible = input.required<boolean>();
@@ -22,7 +20,7 @@ export class SkillDetailComponent {
 
   startAnimation = effect(() => {
     if(this.isReallyVisible()) {
-      timer(500).pipe(take(1)).subscribe(_ => {
+      timer(800).pipe(take(1)).subscribe(_ => {
         this.offset.set(this.circumference() - (this.percent() * 3.1415927));
       });
     }

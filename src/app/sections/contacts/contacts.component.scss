@@ -29,9 +29,7 @@
         line-height: 1em;
 
         &:hover, &:visited:hover {
-            color: var(--primary);
-            background-color: #FFF;
-            box-shadow: var(--contacts-shadow);
+            color: var(--primary);                       
             border: none 0;
             transition: all 0.2s ease-in;
         }
@@ -135,11 +133,3 @@
         font-size: 1.5em;
     }
 }
-
-@include media-query.desktop {
-    .contact-form .glass {
-        height: 80vh;
-        font-size: 1.5em;
-    }
-}
-

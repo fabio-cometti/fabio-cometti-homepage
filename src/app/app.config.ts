@@ -1,10 +1,9 @@
 import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
 import { provideHttpClient } from '@angular/common/http';
-// import { provideAnimations} from '@angular/platform-browser/animations';
 import { provideImageKitLoader } from '@angular/common';
 import { Routes, provideRouter } from '@angular/router';
 import { AppComponent } from './app.component';
-import { provideClientHydration } from '@angular/platform-browser';
+import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 
 const routes: Routes = [
   { path: '', component: AppComponent}
@@ -13,10 +12,9 @@ const routes: Routes = [
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZonelessChangeDetection(),
-    provideHttpClient(),
-    // provideAnimations(),
+    provideHttpClient(),    
     provideImageKitLoader('https://ik.imagekit.io/bzuos3bkr/'),
     provideRouter(routes),
-    provideClientHydration(),
+    provideClientHydration(withEventReplay()),
   ]
 };
