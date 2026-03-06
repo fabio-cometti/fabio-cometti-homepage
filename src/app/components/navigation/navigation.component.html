@@ -1,0 +1,16 @@
+<nav>    
+    <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()">≡</button>
+    <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu() }">
+      <ul class="links">
+        <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu(0)">About me</li>
+        <li class="inset-border" appScrollAnchor="skills" (click)="closeMenu(1)">Skills</li>
+        <li class="inset-border" appScrollAnchor="work-experiences" (click)="closeMenu(2)">Work experiences</li>
+        <li class="inset-border" appScrollAnchor="projects" (click)="closeMenu(3)">Projects</li>
+        <li class="inset-border" appScrollAnchor="open-source" (click)="closeMenu(4)">Open source</li>
+        <li class="inset-border" appScrollAnchor="interests" (click)="closeMenu(5)">Interests</li>
+        @if(extraService.extraEnabled()) {
+          <li class="inset-border" appScrollAnchor="extra" (click)="closeMenu(6)">Extra</li>
+        }
+      </ul>
+    </div>
+  </nav>

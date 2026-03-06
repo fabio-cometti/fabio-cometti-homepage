@@ -1,20 +1,5 @@
 <div class="outer" appScrollManager [ngClass]="{ 'edge': isEdge()}">
-  <nav class="navigation">    
-    <button id="menu" aria-label="menu" #menuButton class="glass menu-button" (click)="toggleMenu()">≡</button>
-    <div title="menu" class="glass links-container" [ngClass]="{'open': showMenu() }">
-      <ul class="links">
-        <li class="inset-border" appScrollAnchor="about-me" (click)="closeMenu(0)">About me</li>
-        <li class="inset-border" appScrollAnchor="skills" (click)="closeMenu(1)">Skills</li>
-        <li class="inset-border" appScrollAnchor="work-experiences" (click)="closeMenu(2)">Work experiences</li>
-        <li class="inset-border" appScrollAnchor="projects" (click)="closeMenu(3)">Projects</li>
-        <li class="inset-border" appScrollAnchor="open-source" (click)="closeMenu(4)">Open source</li>
-        <li class="inset-border" appScrollAnchor="interests" (click)="closeMenu(5)">Interests</li>
-        @if(extraEnabled()) {
-          <li class="inset-border" appScrollAnchor="extra" (click)="closeMenu(6)">Extra</li>
-        }
-      </ul>
-    </div>
-  </nav>
+  <fc-navigation (menuOpen)="onMenuOpen()" #navMenu="navMenu"></fc-navigation>
   <main class="parallax-container intro">
     <section #top id="intro" appScrollSection="intro">
       <div class="intro-container glass">
@@ -38,61 +23,61 @@
       }
     </section>
   </main>
-  <section class="buffer"></section>
+  <div class="buffer"></div>
   <div class="s">
-    @defer (on viewport;  on interaction(menuButton)) {
+    @defer (on viewport;  on interaction(navMenu)) {
     <fc-about-me></fc-about-me>
     } @placeholder {
     <fc-placeholder appScrollSection="about-me" />
   }
 </div>
-<section class="buffer"></section>
+<div class="buffer"></div>
 <div class="s">
-  @defer (on viewport; on interaction(menuButton)) {
+  @defer (on viewport; on interaction(navMenu)) {
    <fc-skills></fc-skills>
   } @placeholder {
   <fc-placeholder appScrollSection="skills" />
 }
 </div>
-<section class="buffer"></section>
+<div class="buffer"></div>
 <div class="s">
-  @defer (on viewport; on interaction(menuButton)) {
+  @defer (on viewport; on interaction(navMenu)) {
   <fc-work-experiences appScrollSection="work-experiences"></fc-work-experiences>
   } @placeholder {
   <fc-placeholder />
 }
 </div>
-<section class="buffer"></section>
+<div class="buffer"></div>
 <div class="s">
-  @defer (on viewport; on interaction(menuButton)) {
+  @defer (on viewport; on interaction(navMenu)) {
   <fc-projects appScrollSection="projects"></fc-projects>
   } @placeholder {
   <fc-placeholder />
 }
 </div>
-<section class="buffer"></section>
+<div class="buffer"></div>
 <div class="s">
-  @defer (on viewport; on interaction(menuButton)) {
+  @defer (on viewport; on interaction(navMenu)) {
   <fc-open-source></fc-open-source>
   } @placeholder {
   <fc-placeholder appScrollSection="open-source" />
 }
 </div>
-<section class="buffer"></section>
+<div class="buffer"></div>
 <div class="s">
-  @defer (on viewport; on interaction(menuButton)) {
+  @defer (on viewport; on interaction(navMenu)) {
   <fc-interests></fc-interests>
   } @placeholder {
   <fc-placeholder appScrollSection="interests" />
 }
 </div>
-<section class="buffer"></section>
-@defer(when (extraEnabled())){
+<div class="buffer"></div>
+@defer(when (extraService.extraEnabled())){
 <fc-extra-content></fc-extra-content>
-<section class="buffer"></section>
+<div class="buffer"></div>
 }
-@defer(on viewport; on interaction(menuButton)) {
-<fc-contacts [hideExtraContentHint]="(extraEnabled()) || false"></fc-contacts>
+@defer(on viewport; on interaction(navMenu)) {
+<fc-contacts [hideExtraContentHint]="(extraService.extraEnabled()) || false"></fc-contacts>
 } @placeholder {
 <fc-placeholder />
 }

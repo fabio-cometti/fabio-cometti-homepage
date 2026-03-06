@@ -3,7 +3,7 @@ import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
 import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
-import { BehaviorSubject, Subject, bufferCount, filter, fromEvent, map, merge, switchMap, take } from 'rxjs';
+import { Subject, fromEvent, map, merge, switchMap, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
 import { WindowRefService } from './services/window-ref.service';
@@ -16,7 +16,8 @@ import { OpenSourceComponent } from "./sections/open-source/open-source.componen
 import { InterestsComponent } from "./sections/interests/interests.component";
 import { ContactsComponent } from "./sections/contacts/contacts.component";
 import { ExtraContentComponent } from "./sections/extra-content/extra-content.component";
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ExtraService } from './services/extra.service';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @Component({
     selector: 'fc-root',
@@ -27,8 +28,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
     imports: [
         CommonModule,        
         ScrollManagerDirective,
-        ScrollSectionDirective,
-        ScrollAnchorDirective,
+        ScrollSectionDirective,        
         PlaceholderComponent,
         AboutMeComponent,
         SkillsComponent,
@@ -37,32 +37,21 @@ import { toSignal } from '@angular/core/rxjs-interop';
         OpenSourceComponent,
         InterestsComponent,
         ContactsComponent,
-        ExtraContentComponent
+        ExtraContentComponent,
+        NavigationComponent
     ]
 })
 export class AppComponent implements AfterViewInit, OnInit {
 
-  showMenu = signal(false);
+  
   showScrollToTop = signal(false);  
-  isEdge = signal(false);  
-
-  private extraBehaviorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  extraEnabled = toSignal(this.extraBehaviorSubject.asObservable().pipe(
-    bufferCount(3, 1),
-    map(menuVoiceList => menuVoiceList.join('')),
-    filter(menuVoiceListString => menuVoiceListString == '042'),
-    map(menuVoiceListString => true),
-    take(1)
-  ));
-  private menuSubject: Subject<void> = new Subject<void>();
-
+  isEdge = signal(false); 
   quote = signal<Quote | undefined>(undefined);
-
-  contactComponent?: ComponentRef<unknown>;
-
+  menuOpenSubject = new Subject<void>();
+  
   top = viewChild.required<ElementRef>('top');
 
-  constructor(private http: HttpClient, private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
+  constructor(public extraService: ExtraService, private http: HttpClient, private windowRef: WindowRefService, @Inject(PLATFORM_ID) private platformId: any) {
   }
 
   ngOnInit(): void {
@@ -74,7 +63,7 @@ export class AppComponent implements AfterViewInit, OnInit {
   ngAfterViewInit(): void {
     if(isPlatformBrowser(this.platformId)) {
       const scrollEvent = fromEvent(this.windowRef.nativeWindow, 'scroll', { capture: true });
-      merge(scrollEvent, this.menuSubject).pipe(take(1)).subscribe(_ => {
+      merge(scrollEvent, this.menuOpenSubject).pipe(take(1)).subscribe(_ => {
         this.loadIubendaScript();
       });
 
@@ -109,21 +98,15 @@ export class AppComponent implements AfterViewInit, OnInit {
       scriptEle.setAttribute("charset", "UTF-8");
       document.body.appendChild(scriptEle);
     }
-  }
-
-  toggleMenu(): void {
-    this.showMenu.set(!this.showMenu());
-    this.menuSubject.next();
-  }
-
-  closeMenu(menuVoice: number): void {
-    this.showMenu.set(false);
-    this.extraBehaviorSubject.next('' + menuVoice);
-  }
+  }  
 
   scrollToTop(): void {
     this.top().nativeElement.scrollIntoView({
       behavior: 'smooth',
     });
+  }
+
+  onMenuOpen(): void {
+    this.menuOpenSubject.next();
   }
 }

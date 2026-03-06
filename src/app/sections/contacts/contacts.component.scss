@@ -22,11 +22,7 @@
 
     a {
         text-decoration: none;
-        color: #DEDEDE;
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        line-height: 1em;
+        color: #DEDEDE;        
 
         &:hover, &:visited:hover {
             color: var(--primary);                       
@@ -38,10 +34,8 @@
             color: #DEDEDE;
         }
 
-        &.iubenda-white {
-            font-family: var(--ubuntu-300);
-            font-size: 0.5em;
-            flex-basis: 100%;
+        &.iubenda-white {            
+            font-size: 0.5em;            
             text-align: center;
         }
     }
@@ -86,8 +80,8 @@
                 border: var(--glass-border);
                 border-radius: var(--border-radius);
                 font-size: 1.25em;
-                line-height: 1.25em;
-                padding: 4px;
+                line-height: 1.25em; 
+                padding: 4px;               
 
                 &:focus {
                     outline-color: #FFF;
@@ -101,7 +95,7 @@
                     color: var(--primary);
                     background-color: #FFF;
                     box-shadow: var(--contacts-shadow);
-                    border: none 0;
+                    border-color: transparent;
                     transition: all 0.3s ease-in;
                 }
             }
@@ -116,8 +110,7 @@
 }
 
 .extra-content-hint {
-    color: var(--accent);
-    font-family: var(--ubuntu-300);
+    color: var(--accent);    
     padding: 0 10px;
     margin-top: 20px;
     text-align: center;

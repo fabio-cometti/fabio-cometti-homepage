@@ -33,74 +33,6 @@
     }
 }
 
-.navigation {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 1em;
-    width: calc(100vw - 2em);
-    margin: 1em;
-    z-index: 20;
-    perspective: 300px;
-
-    .menu-button {
-        display: inline-block;        
-        border-radius: 50%;
-        color: var(--primary);
-        font-size: 2.5em;
-        padding: 0 12px;
-        cursor: pointer;
-
-        &::before {
-            transition: none;
-        }
-    }
-
-    .links-container {
-        transform: translateZ(0) rotateY(-120deg);
-        transform-origin: center right;
-        opacity: 0;
-        transition: transform 0.5s, opacity 0.5s, height 3s;
-        height: 0;
-        will-change: transform;
-
-        &.open {
-            transform: rotateY(0deg);
-            opacity: 1;
-            height: 100%;
-        }
-
-        .links {
-            margin: 0;
-            margin-top: 1em;
-            margin-block-start: 0;
-            margin-block-end: 0;
-            padding-inline-start: 0;
-            min-width: 15em;
-
-            li {
-               cursor: pointer;
-               list-style-type: none;
-               display: block;
-               font-family: var(--ubuntu-300);
-               font-weight: bolder;
-               margin-bottom: 1em;
-               color: #FFF;
-               user-select: none;
-
-               &:hover {
-                color: var(--primary);
-                background-color: #FFF;
-                box-shadow: var(--contacts-shadow);
-                border: none 0;
-                transition: all 0.3s ease-in;
-               }
-            }
-        }
-    }
-}
-
 .quote {
     color: var(--accent);
     font-family: var(--ubuntu-300);
@@ -187,18 +119,7 @@
     .quote {
         margin-top: 4em;
         font-size: 3.5em;
-    }
-
-    .navigation {
-        .menu-button {
-            margin-right: 1em;
-        }
-
-        .links-container {
-            font-size: 1.5em;
-            margin-right: 1em;
-        }
-    }
+    }    
 }
 
 @include media-query.desktop {
