@@ -38,10 +38,7 @@
         border: var(--glass-border);
         border-radius: var(--border-radius);
         user-select: none;
-        padding: 0.5em;
-        background: rgba(0, 0, 0, 0.45);
-        backdrop-filter: blur(8px);
-        -webkit-backdrop-filter: blur(8px);
+        padding: 0.5em;        
         color: var(--accent);
 
         &:visited {
@@ -51,7 +48,7 @@
         &:hover {
             background-color: #FFF;
             box-shadow: var(--contacts-shadow);
-            border: none 0;
+            border-color: transparent;
             transition: all 0.3s ease-in;
             color: var(--primary);
 
@@ -80,11 +77,8 @@
         }
 
         p {
-            color: var(--accent);
             line-height: 1em;
-            font-size: 0.8em;            
-            margin: 0;
-            margin-top: 1em;
+            font-size: 0.8em;  
             text-decoration: none;
         }
 

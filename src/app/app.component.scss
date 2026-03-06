@@ -108,6 +108,9 @@
 @include media-query.laptop {
     #intro {
         transform: translateY(5em);
+        .title {
+            font-size: 1em;
+        }
     }
 
     .intro {
@@ -125,5 +128,8 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-size: cover;
+        .title {
+            font-size: 1em;
+        }
     }
 }

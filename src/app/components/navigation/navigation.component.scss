@@ -29,12 +29,13 @@ nav {
         transform-origin: center right;
         opacity: 0;
         transition: transform 0.5s, opacity 0.5s;
-        height: 100%;
+        height: 0;
         will-change: transform;
 
         &.open {
             transform: rotateY(0deg);
-            opacity: 1;            
+            opacity: 1;
+            height: 100%;            
         }
 
         .links {

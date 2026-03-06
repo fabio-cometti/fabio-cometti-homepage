@@ -29,6 +29,11 @@ export class WorkExperiencesComponent {
 
   experiences = signal<Experience[]>([
     {
+      year: '2026',
+      company: 'One4 S.r.l.',
+      description: 'Since January 2026 I start working in One4 as a Software Solution Architect. It\'s just the first few months for me in this new company, so I will update this section in the near future.'
+    },
+    {
       year: '2022',
       company: 'Lemonpie S.r.l.',
       description: 'Since April 2022 I have been employed at Lemonpie as a software developer. Here I mainly deal with the re-engineering of existing applications, again on the .NET/Azure platform, applying the latest patterns to microservices. I also participated in the definition of company best practices regarding coding, versioning procedures and continuous integration pipelines. In addition to these activities, I continue to deal with training with internal developers and, occasionally, I provide consultancy to external customers, both in the Microsoft BizTalk area, as well as training on .NET, software architectures and design patterns.'
