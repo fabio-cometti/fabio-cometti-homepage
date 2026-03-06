@@ -8,8 +8,7 @@
 #intro {
     transform: translateY(16em);
     overflow: hidden;
-    color: var(--primary);
-    font-family: var(--ubuntu-300);
+    color: var(--primary);    
     font-weight: bold;
     padding: 0.8em;
 
@@ -34,8 +33,7 @@
 }
 
 .quote {
-    color: var(--accent);
-    font-family: var(--ubuntu-300);
+    color: var(--accent);    
     font-size: 1.5em;
     font-style: italic;
     margin-top: 5.5em;
