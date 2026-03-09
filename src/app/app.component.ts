@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, ComponentRef, Inject, OnInit, PLATFORM_ID, ElementRef, ChangeDetectionStrategy, signal, viewChild } from '@angular/core';
+import { AfterViewInit, Component, Inject, OnInit, PLATFORM_ID, ElementRef, ChangeDetectionStrategy, signal, viewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ScrollManagerDirective } from './directives/scroll-manager.directive';
 import { ScrollSectionDirective } from './directives/scroll-section.directive';
-import { ScrollAnchorDirective } from './directives/scroll-anchor.directive';
 import { Subject, fromEvent, map, merge, switchMap, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Quote } from './models/quote';
