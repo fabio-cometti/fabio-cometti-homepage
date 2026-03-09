@@ -1,15 +1,12 @@
-import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
-import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faImage } from '@fortawesome/free-solid-svg-icons';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'fc-placeholder',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  standalone: true,
-  imports: [FaIconComponent],
+  standalone: true,  
   template: `
-    <div class="outer-placeholder"><div class="inner-placeholder blink"><fa-icon [icon]="faImage()"></fa-icon></div></div>
-  `,
+    <div class="outer-placeholder"><div class="inner-placeholder blink"><span class="image-placeholder">🖼️</span></div></div>
+  `,  
   styles: `
     .outer-placeholder {
       width: 100%;
@@ -22,6 +19,8 @@ import { faImage } from '@fortawesome/free-solid-svg-icons';
         color: var(--accent);
       }
 
+      .image-placeholder { filter: grayscale(100%); }
+
       .blink {
         animation: blink 1s linear infinite;
       }
@@ -33,6 +32,4 @@ import { faImage } from '@fortawesome/free-solid-svg-icons';
     }
   `
 })
-export class PlaceholderComponent {
-  faImage = signal(faImage);
-}
+export class PlaceholderComponent {}
