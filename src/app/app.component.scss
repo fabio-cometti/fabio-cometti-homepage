@@ -7,8 +7,7 @@
 
 #intro {
     transform: translateY(16em);
-    overflow: hidden;
-    color: var(--primary);    
+    overflow: hidden;       
     font-weight: bold;
     padding: 0.8em;
 
@@ -22,6 +21,7 @@
 
         .name {
             font-size: 2em;
+            color: var(--primary); 
             border-bottom: solid 1px var(--primary);
         }        
     }
