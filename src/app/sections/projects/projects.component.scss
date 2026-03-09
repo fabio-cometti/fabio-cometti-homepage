@@ -32,19 +32,14 @@
 @include media-query.tablet {
     .projects {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/projects.jpg?updatedAt=1695219153848);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
     }
 }
 
 @include media-query.laptop {
     .projects {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,e-grayscale/projects.jpg?updatedAt=1695219153848);
-    }
-}
-
-@include media-query.desktop {
-    .projects {        
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
     }
 }

@@ -50,19 +50,14 @@
 @include media-query.tablet {
     .extra {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1400,e-grayscale/wip.jpg?updatedAt=1695222445796);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
     }
 }
 
 @include media-query.laptop {
     .extra {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-custom,e-grayscale/wip.jpg?updatedAt=1695222445796);
-    }
-}
-
-@include media-query.desktop {
-    .extra {        
-        background-repeat: no-repeat;      
-        background-position: center center;
-        background-size: cover;
     }
 }

@@ -13,13 +13,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       height: 20em;
       text-align: center;
 
-      .inner-placeholder{
-        display: inline-block;
-        width: 20em;
-        color: var(--accent);
+      .image-placeholder { 
+        filter: grayscale(100%); 
+        font-size: 18em;
+        line-height: 1em;
       }
-
-      .image-placeholder { filter: grayscale(100%); }
 
       .blink {
         animation: blink 1s linear infinite;

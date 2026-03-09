@@ -12,19 +12,14 @@
 @include media-query.tablet {
     .about-me {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-920,e-grayscale/aboutMe.jpg?updatedAt=1695217934470);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
     }
 }
 
 @include media-query.laptop {
     .about-me {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-900,c-mantain_ratio,fo-custom,e-grayscale/aboutMe.jpg?updatedAt=1695217934470);
-    }
-}
-
-@include media-query.desktop {
-    .about-me {        
-        background-repeat: no-repeat;      /* Prevent tiling */
-        background-position: center center;/* Keep image centered */
-        background-size: cover;
     }
 }

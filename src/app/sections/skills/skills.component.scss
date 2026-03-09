@@ -21,19 +21,14 @@
 @include media-query.tablet {
     .skills {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-900,h-1600/skills.jpg?updatedAt=1695218431044);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
     }
 }
 
 @include media-query.laptop {
     .skills {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:w-1920,h-1080,c-mantain_ratio,fo-bottom_right/skills.jpg?updatedAt=1695218431044);
-    }
-}
-
-@include media-query.desktop {
-    .skills {        
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;
     }
 }

@@ -93,6 +93,9 @@
 
     .intro {
         background-image: url(https://ik.imagekit.io/bzuos3bkr/tr:h-1400,e-grayscale/verona.jpg?updatedAt=1695212484295);
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;   
     }
 
     .quote {
@@ -113,12 +116,4 @@
         margin-top: 4em;
         font-size: 3.5em;
     }    
-}
-
-@include media-query.desktop {
-    .intro {        
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: cover;        
-    }
 }
