@@ -23,12 +23,7 @@
         .name {
             font-size: 2em;
             border-bottom: solid 1px var(--primary);
-        }
-
-        .title {            
-            color: var(--accent);
-            font-size: 1.2em;
-        }
+        }        
     }
 }
 
@@ -107,10 +102,7 @@
 
 @include media-query.laptop {
     #intro {
-        transform: translateY(5em);
-        .title {
-            font-size: 1em;
-        }
+        transform: translateY(5em);        
     }
 
     .intro {
@@ -127,9 +119,6 @@
     .intro {        
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: cover;
-        .title {
-            font-size: 1em;
-        }
+        background-size: cover;        
     }
 }
